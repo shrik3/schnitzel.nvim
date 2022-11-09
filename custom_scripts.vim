@@ -20,17 +20,17 @@ endfunction
 " to preview markdowns
 " nnoremap <C-m> :silent !pandoc % -f gfm -o /tmp/vim-pandoc.html<CR>:redraw!<CR>
 
-nnoremap <C-m> :call RenderMarkdown() <CR>
-function! RenderMarkdown()
-    :silent !pandoc % -f gfm -o /tmp/vim-pandoc.html
-    :redraw!
-endfunction
+" nnoremap <C-m> :call RenderMarkdown() <CR>
+" function! RenderMarkdown()
+"     :silent !pandoc % -f gfm -o /tmp/vim-pandoc.html
+"     :redraw!
+" endfunction
 
-function! PreviewMarkdown()
-    :silent !pandoc % -f gfm -o /tmp/vim-pandoc.html
-    :redraw!
-    :!firefox /tmp/vim-pandoc.html > /dev/null 2>&1
-endfunction
+" function! PreviewMarkdown()
+"     :silent !pandoc % -f gfm -o /tmp/vim-pandoc.html
+"     :redraw!
+"     :!firefox /tmp/vim-pandoc.html > /dev/null 2>&1
+" endfunction
 
 
 " delete tailing space on save (for some filetypes)

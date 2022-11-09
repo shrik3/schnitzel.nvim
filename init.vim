@@ -12,6 +12,7 @@ source ~/.config/nvim/neovide.vim
 
 " PROVERIF SYNTAX ================================
 au BufRead,BufNewFile *.pv setfiletype proverif
+" au BufRead,BufNewFile *.ah setfiletype aspectcpp
 
 " Autocommands ===================================
 " better split bar

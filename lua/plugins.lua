@@ -20,6 +20,7 @@ return require('packer').startup(function()
     use 'vim-scripts/ScrollColors'
     use 'itchyny/lightline.vim'
     use 'bling/vim-bufferline'
+    use 'folke/tokyonight.nvim'
 
     -- Misc
     use 'tweekmonster/startuptime.vim'
@@ -36,16 +37,23 @@ return require('packer').startup(function()
     use 'neovim/nvim-lspconfig'
 
     -- Programming
+    use {
+        'nvim-treesitter/nvim-treesitter',
+        run = function()
+            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+            ts_update()
+        end,
+    }
     -- use 'metakirby5/codi.vim'
     use 'rhysd/vim-clang-format'
     use 'majutsushi/tagbar'
     -- use 'preservim/nerdcommenter'
     use 'terrortylor/nvim-comment'
     use 'Chiel92/vim-autoformat'
-    use {
-        'lyuts/vim-rtags',
-        ft = {'c','c++','cpp'},
-    }
+    -- use {
+    --     'lyuts/vim-rtags',
+    --     ft = {'c','c++','cpp'},
+    -- }
     use {
         'alx741/vim-stylishask',
         ft = {'haskell'}
@@ -83,8 +91,8 @@ return require('packer').startup(function()
     vim.keymap.set('n', '<F3>', ':Autoformat<CR>')
 
     -- vim-rtags --
-    vim.g.rtagsUseDefaultMappings = 0
-    vim.cmd([[source  ~/.config/nvim/vim-rtags-mappings.vim]])
+    -- vim.g.rtagsUseDefaultMappings = 0
+    -- vim.cmd([[source  ~/.config/nvim/vim-rtags-mappings.vim]])
 
     -- Ack --
     vim.g.ackprg = 'ag --vimgrep'

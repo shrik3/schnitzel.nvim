@@ -13,6 +13,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'deoplete-plugins/deoplete-lsp'
+Plug 'shrik3/vim-aspectcpp'
 " Plug 'deoplete-plugins/deoplete-jedi', {'for':'python'}
 " Plug 'rzaluska/deoplete-rtags'
 " Plug 'tweekmonster/deoplete-clang2'

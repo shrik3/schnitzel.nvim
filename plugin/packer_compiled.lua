@@ -139,6 +139,11 @@ _G.packer_plugins = {
     path = "/home/shrik3/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/shrik3/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["nvim-web-devicons"] = {
     loaded = true,
     path = "/home/shrik3/.local/share/nvim/site/pack/packer/start/nvim-web-devicons",
@@ -174,6 +179,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/shrik3/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
+  },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/home/shrik3/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
   },
   ["vim-autoformat"] = {
     loaded = true,
@@ -212,13 +222,6 @@ _G.packer_plugins = {
     path = "/home/shrik3/.local/share/nvim/site/pack/packer/start/vim-markdown",
     url = "https://github.com/plasticboy/vim-markdown"
   },
-  ["vim-rtags"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/shrik3/.local/share/nvim/site/pack/packer/opt/vim-rtags",
-    url = "https://github.com/lyuts/vim-rtags"
-  },
   ["vim-stylishask"] = {
     loaded = false,
     needs_bufread = true,
@@ -247,11 +250,8 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType c++ ++once lua require("packer.load")({'vim-rtags'}, { ft = "c++" }, _G.packer_plugins)]]
-vim.cmd [[au FileType cpp ++once lua require("packer.load")({'vim-rtags'}, { ft = "cpp" }, _G.packer_plugins)]]
-vim.cmd [[au FileType haskell ++once lua require("packer.load")({'vim-stylishask'}, { ft = "haskell" }, _G.packer_plugins)]]
-vim.cmd [[au FileType c ++once lua require("packer.load")({'vim-rtags'}, { ft = "c" }, _G.packer_plugins)]]
 vim.cmd [[au FileType tex ++once lua require("packer.load")({'vim-latex-live-preview'}, { ft = "tex" }, _G.packer_plugins)]]
+vim.cmd [[au FileType haskell ++once lua require("packer.load")({'vim-stylishask'}, { ft = "haskell" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 
