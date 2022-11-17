@@ -44,6 +44,12 @@ return require('packer').startup(function()
             ts_update()
         end,
     }
+    -- Rust Lang
+    use 'simrat39/rust-tools.nvim'
+    -- Rust Lang Debugging
+    use 'nvim-lua/plenary.nvim'
+    use 'mfussenegger/nvim-dap'
+
     -- use 'metakirby5/codi.vim'
     use 'rhysd/vim-clang-format'
     use 'majutsushi/tagbar'
@@ -85,6 +91,7 @@ return require('packer').startup(function()
 
     -- Plugin Keybindings --
     vim.keymap.set('n', '<F10>', ':Neotree buffers toggle<CR>')
+    vim.keymap.set('n', '<leader>bb', ':Neotree buffers toggle<CR>')
     vim.keymap.set('n', '<F9>', ':Neotree toggle<CR>')
     -- F7 for terminal
     vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>')
