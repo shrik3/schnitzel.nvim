@@ -11,37 +11,54 @@ vim.api.nvim_create_autocmd('LspAttach', {
       local opts = {buffer = true}
       vim.keymap.set(mode, lhs, rhs, opts)
     end
+   
+    -- LSP SAGA
+    bufmap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
 
     -- Displays hover information about the symbol under the cursor
     bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
+    
+    bufmap("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+
+    -- Show line diagnostics
+    bufmap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+
+    -- Show cursor diagnostic
+    bufmap("n", "gl", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+    -- Lists all the implementations for the symbol under the cursor
+    bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
 
     -- Jump to the definition
-    bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+    -- bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+    bufmap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+    bufmap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
 
     -- Jump to declaration
     bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
 
-    -- Lists all the implementations for the symbol under the cursor
-    bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
 
     -- Jumps to the definition of the type symbol
     bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
 
     -- Lists all the references 
-    bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
+    -- replaced by Lspsaga lsp_finder
+    -- bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
 
     -- Displays a function's signature information
-    bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+    -- replaced by Lspsaga hover_doc
+    -- bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
 
     -- Renames all references to the symbol under the cursor
-    bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+    -- bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
+    bufmap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+    bufmap("n", "<F2>", "<cmd>Lspsaga rename<CR>", { silent = true })
 
     -- Selects a code action available at the current cursor position
-    bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-    bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
-
-    -- Show diagnostics in a floating window
-    bufmap('n', 'gl', '<cmd>lua vim.diagnostic.open_float()<cr>')
+    -- bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
+    -- bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
+    bufmap({"n","v"}, "<F4>", "<cmd>Lspsaga code_action<CR>", { silent = true })
+    bufmap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+    
 
     -- Show diagnostics in a floating window
     bufmap('n', 'gL', '<cmd>lua vim.diagnostic.setloclist()<cr>')
@@ -70,6 +87,13 @@ require 'lspconfig'.ccls.setup {
   }
 }
 -- require'lspconfig'.rust_analyzer.setup{}  -- Managed by rust-tools
--- require'lspconfig'.jedi_language_server.setup{}
+require'lspconfig'.jedi_language_server.setup{}
 
 -- require 'lspconfig'.clangd.setup{}
+--
+
+
+-- LSP SAGA
+--
+--
+

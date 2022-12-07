@@ -16,11 +16,17 @@ return require('packer').startup(function()
         }
     }
 
+    -- a utils package which provides mini-starter
+    -- use 'echasnovski/mini.nvim'
+    -- session manager:
+    -- 'nvim-lua/plenary.nvim'  -- is depdencency for nsm
+    use 'Shatur/neovim-session-manager'
+    use 'mhinz/vim-startify'
     -- Looks
     use 'vim-scripts/ScrollColors'
     use 'itchyny/lightline.vim'
     use 'bling/vim-bufferline'
-    use 'folke/tokyonight.nvim'
+    -- use 'shrik3/tokyonight.nvim'
 
     -- Misc
     use 'tweekmonster/startuptime.vim'
@@ -35,6 +41,16 @@ return require('packer').startup(function()
 
     -- LSP
     use 'neovim/nvim-lspconfig'
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        config = function()
+            local saga = require("lspsaga")
+            saga.init_lsp_saga({
+                -- config
+            })
+        end,
+    })
 
     -- Programming
     use {
@@ -146,15 +162,15 @@ return require('packer').startup(function()
 
     -- toggleterm
     vim.cmd[[
-        " set
-        autocmd TermEnter term://*toggleterm#*
-              \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+    " set
+    autocmd TermEnter term://*toggleterm#*
+    \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 
-        " By applying the mappings this way you can pass a count to your
-        " mapping to open a specific window.
-        " For example: 2<C-t> will open terminal 2
-        nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-        inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
+    " By applying the mappings this way you can pass a count to your
+    " mapping to open a specific window.
+    " For example: 2<C-t> will open terminal 2
+    nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+    inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
     ]]
 
     -- vimtex --

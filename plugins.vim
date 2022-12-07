@@ -3,6 +3,7 @@ call plug#begin('~/.vim/plugged')
 " Apparance
 Plug 'rafi/awesome-vim-colorschemes'
 
+Plug 'shrik3/tokyonight.nvim'
 
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'lervag/vimtex', {'fox':'tex'}
@@ -23,6 +24,9 @@ call plug#end()
 
 " deoplete conf
 source  ~/.config/nvim/deoplete_conf.vim
+
+" temp
+colorscheme tokyonight
 
 " vim-markdown:
 let g:tex_conceal = ""
@@ -60,4 +64,31 @@ let g:mkdp_preview_options = {
     \ 'disable_filename': 0
     \ }
 
+
+"" Startify, package is managed by Packer, but configed in vimscript
+"" show startify when closing the last buffer
+" autocmd BufEnter * if line2byte('.') == -1 && len(tabpagebuflist()) == 1 | Startify | endif
+let g:startify_lists = [
+      \ { 'type': 'sessions',  'header': ['   Sessions']       },
+      \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
+      \ { 'type': 'files',     'header': ['   MRU']            },
+      \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
+      \ { 'type': 'commands',  'header': ['   Commands']       },
+      \ ]
+
+let g:startify_bookmarks = [ '~/docs/WHK/',
+                            \'~/.config/nvim/',
+                          \]
+
+let g:startify_custom_header = [
+            \'                                                     ',
+            \'  __     _____ _    _ _____  _____ _  ______     __  ',
+            \'  ||    / ____| |  | |  __ \|_   _| |/ /___ \    ||  ',
+            \'  ||   | (___ | |__| | |__) | | | | / /  __) |   ||  ',
+            \'__||__  \___ \|  __  |  _  /  | | |  <  |__ <  __||__',
+            \'--..--  ____) | |  | | | \ \ _| |_| . \ ___) | --..--',
+            \'  ||   |_____/|_|  |_|_|  \_\_____|_|\_\____/    ||  ',
+            \'                                                     ',
+            \'-----------------------------------------------------'
+            \]
 

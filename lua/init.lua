@@ -5,6 +5,7 @@ vim.keymap.set('n', '<SPACE>', '<NOP>')
 require "plugins"
 require "lsp"
 require "plugin_settings"
+require "scripts"
 
 -- Other Parameters ----------------------------------
 -- ---------------------------------------------------
@@ -22,11 +23,11 @@ if vim.fn.has('nvim')==1 or vim.fn.has('termguicolors') then
     vim.opt.termguicolors = true
 end
 
-vim.cmd [[
-  syntax on
-  colorscheme tokyonight-night
-  autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
-]]
+-- vim.cmd [[
+--   syntax on
+--   colorscheme tokyonight
+--   autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
+-- ]]
 
 -- Editor (looks) ------------------------------------
 -- ---------------------------------------------------

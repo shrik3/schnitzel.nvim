@@ -67,9 +67,6 @@ endfunction
 
 
 
-
-
-
 "##### auto fcitx  ###########
 " let g:input_toggle = 1
 " function! Fcitx2en()
