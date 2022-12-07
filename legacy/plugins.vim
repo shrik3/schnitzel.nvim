@@ -18,8 +18,6 @@ call plug#end()
 " deoplete conf
 source  ~/.config/nvim/legacy/plugin_config/deoplete.vim
 
-" temp
-colorscheme tokyonight
 
 " vim-markdown:
 let g:tex_conceal = ""
@@ -30,6 +28,9 @@ let g:vim_markdown_math = 1
 let g:vim_markdown_folding_disabled = 1
 let g:vim_markdown_auto_insert_bullets = 0
 
+" Vimtex --
+let g:vimtex_view_general_viewer = 'zathura'
+let g:vimtex_quickfix_mode=1
 
 " Vim-live LAtex
 let g:livepreview_previewer = 'zathura'

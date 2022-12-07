@@ -2,6 +2,7 @@
 -- note that packer is installed from AUR
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<SPACE>', '<NOP>')
+vim.opt.termguicolors = true
 require "plugins"
 require "scripts"
 

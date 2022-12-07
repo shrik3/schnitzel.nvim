@@ -10,6 +10,9 @@ source ~/.config/nvim/legacy/plugins.vim
 source ~/.config/nvim/legacy/scripts.vim
 source ~/.config/nvim/neovide.vim
 
+" temp
+colorscheme tokyonight
+
 " PROVERIF SYNTAX ================================
 au BufRead,BufNewFile *.pv setfiletype proverif
 " au BufRead,BufNewFile *.ah setfiletype aspectcpp
