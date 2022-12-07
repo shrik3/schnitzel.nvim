@@ -1,29 +1,22 @@
 call plug#begin('~/.vim/plugged')
 
 " Apparance
-Plug 'rafi/awesome-vim-colorschemes'
-
+" Plug 'rafi/awesome-vim-colorschemes'
 Plug 'shrik3/tokyonight.nvim'
-
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 Plug 'lervag/vimtex', {'fox':'tex'}
 
 " deplete
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" Plug 'zchee/deoplete-clang'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'deoplete-plugins/deoplete-lsp'
 Plug 'shrik3/vim-aspectcpp'
-" Plug 'deoplete-plugins/deoplete-jedi', {'for':'python'}
-" Plug 'rzaluska/deoplete-rtags'
-" Plug 'tweekmonster/deoplete-clang2'
-" Plug 'lighttiger2505/deoplete-vim-lsp'
 
 call plug#end()
 
 " deoplete conf
-source  ~/.config/nvim/deoplete_conf.vim
+source  ~/.config/nvim/legacy/plugin_config/deoplete.vim
 
 " temp
 colorscheme tokyonight

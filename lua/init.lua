@@ -3,8 +3,6 @@
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<SPACE>', '<NOP>')
 require "plugins"
-require "lsp"
-require "plugin_settings"
 require "scripts"
 
 -- Other Parameters ----------------------------------

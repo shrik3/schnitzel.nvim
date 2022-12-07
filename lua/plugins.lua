@@ -1,11 +1,13 @@
-vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
-
 vim.cmd [[packadd packer.nvim]]
 
 return require('packer').startup(function()
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
-
+    
+    -- utilities for lots of stuffs...
+    use 'nvim-lua/plenary.nvim'
+    
+    -- neotree a file explorer/manager
     use {
         "nvim-neo-tree/neo-tree.nvim",
         branch = "v2.x",
@@ -15,29 +17,64 @@ return require('packer').startup(function()
             "MunifTanjim/nui.nvim",
         }
     }
+    vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
+    vim.keymap.set('n', '<F10>', ':Neotree buffers toggle<CR>')
+    vim.keymap.set('n', '<leader>bb', ':Neotree buffers toggle<CR>')
+    vim.keymap.set('n', '<F9>', ':Neotree toggle<CR>')
 
     -- a utils package which provides mini-starter
     -- use 'echasnovski/mini.nvim'
     -- session manager:
     -- 'nvim-lua/plenary.nvim'  -- is depdencency for nsm
     use 'Shatur/neovim-session-manager'
+    require 'plugin_config.neovim-session-manager'
+    
+    -- start screen
     use 'mhinz/vim-startify'
+    
     -- Looks
-    use 'vim-scripts/ScrollColors'
-    use 'itchyny/lightline.vim'
-    use 'bling/vim-bufferline'
+    -- tokyonight managed by Plugged for local testing
     -- use 'shrik3/tokyonight.nvim'
+
+    -- as the name suggests, scroll available color themes
+    use 'vim-scripts/ScrollColors'
+
+    -- status line
+    -- TODO migrate lightline_conf.vim to lua, or replace lightline with
+    -- a lua plugin
+    use 'itchyny/lightline.vim'
+    vim.cmd([[source ~/.config/nvim/legacy/plugin_config/lightline.vim]])
+    
+    -- Bufferline, to display buffers at the top
+    -- TODO replace this with winbar
+    use 'bling/vim-bufferline'
+    vim.g.bufferline_echo = 0
+    vim.g.python3_host_prog='/usr/bin/python'
 
     -- Misc
     use 'tweekmonster/startuptime.vim'
     use 'rbgrouleff/bclose.vim'
     use 'LunarWatcher/auto-pairs'
     use 'ap/vim-css-color'
+    
+    -- deoplete XXXX
+    use 'deoplete-plugins/deoplete-tag'
+    use {'deathlyfrantic/deoplete-spell', branch = 'main'}
+
+    -- Deoplete relatives
+    use 'Shougo/neco-syntax'
+    use 'Shougo/context_filetype.vim'
     use 'mileszs/ack.vim'
+   
+    -- Ack fuzzy finder--
+    vim.g.ackprg = 'ag --vimgrep'
+    vim.keymap.set('n', '<leader>f', ':Ack! ')
+    
+    -- wakatime for statistics, need to initialize token for fresh install
     use 'wakatime/vim-wakatime'
-    use {"akinsho/toggleterm.nvim", tag = '*', config = function()
-        require("toggleterm").setup()
-    end}
+
+    use "akinsho/toggleterm.nvim"
+    require 'plugin_config.toggleterm'
 
     -- LSP
     use 'neovim/nvim-lspconfig'
@@ -52,7 +89,10 @@ return require('packer').startup(function()
         end,
     })
 
+    require 'plugin_config.lspconfig'
+
     -- Programming
+    -- nvim-treesitter for linting/enhanced highlighting 
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -60,22 +100,26 @@ return require('packer').startup(function()
             ts_update()
         end,
     }
+    require 'plugin_config.nvim-treesitter'
+
     -- Rust Lang
     use 'simrat39/rust-tools.nvim'
+    require 'plugin_config.rust-tools'
     -- Rust Lang Debugging
-    use 'nvim-lua/plenary.nvim'
     use 'mfussenegger/nvim-dap'
 
     -- use 'metakirby5/codi.vim'
     use 'rhysd/vim-clang-format'
+    
     use 'majutsushi/tagbar'
-    -- use 'preservim/nerdcommenter'
+    vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>')
+
     use 'terrortylor/nvim-comment'
+    require 'plugin_config.nvim-comment'
+
     use 'Chiel92/vim-autoformat'
-    -- use {
-    --     'lyuts/vim-rtags',
-    --     ft = {'c','c++','cpp'},
-    -- }
+    vim.keymap.set('n', '<F3>', ':Autoformat<CR>')
+
     use {
         'alx741/vim-stylishask',
         ft = {'haskell'}
@@ -83,127 +127,24 @@ return require('packer').startup(function()
     use 'airblade/vim-gitgutter'
 
     -- latex / markdown
-    use {
-        'lervag/vimtex',
-    }
+    use 'lervag/vimtex'
+    require 'plugin_config.vimtex'
+
     use {
         'xuhdev/vim-latex-live-preview',
         ft = {'tex'},
     }
 
-    -- deoplete XXXX
-    use 'deoplete-plugins/deoplete-tag'
-    use {'deathlyfrantic/deoplete-spell', branch = 'main'}
-    -- Deoplete relatives
-    use 'Shougo/neco-syntax'
-    use 'Shougo/context_filetype.vim'
-
-
-    -- use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+    -- vim-markdown , for markdown editing--
     use 'plasticboy/vim-markdown'
-
-    -- Editing
-    use 'godlygeek/tabular'
-
-    -- Plugin Keybindings --
-    vim.keymap.set('n', '<F10>', ':Neotree buffers toggle<CR>')
-    vim.keymap.set('n', '<leader>bb', ':Neotree buffers toggle<CR>')
-    vim.keymap.set('n', '<F9>', ':Neotree toggle<CR>')
-    -- F7 for terminal
-    vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>')
-    vim.keymap.set('n', '<F3>', ':Autoformat<CR>')
-
-    -- vim-rtags --
-    -- vim.g.rtagsUseDefaultMappings = 0
-    -- vim.cmd([[source  ~/.config/nvim/vim-rtags-mappings.vim]])
-
-    -- Ack --
-    vim.g.ackprg = 'ag --vimgrep'
-    vim.keymap.set('n', '<leader>f', ':Ack! ')
-
-    -- Vimtex --
-    vim.g.vimtex_view_general_viewer = 'zathura'
-    vim.g.vimtex_quickfix_mode=1
-
-    -- Lightline --
-    vim.cmd([[source ~/.config/nvim/lightline_conf.vim]])
-
-
-    -- Bufferline --
-    vim.g.bufferline_echo = 0
-    vim.g.python3_host_prog='/usr/bin/python'
-
-    -- nvim-comment --
-    require('nvim_comment').setup({
-        -- Linters prefer comment and line to have a space in between markers
-        marker_padding = true,
-        -- should comment out empty or whitespace only lines
-        comment_empty = true,
-        -- trim empty comment whitespace
-        comment_empty_trim_whitespace = true,
-        -- Should key mappings be created
-        create_mappings = true,
-        -- Normal mode mapping left hand side
-        line_mapping = "<leader>cc",
-        -- Visual/Operator mapping left hand side
-        operator_mapping = "<leader>c",
-        -- text object mapping, comment chunk,,
-        comment_chunk_text_object = "ic",
-        -- Hook function to call before commenting takes place
-        hook = nil
-    })
-
-    -- NerdCommenter --
-    -- vim.g.NERDSpaceDelims = 1
-    -- vim.g.NERDDefaultAlign = 'left'
-    -- vim.g.NERDCustomDelimiters = "{ 'c': { 'left': '/*','right': '*/' } }"
-    -- vim.g.NERDCustomDelimiters = "{ 'cpp': { 'left': '/*','right': '*/' } }"
-    -- vim.g.NERDCustomDelimiters = "{ 'proverif': { 'left': '(*','right': '*)' } }"
-
-    -- toggleterm
-    vim.cmd[[
-    " set
-    autocmd TermEnter term://*toggleterm#*
-    \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-
-    " By applying the mappings this way you can pass a count to your
-    " mapping to open a specific window.
-    " For example: 2<C-t> will open terminal 2
-    nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
-    inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
-    ]]
-
-    -- vimtex --
-    vim.g.tex_conceal = ""
-    vim.g.tex_indent_items=0
-
-    -- vim-markdown --
     vim.g.vim_markdown_math = 1
     vim.g.vim_markdown_folding_disabled = 1
     vim.g.vim_markdown_auto_insert_bullets = 0
 
-    -- vim-markdown-preview --
-    vim.g.mkdp_open_to_the_world = 1
-    vim.g.mkdp_browser = 'firefox'
-    vim.g.mkdp_open_ip = '127.0.0.1'
-    vim.g.mkdp_port = 6789
-    vim.g.mkdp_browser = 'firefox'
-    vim.g.mkdp_refresh_slow = 0
-    vim.g.mkdp_preview_options = [[
-    {
-        \ 'mkit': {},
-        \ 'katex': {},
-        \ 'uml': {},
-        \ 'maid': {},
-        \ 'disable_sync_scroll': 1,
-        \ 'sync_scroll_type': 'middle',
-        \ 'hide_yaml_meta': 1,
-        \ 'sequence_diagrams': {},
-        \ 'flowchart_diagrams': {},
-        \ 'content_editable': v:false,
-        \ 'disable_filename': 0
-        \ }
-        ]]
+    -- Editing
+    use 'godlygeek/tabular'
+
+
 
     end)
 

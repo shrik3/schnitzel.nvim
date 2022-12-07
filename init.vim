@@ -4,10 +4,10 @@ lua << EOF
 EOF
 
 " Legacy Plugins
-source ~/.config/nvim/plugins.vim
+source ~/.config/nvim/legacy/plugins.vim
 
 "CUSTOM SCRIPTS==================================
-source ~/.config/nvim/custom_scripts.vim
+source ~/.config/nvim/legacy/scripts.vim
 source ~/.config/nvim/neovide.vim
 
 " PROVERIF SYNTAX ================================

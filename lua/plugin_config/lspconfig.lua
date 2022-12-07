@@ -1,4 +1,5 @@
--- LSP Mappings.
+-- Config and mappings for LSP related plugins
+-- currently nvim-lspconfig and lspSaga
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 local opts = { noremap=true, silent=true }
 
