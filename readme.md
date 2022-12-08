@@ -30,8 +30,34 @@ e.g. `~/.config/nvim`
 **Download Schnitzel.nvim**
 clone this repo and dump everything into your config dir. e.g.
 ```
-git clone
+git clone https://github.com/shrik3/schnitzel.nvim.git ~/.config/nvim
 ```
+
+**Launch neovim**:  
+there will be tons of errors, don't worry, just ignore them, ignore them, ignore
+them.
+
+**Initialize all plugins**  
+- install Plug plugins `:PlugInstall`
+- install Packer plugins: `:PackerSync` and ':PackerCompile'
+- restart neovim
+
+**Don't expect things to work out-of-the-box**  
+Some plugins may need manual install, if you encounter errors, follow the info,
+locate the error prone plugin, and check their instructions.
+
+# how to customize
+First take a look at how the configs are organized in the following section.
+
+**To install a plugin**  
+- (recommended) name your plugin in `lua/plugins.lua` and if necessary, put its
+  config in `lua/plugin_config/`, then include the config in `lua/plugins.lua`.
+  After making changes, restart nvim,  call `:PackerSync` and `PackerCompile`.
+- (legacy), using Plug, name your plugin in `legacy/plugins.vim` and its config
+  in `legacy/plugin_config/`. Restart neovim and call `PlugInstall`
+
+**To add/delege/modify configs**  
+check the following structure to find the best place for your config
 
 
 # structure
@@ -56,7 +82,7 @@ git clone
 └── syntax                 -- Custom syntax highlightings
 ```
 
-# why 2 set of configs / plugins / managers
+**why 2 set of configs / plugins / managers**  
 
 bear with me, 
 - there are some old school plugins that are written in vimscript,
