@@ -6,7 +6,7 @@ Note that some plugins may require manual setup.
 
 # what is
 schnitzel.nvim is my personal IDE-like neovim configuration. 
-
+![preview](https://github.com/shrik3/schnitzel.nvim/blob/master/preview.png)
 
 # how to set up
 
