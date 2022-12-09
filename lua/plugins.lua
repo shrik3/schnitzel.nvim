@@ -31,9 +31,7 @@ return require('packer').startup(function()
 
     -- start screen
     use 'mhinz/vim-startify'
-    -- note that startify is not a nvim (lua) native plugin
-    -- its config lies in ../legacy/plugins.vim
-    -- TODO move the config 
+    require 'plugin_config.startify'
 
     -- Looks
     -- tokyonight managed by Plugged for local testing
@@ -104,12 +102,14 @@ return require('packer').startup(function()
     -- use 'Shougo/context_filetype.vim'
     
     -- nvim-cmp family
-    use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
     use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
     use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-cmdline'
     use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
-    require 'plugin_config.nvim-cmp'
+    require 'plugin_config.nvim-cmp' -- configs for nvim-cmp
     -- end nvim-cmp family
 
 -- +----------------------------------------------------------+
@@ -191,6 +191,15 @@ return require('packer').startup(function()
     vim.g.vim_markdown_auto_insert_bullets = 0
 
     -- Note: markdown preview is managed by vim-Plug
+    --
+    -- install without yarn or npm
+    use({
+        "iamcco/markdown-preview.nvim",
+        run = function() vim.fn["mkdp#util#install"]() end,
+        ft = { "markdown" },
+    })
+    require 'plugin_config.markdown-preview'
+
 end)
 
 -- additional configs for nvim-cmp related..

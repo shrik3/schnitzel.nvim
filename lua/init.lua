@@ -122,6 +122,11 @@ vim.keymap.set('n', '<C-K>', '<C-W><C-K>')
 vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
 vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
 
+-- use C-s to save, also use :update instead of :w
+vim.keymap.set('n','<C-S>',':update<cr>')
+vim.keymap.set('i','<C-S>','<Esc>:update<cr>gi')
+vim.keymap.set('n','zz',':update<cr>')
+
 -- close buffer
 vim.keymap.set('n', '<leader>bk', ':Bclose<CR>',{silent=true})
 -- disable highlights (nohl)

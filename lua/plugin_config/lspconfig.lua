@@ -72,7 +72,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end
 })
 
+
+-- Set up lspconfig.
+local capabilities = require('cmp_nvim_lsp').default_capabilities() -- nvim-cmp
+
 require 'lspconfig'.ccls.setup {
+    capabilities = capabilities; -- nvim-cmp
     cache = {
         directory = "/tmp/ccls-cache";
     };
@@ -88,7 +93,9 @@ require 'lspconfig'.ccls.setup {
   }
 }
 -- require'lspconfig'.rust_analyzer.setup{}  -- Managed by rust-tools
-require'lspconfig'.jedi_language_server.setup{}
+require'lspconfig'.jedi_language_server.setup{
+    capabilities = capabilities -- nvim-cmp
+}
 
 -- require 'lspconfig'.clangd.setup{}
 --
