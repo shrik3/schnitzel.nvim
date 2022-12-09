@@ -2,6 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " Apparance
 Plug 'shrik3/tokyonight.nvim'
+Plug 'shrik3/vision.nvim'
 
 " Markdown preview: the init. is kinda tricky and doesn't work well with Packer.
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}

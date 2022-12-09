@@ -17,7 +17,7 @@ source ~/.config/nvim/neovide.vim
 " -- UI...----------------------------------------------
 " -- ---------------------------------------------------
 " temp (only for testing ... will be removed)
-colorscheme tokyonight
+colorscheme vision
 " better split bar
 highlight VertSplit guibg=NONE
 highlight VertSplit ctermbg=NONE

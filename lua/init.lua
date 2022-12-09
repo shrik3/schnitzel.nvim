@@ -45,38 +45,39 @@ end
 vim.opt.nu = true
 vim.opt.cursorline = true
 -- mark column (too wide)
-vim.opt.colorcolumn = "96" 
+vim.opt.colorcolumn = "96"
 -- status line
-vim.opt.laststatus = 2 
+vim.opt.laststatus = 2
 -- for git-gutter
-vim.opt.signcolumn = "yes" 
+vim.opt.signcolumn = "yes"
 -- 7 lines below cursor when moving vertically with j/k
-vim.opt.so = 7 
+vim.opt.so = 7
 -- always show current position
-vim.opt.ruler = true 
+vim.opt.ruler = true
 -- height command bar
 vim.opt.culopt = "both"
 -- enable cursorline
-vim.opt.cmdheight = 1 
+vim.opt.cmdheight = 1
 
 -- Behiviour -----------------------------------------
 -- ---------------------------------------------------
+vim.opt.foldenable = false
 vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 -- Completion
-vim.opt.wildmenu = true 
+vim.opt.wildmenu = true
 vim.opt.completeopt = "menuone"
 
 -- hide buffer when it's abandoned vim.opt.hid = true
 -- configure backspace so it acts as it should do
-vim.opt.backspace = "eol,start,indent" 
+vim.opt.backspace = "eol,start,indent"
 vim.opt.whichwrap = vim.opt.whichwrap + "<,>,h,l"
 -- matching brackets
-vim.opt.showmatch = true 
+vim.opt.showmatch = true
 vim.opt.mat = 2 -- (match)
 -- how manny lines of history to remember
-vim.opt.history = 500 
+vim.opt.history = 500
 -- CJK respect line wrap and tw
-vim.opt.formatoptions = vim.opt.formatoptions + "mM" 
+vim.opt.formatoptions = vim.opt.formatoptions + "mM"
 -- auto read when a file is changed from outside
 vim.opt.autoread = true
 -- turn off backup
