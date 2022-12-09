@@ -97,12 +97,20 @@ return require('packer').startup(function()
 -- |                  COMPLETION                              |
 -- +----------------------------------------------------------+
     -- deoplete XXXX
-    use 'deoplete-plugins/deoplete-tag'
-    use {'deathlyfrantic/deoplete-spell', branch = 'main'}
+    -- use 'deoplete-plugins/deoplete-tag'
+    -- use {'deathlyfrantic/deoplete-spell', branch = 'main'}
     -- Deoplete relatives
-    use 'Shougo/neco-syntax'
-    use 'Shougo/context_filetype.vim'
+    -- use 'Shougo/neco-syntax'
+    -- use 'Shougo/context_filetype.vim'
     
+    -- nvim-cmp family
+    use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
+    use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+    use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+    use 'L3MON4D3/LuaSnip' -- Snippets plugin
+    require 'plugin_config.nvim-cmp'
+    -- end nvim-cmp family
 
 -- +----------------------------------------------------------+
 -- |                  PROGRAMMING                             |
@@ -183,9 +191,10 @@ return require('packer').startup(function()
     vim.g.vim_markdown_auto_insert_bullets = 0
 
     -- Note: markdown preview is managed by vim-Plug
-
-
 end)
 
-
+-- additional configs for nvim-cmp related..
+--
+--
+--
 
