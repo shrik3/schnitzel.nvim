@@ -1,0 +1,54 @@
+" This file holds unused code, they are no longer used but worth keeping as a reference...
+" This file MUST NOT be souced into the config. If you want to use any of these, copy-paste 
+" the snippets to where they should be .
+
+
+" fcitx auto toggle..
+let g:input_toggle = 1
+function! Fcitx2en()
+   let s:input_status = system("fcitx-remote")
+   if s:input_status == 2
+      let g:input_toggle = 1
+      let l:a = system("fcitx-remote -c")
+   endif
+endfunction
+
+function! Fcitx2zh()
+   let s:input_status = system("fcitx-remote")
+   if s:input_status != 2 && g:input_toggle == 1
+      let l:a = system("fcitx-remote -o")
+      let g:input_toggle = 0
+   endif
+endfunction
+
+set ttimeoutlen=150
+"Exit insert mode
+autocmd InsertLeave * call Fcitx2en()
+"Enter insert mode
+autocmd InsertEnter * call Fcitx2zh()
+
+
+" to preview markdowns, without a plugin.. (using system's pandoc)
+nnoremap <C-m> :silent !pandoc % -f gfm -o /tmp/vim-pandoc.html<CR>:redraw!<CR>
+
+nnoremap <C-m> :call RenderMarkdown() <CR>
+function! RenderMarkdown()
+    :silent !pandoc % -f gfm -o /tmp/vim-pandoc.html
+    :redraw!
+endfunction
+
+function! PreviewMarkdown()
+    :silent !pandoc % -f gfm -o /tmp/vim-pandoc.html
+    :redraw!
+    :!firefox /tmp/vim-pandoc.html > /dev/null 2>&1
+endfunction
+
+" https://vim.fandom.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
+" change the behavior of the <Enter> key when the popup menu is visible. In that
+" case the Enter key will simply select the highlighted menu item, just as <C-Y>
+" does. &&
+" Visual mode pressing * or # searches for the current selection
+" Super useful! From an idea by Michael Naumann
+" UPDATE: note needed in nvim wieh nvim-cmp
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"

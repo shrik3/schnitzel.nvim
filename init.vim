@@ -1,4 +1,3 @@
-
 " -- LUA !----------------------------------------------
 " -- ---------------------------------------------------
 lua << EOF
@@ -45,14 +44,6 @@ source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
 
 " Hacky stuffs ======================================
-" https://vim.fandom.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
-" change the behavior of the <Enter> key when the popup menu is visible. In that
-" case the Enter key will simply select the highlighted menu item, just as <C-Y>
-" does. &&
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 
 " Visual mode pressing * or # searches for the current selection
 " Super useful! From an idea by Michael Naumann
