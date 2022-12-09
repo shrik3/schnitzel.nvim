@@ -6,7 +6,10 @@ return require('packer').startup(function()
     
     -- utilities for lots of stuffs...
     use 'nvim-lua/plenary.nvim'
-    
+   
+-- +----------------------------------------------------------+
+-- |                  UI                                      |
+-- +----------------------------------------------------------+
     -- neotree a file explorer/manager
     use {
         "nvim-neo-tree/neo-tree.nvim",
@@ -21,27 +24,21 @@ return require('packer').startup(function()
     vim.keymap.set('n', '<F10>', ':Neotree buffers toggle<CR>')
     vim.keymap.set('n', '<leader>bb', ':Neotree buffers toggle<CR>')
     vim.keymap.set('n', '<F9>', ':Neotree toggle<CR>')
-
-    -- a utils package which provides mini-starter
-    -- use 'echasnovski/mini.nvim'
-    -- session manager:
-    -- 'nvim-lua/plenary.nvim'  -- is depdencency for nsm
-    use 'Shatur/neovim-session-manager'
-    require 'plugin_config.neovim-session-manager'
-
-    use 'chentoast/marks.nvim'
-    require 'plugin_config.marks'
+    
+    -- terminal (toggle with <C-T>)
+    use "akinsho/toggleterm.nvim"
+    require 'plugin_config.toggleterm'
 
     -- start screen
     use 'mhinz/vim-startify'
     -- note that startify is not a nvim (lua) native plugin
     -- its config lies in ../legacy/plugins.vim
     -- TODO move the config 
-    
+
     -- Looks
     -- tokyonight managed by Plugged for local testing
     -- use 'shrik3/tokyonight.nvim'
-
+ 
     -- as the name suggests, scroll available color themes
     use 'vim-scripts/ScrollColors'
     
@@ -53,35 +50,68 @@ return require('packer').startup(function()
     require 'plugin_config.lualine'
 
     -- bufferline replacement
-    use {'akinsho/bufferline.nvim', tag = "v3.*", requires = 'nvim-tree/nvim-web-devicons'}
+    use {'akinsho/bufferline.nvim', 
+            tag = "v3.*", 
+            requires = 'nvim-tree/nvim-web-devicons'
+        }
     require("bufferline").setup{}
+    
+    -- tarbar shows a bar of tags
+    use 'majutsushi/tagbar'
+    vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>')
 
-    -- Misc
-    use 'tweekmonster/startuptime.vim'
+-- +----------------------------------------------------------+
+-- |                  EDITING AND FUNCTIONALITIES             |
+-- +----------------------------------------------------------+
+    -- don't exit vim upon closing the last buffer
     use 'rbgrouleff/bclose.vim'
+    -- completes the brackets
     use 'LunarWatcher/auto-pairs'
+    -- displays color for HEX color code
     use 'ap/vim-css-color'
-    -- deoplete XXXX
-    use 'deoplete-plugins/deoplete-tag'
-    use {'deathlyfrantic/deoplete-spell', branch = 'main'}
-
-    -- Deoplete relatives
-    use 'Shougo/neco-syntax'
-    use 'Shougo/context_filetype.vim'
+    -- ACK the fuzzy finder, using ag as backend
     use 'mileszs/ack.vim'
-
-    -- Ack fuzzy finder--
     vim.g.ackprg = 'ag --vimgrep'
     vim.keymap.set('n', '<leader>f', ':Ack! ')
+    -- for ... tabs..
+    use 'godlygeek/tabular'
 
+-- +----------------------------------------------------------+
+-- |                  MISC                                    |
+-- +----------------------------------------------------------+
+    -- session manager:
+    use 'Shatur/neovim-session-manager'
+    require 'plugin_config.neovim-session-manager'
+    
+    -- manage marks, but this plugin kinda suffers from bugs, 
+    -- disable for noe
+    -- use 'chentoast/marks.nvim'
+    -- require 'plugin_config.marks'
+
+    -- measures the startup time for optimization
+    use 'tweekmonster/startuptime.vim'
     -- wakatime for statistics, need to initialize token for fresh install
     use 'wakatime/vim-wakatime'
 
-    use "akinsho/toggleterm.nvim"
-    require 'plugin_config.toggleterm'
+-- +----------------------------------------------------------+
+-- |                  COMPLETION                              |
+-- +----------------------------------------------------------+
+    -- deoplete XXXX
+    use 'deoplete-plugins/deoplete-tag'
+    use {'deathlyfrantic/deoplete-spell', branch = 'main'}
+    -- Deoplete relatives
+    use 'Shougo/neco-syntax'
+    use 'Shougo/context_filetype.vim'
+    
 
+-- +----------------------------------------------------------+
+-- |                  PROGRAMMING                             |
+-- +----------------------------------------------------------+
+    
     -- LSP
     use 'neovim/nvim-lspconfig'
+    require 'plugin_config.lspconfig'
+    -- lspSaga provides better UI for the LSP.
     use({
         "glepnir/lspsaga.nvim",
         branch = "main",
@@ -92,11 +122,9 @@ return require('packer').startup(function()
             })
         end,
     })
-
-    require 'plugin_config.lspconfig'
-
-    -- Programming
-    -- nvim-treesitter for linting/enhanced highlighting 
+    
+    -- treesitter does the tree sitting, 
+    -- e.g. provides (static) linting, better highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
@@ -106,53 +134,55 @@ return require('packer').startup(function()
     }
     require 'plugin_config.nvim-treesitter'
 
-    -- Rust Lang
+    -- Rust Lang : these two replace lsoconfig's native support for rust..
     use 'simrat39/rust-tools.nvim'
     require 'plugin_config.rust-tools'
     -- Rust Lang Debugging
     use 'mfussenegger/nvim-dap'
-
-    -- use 'metakirby5/codi.vim'
-    use 'rhysd/vim-clang-format'
-
-    use 'majutsushi/tagbar'
-    vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>')
-
-    use 'terrortylor/nvim-comment'
-    require 'plugin_config.nvim-comment'
+    
+    -- AspectC++ highlighting
+    use 'shrik3/vim-aspectcpp'
 
     -- general auto formatting
     use 'Chiel92/vim-autoformat'
     vim.keymap.set('n', '<F3>', ':Autoformat<CR>')
+    -- yet another one
+    use 'rhysd/vim-clang-format'
 
-    -- Haskell code formatting
-    -- use {
-    --     'alx741/vim-stylishask',
-    --     ft = {'haskell'}
-    -- }
+    -- Toggle comments, replacement for nerdCommenter
+    -- But I don't like it TODO find a better one
+    use 'terrortylor/nvim-comment'
+    require 'plugin_config.nvim-comment'
 
     -- git
     use 'airblade/vim-gitgutter'
-
+    
     -- latex / markdown
+    -- well latex and markdown are not 'programming'
+    -- but let them just sit here..
+    -- vimtex
     use 'lervag/vimtex'
-    require 'plugin_config.vimtex'
+    vim.g.vimtex_view_general_viewer = 'zathura'
+    vim.g.vimtex_quickfix_mode=1
+    vim.g.tex_conceal = ""
+    -- the default item indent is stupid
+    vim.g.tex_indent_items=0
 
+    -- latex preview...
     use {
         'xuhdev/vim-latex-live-preview',
         ft = {'tex'},
     }
-
-
-
+    vim.g.livepreview_previewer = 'zathura'
+    vim.g.livepreview_use_biber = 1
+    
     -- vim-markdown , for markdown editing--
     use 'plasticboy/vim-markdown'
     vim.g.vim_markdown_math = 1
     vim.g.vim_markdown_folding_disabled = 1
     vim.g.vim_markdown_auto_insert_bullets = 0
 
-    -- for ... tabular..
-    use 'godlygeek/tabular'
+    -- Note: markdown preview is managed by vim-Plug
 
 
 end)

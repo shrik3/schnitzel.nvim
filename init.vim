@@ -1,36 +1,42 @@
 
+" -- LUA !----------------------------------------------
+" -- ---------------------------------------------------
 lua << EOF
     require"init"
 EOF
 
-" Legacy Plugins
+" -- Legacy Plugins(managed by vim Plug)----------------
+" -- ---------------------------------------------------
 source ~/.config/nvim/legacy/plugins.vim
 
-"CUSTOM SCRIPTS==================================
+" -- Custom Scripts(that are tricky in lua)-------------
+" -- ---------------------------------------------------
 source ~/.config/nvim/legacy/scripts.vim
 source ~/.config/nvim/neovide.vim
 
-" temp
+" -- UI...----------------------------------------------
+" -- ---------------------------------------------------
+" temp (only for testing ... will be removed)
 colorscheme tokyonight
-
-" PROVERIF SYNTAX ================================
-au BufRead,BufNewFile *.pv setfiletype proverif
-" au BufRead,BufNewFile *.ah setfiletype aspectcpp
-
-" Autocommands ===================================
 " better split bar
 highlight VertSplit guibg=NONE
 highlight VertSplit ctermbg=NONE
 
+" -- Custom Scripts(one liners)-------------------------
+" -- ---------------------------------------------------
 
+" custom syntax for proverif
+au BufRead,BufNewFile *.pv setfiletype proverif
+
+" filetype auto commands
 au FileType markdown set tw=80
 au FileType text set tw=80
 au FileType latex set tw=80
 
 " return to last edit pos.
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
 au FocusGained,BufEnter * checktime
+
 " :W sudo saves the file 
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
@@ -52,7 +58,6 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " Super useful! From an idea by Michael Naumann
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
-
 
 " ignore some files in menu
 set wildignore=*.o,*~,*.pyc

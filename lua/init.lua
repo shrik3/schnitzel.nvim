@@ -1,8 +1,20 @@
 -- plugins... (packer)
 -- note that packer is installed from AUR
+--
+-- Important stuffs go first -------------------------
+-- ---------------------------------------------------
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<SPACE>', '<NOP>')
 vim.opt.termguicolors = true
+-- it should be turned on by default 
+-- here is only to make sure
+vim.cmd [[
+  syntax on
+]]
+
+
+-- Load Modules (plugins, Scripts etc.) --------------
+-- ---------------------------------------------------
 require "plugins"
 require "scripts"
 
@@ -43,11 +55,9 @@ vim.opt.so = 7
 -- always show current position
 vim.opt.ruler = true 
 -- height command bar
-vim.opt.culopt = "number"
+vim.opt.culopt = "both"
+-- enable cursorline
 vim.opt.cmdheight = 1 
-vim.cmd [[
-  syntax on
-]]
 
 -- Behiviour -----------------------------------------
 -- ---------------------------------------------------
@@ -55,7 +65,6 @@ vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 -- Completion
 vim.opt.wildmenu = true 
 vim.opt.completeopt = "menuone"
-
 
 -- hide buffer when it's abandoned vim.opt.hid = true
 -- configure backspace so it acts as it should do
@@ -106,16 +115,12 @@ vim.opt.tm = 500
 
 -- KeyMaps -------------------------------------------
 -- ---------------------------------------------------
-vim.keymap.set('n', '<F7>', ':term<CR>')
-vim.keymap.set('n', '<F6>', ':ToggleTerm<CR>')
 -- nav. panels
 vim.keymap.set('n', '<C-J>', '<C-W><C-J>')
 vim.keymap.set('n', '<C-K>', '<C-W><C-K>')
 vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
 vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
 
--- tag goto
-vim.keymap.set('n', '<leader>g', '<C-]>')
 -- close buffer
 vim.keymap.set('n', '<leader>bk', ':Bclose<CR>',{silent=true})
 -- disable highlights (nohl)

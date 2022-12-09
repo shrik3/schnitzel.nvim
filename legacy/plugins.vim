@@ -1,40 +1,24 @@
 call plug#begin('~/.vim/plugged')
 
 " Apparance
-" Plug 'rafi/awesome-vim-colorschemes'
 Plug 'shrik3/tokyonight.nvim'
-Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
-Plug 'lervag/vimtex', {'fox':'tex'}
 
-" deplete
+" Markdown preview: the init. is kinda tricky and doesn't work well with Packer.
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+
+" Plug 'lervag/vimtex', {'fox':'tex'}
+
+" deplete (also partially managed by Packer)
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 Plug 'deoplete-plugins/deoplete-lsp'
-Plug 'shrik3/vim-aspectcpp'
+
 
 call plug#end()
 
 " deoplete conf
 source  ~/.config/nvim/legacy/plugin_config/deoplete.vim
-
-
-" vim-markdown:
-let g:tex_conceal = ""
-" the default item indent is stupid
-let g:tex_indent_items=0
-
-let g:vim_markdown_math = 1
-let g:vim_markdown_folding_disabled = 1
-let g:vim_markdown_auto_insert_bullets = 0
-
-" Vimtex --
-let g:vimtex_view_general_viewer = 'zathura'
-let g:vimtex_quickfix_mode=1
-
-" Vim-live LAtex
-let g:livepreview_previewer = 'zathura'
-let g:livepreview_use_biber = 1
 
 
 " vim-markdown-preview
