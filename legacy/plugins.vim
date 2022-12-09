@@ -10,16 +10,16 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': 
 " Plug 'lervag/vimtex', {'fox':'tex'}
 
 " deplete (also partially managed by Packer)
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'deoplete-plugins/deoplete-lsp'
+" Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Plug 'Shougo/neosnippet.vim'
+" Plug 'Shougo/neosnippet-snippets'
+" Plug 'deoplete-plugins/deoplete-lsp'
 
 
 call plug#end()
 
 " deoplete conf
-source  ~/.config/nvim/legacy/plugin_config/deoplete.vim
+" source  ~/.config/nvim/legacy/plugin_config/deoplete.vim
 
 
 " vim-markdown-preview
