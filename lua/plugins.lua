@@ -150,9 +150,6 @@ return require('packer').startup(function()
     -- Rust Lang Debugging
     use 'mfussenegger/nvim-dap'
     
-    -- AspectC++ highlighting
-    use 'shrik3/vim-aspectcpp'
-
     -- general auto formatting
     use 'Chiel92/vim-autoformat'
     vim.keymap.set('n', '<F3>', ':Autoformat<CR>')

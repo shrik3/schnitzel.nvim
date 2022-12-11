@@ -28,27 +28,11 @@ is a good starting point for you.
 
 # How to set up
 
-## Prerequisites
+**Prerequisites**
 - make sure you have the newest neovim
-- make sure you have [Packer](https://github.com/wbthomason/packer.nvim) and [Plug](https://github.com/junegunn/vim-plug) installed
+- make sure you have [Packer](https://github.com/wbthomason/packer.nvim)
+- install a [nerd font](https://www.nerdfonts.com/)
 
-## Remove or modify my 'personal' settings
-There are some settings that are specific to **my own workflow**, remove or
-modify them before they cause problems. I keep them in this repo anyways only to
-showcase to you how to do some cool stuffs.
-
-
-**1. Remove wakatime if you don't use it**  
-I personally use [wakaTime](https://wakatime.com/vim) as a activity logger. If
-you don't use it, remove its config:
-
-in `lua/plugins.lua`
-```lua
--- wakatime for statistics, need to initialize token for fresh install
-use 'wakatime/vim-wakatime'
-```
-
-**2. Other environment related settings**
 
 **Backup your old nvim configs**  
 e.g. `~/.config/nvim`
@@ -60,19 +44,22 @@ git clone https://github.com/shrik3/schnitzel.nvim.git ~/.config/nvim
 ```
 
 **Launch neovim**:  
-there will be tons of errors, don't worry, just ignore them, ignore them, ignore
+**there will be tons of errors, don't worry**, just ignore them, ignore them, ignore
 them.
 
 **Initialize all plugins**  
-- install Plug plugins `:PlugInstall`
-- install Packer plugins: `:PackerSync` and ':PackerCompile'
+- install Packer plugins: `:PackerSync` and `:PackerInstall`, then `:PackerCompile`
 - restart neovim
 
 **Don't expect things to work out-of-the-box**  
 Some plugins may need manual install, if you encounter errors, follow the info,
 locate the error prone plugin, and check their instructions.
 
-# how to customize
+# Programming: LSPs and others...
+For a quick start check my cheatsheet.
+
+
+# how to build your own setup
 First take a look at how the configs are organized in the following section.
 
 **To install a plugin**  
@@ -80,11 +67,66 @@ First take a look at how the configs are organized in the following section.
   config in `lua/plugin_config/`, then include the config in `lua/plugins.lua`.
   After making changes, restart nvim,  call `:PackerSync` and `PackerCompile`.
 - (legacy), using Plug, name your plugin in `legacy/plugins.vim` and its config
-  in `legacy/plugin_config/`. Restart neovim and call `PlugInstall`
+  in `legacy/plugin_config/`. Restart neovim and call `PlugInstall`. You need to 
+  source the `legacy/plugins.vim` in your `init.vim`.
 
-**To add/delege/modify configs**  
-check the following structure to find the best place for your config
+# List of plugins:
 
+```
+ • plenary.nvim         // required by many other plugins
+ • packer.nvim          // manages the plugins
+ 
+ // For completion, the nvim-cmp family and
+ // luasnip for snippets
+ • nvim-cmp
+ • cmp-buffer
+ • cmp-cmdline
+ • cmp-nvim-lsp
+ • cmp-path
+ • cmp_luasnip
+ • LuaSnip
+
+ // Lsp
+ • lspsaga.nvim     // better UI for LSP related actions
+ • nvim-lspconfig   // LSP core configs
+
+ // UI and Looks
+ • bufferline.nvim      // show opened buffers on the top
+ • ScrollColors         // preview themes
+ • nui.nvim             // what is this? I forgot...
+ • lualine.nvim         // status line
+ • neo-tree.nvim        // file explorer
+ • nvim-treesitter      // better code highlightings
+ • nvim-web-devicons    // icons..
+ • tagbar               // show list of tags..
+
+ // Workflow and editting
+ • vim-startify         // the startup screen
+ • neovim-session-manager // manages projects
+ • telescope.nvim       // fuzzy finder
+ • toggleterm.nvim      // better UI for built-in Terminal
+ • vim-gitgutter        // for git..
+
+ // Markdown and Latex
+ • markdown-preview.nvim
+ • vim-latex-live-preview (not loaded)
+ • vim-markdown
+ • vimtex
+
+ // Programming
+ • nvim-comment         // toggle comment
+ • nvim-dap             // required by many language plugins for e.g. linting
+ • rust-tools.nvim      // for rust
+ • vim-autoformat       // code formatting
+ • vim-clang-format     // another plugin for code formatting
+
+ // MISC
+ • vim-css-color        // preview CSS colors
+ • bclose.vim           // don't exit when closing the last buffer
+ • tabular              // make your tab key feel better
+ • auto-pairs           // auto complete brackets
+
+```
 
 # structure
 
@@ -97,9 +139,9 @@ check the following structure to find the best place for your config
 │   ├── plugins.lua          -- Packer managed plugins
 │   └── scripts.lua          -- utility scripts
 ├── legacy               -- where vim script lives
-│   ├── plugin_config        -- vimscript plugin configs (Plug)
-│   ├── plugins.vim          -- Plug managed plugins
-│   └── scripts.vim          -- MISC. Legacy vimscript utils
+│   ├── plugin_config        -- vimscript plugin configs (Plug) [not used]
+│   ├── plugins.vim          -- Plug managed plugins [not used]
+│   └── scripts.vim          -- MISC. Legacy vimscript utils 
 ├── ginit.vim            -- additional configs for gui (e.g. nvim-qt)
 ├── neovide.vim          -- Additional configs for neovide
 ├── plugin               -- Packer generated files, don't touch
@@ -107,14 +149,6 @@ check the following structure to find the best place for your config
 ├── color                  -- custom themes
 └── syntax                 -- Custom syntax highlightings
 ```
-
-**why 2 set of configs / plugins / managers**  
-
-bear with me, 
-- there are some old school plugins that are written in vimscript,
-and some of them doesn't work with Packer. 
-- lua script is tricky to use for some certain vim configs/ functionalities
-
 
 
 # cheatsheet
@@ -131,7 +165,6 @@ __||__  \___ \|  __  |  _  /  | | |  <  |__ <  __||__
 
 |------------ Programming. LSPs.. ---------------------|
 \------------------------------------------------------/
-
 K               Hover
 gd              Definition (peek)
 		  edit = '<C-c>o',
@@ -156,33 +189,31 @@ gr
 <F4>            Code Action
 <leader>ca	
 
-
-|------------ Something Fresh. Marks. -----------------|
+|------------ New habbits ........... -----------------|
 \------------------------------------------------------/
-<leader>m	List all marks
-:Marks*		Other available commands
-mx              Set mark x
-dm<space>       Delete all marks in the current buffer
-m,              Set the next available 
-		alphabetical (lowercase) mark
-m;              Toggle the next available mark at the current line
-dmx             Delete mark x
-dm-             Delete all marks on the current line
-m]              Move to next mark
-m[              Move to previous mark
-m:              Preview mark. This will prompt you for a specific mark to
-	    	preview; press <cr> to preview the next mark.
-	    
-m[0-9]          Add a bookmark from bookmark group[0-9].
-dm[0-9]         Delete all bookmarks from bookmark group[0-9].
-m}              Move to the next bookmark having the same type 
-		as the bookmark under the cursor. Works across buffers.
-m{              Move to the previous bookmark having the same type as 
-		the bookmark under the cursor. Works across buffers.
-dm=             Delete the bookmark under the cursor.
+ZZ		Close a window (exit if close the last)
+zz		mapped to :update
+C-S		mapped to :update
+:w		stop using :w
+[,]		use these instead of pressing down j/k
 
 
+|------------ Something Fresh. telescope. -------------|
+\------------------------------------------------------/
+C-/		show helps
+<leader>fg	live grep 	[useful]
+<leader>ff	find files
+<leader>fb	find buffer
+<leader>fh	help tags
+[ESC]		toggle mode (input bar/ items)
+C-n/C-p		next/previous item
+C-x		goto, split
+C-v		goto, vsplit
+C-u/C-d		scroll up/down preview window
 
+C-q		send (not filtered) items to quickfixlist
+M-q		send all to qflist
+		These two are helpful to keep track of things
 
 |------------ Programming.. ---------------------------|
 \------------------------------------------------------/
@@ -301,4 +332,5 @@ r[x]            replace all characters in selection with x
 :%s/old/new/gc  Replace all in file, confirm for each
 
 :sort           sort selected lines (by first letter)
+
 ```
