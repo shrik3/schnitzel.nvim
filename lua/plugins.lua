@@ -34,8 +34,7 @@ return require('packer').startup(function()
     require 'plugin_config.startify'
 
     -- Looks
-    -- tokyonight managed by Plugged for local testing
-    -- use 'shrik3/tokyonight.nvim'
+    use 'shrik3/vision.nvim'
  
     -- as the name suggests, scroll available color themes
     use 'vim-scripts/ScrollColors'

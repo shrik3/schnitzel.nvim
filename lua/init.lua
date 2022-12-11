@@ -29,6 +29,7 @@ end
 
 vim.cmd [[
     syntax on
+    colorscheme vision
     autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
 ]]
 

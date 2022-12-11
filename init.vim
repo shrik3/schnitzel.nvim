@@ -6,18 +6,23 @@ EOF
 
 " -- Legacy Plugins(managed by vim Plug)----------------
 " -- ---------------------------------------------------
-source ~/.config/nvim/legacy/plugins.vim
+" if you want to use a vim script based plugin manager
+" e.g. vim-Plug, uncomment the following line and add
+" your plugin configs there.
+" source ~/.config/nvim/legacy/plugins.vim
 
 " -- Custom Scripts(that are tricky in lua)-------------
 " -- ---------------------------------------------------
 source ~/.config/nvim/legacy/scripts.vim
+
+
+" -- UI...----------------------------------------------
+" -- ---------------------------------------------------
+" -- you can safely remove this if you don't use neovide
 if exists("g:neovide")
     source ~/.config/nvim/neovide.vim
 endif
-" -- UI...----------------------------------------------
-" -- ---------------------------------------------------
-" temp (only for testing ... will be removed)
-colorscheme vision
+
 " -- Custom Scripts(one liners)-------------------------
 " -- ---------------------------------------------------
 
