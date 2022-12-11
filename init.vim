@@ -17,10 +17,6 @@ source ~/.config/nvim/neovide.vim
 " -- ---------------------------------------------------
 " temp (only for testing ... will be removed)
 colorscheme vision
-" better split bar
-highlight VertSplit guibg=NONE
-highlight VertSplit ctermbg=NONE
-
 " -- Custom Scripts(one liners)-------------------------
 " -- ---------------------------------------------------
 
@@ -39,21 +35,3 @@ au FocusGained,BufEnter * checktime
 " :W sudo saves the file 
 command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
-" Avoid garbled characters in Chinese language windows OS
-source $VIMRUNTIME/delmenu.vim
-source $VIMRUNTIME/menu.vim
-
-" Hacky stuffs ======================================
-
-" Visual mode pressing * or # searches for the current selection
-" Super useful! From an idea by Michael Naumann
-vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
-vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
-
-" ignore some files in menu
-set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-    set wildignore+=.git\*,.hg\*,.svn\*
-else
-    set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-endif

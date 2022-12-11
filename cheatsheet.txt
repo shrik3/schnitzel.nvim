@@ -42,32 +42,22 @@ C-S		mapped to :update
 [,]		use these instead of pressing down j/k
 
 
-|------------ Something Fresh. Marks. -----------------|
+|------------ Something Fresh. telescope. -------------|
 \------------------------------------------------------/
-<leader>m	List all marks
-:Marks*		Other available commands
-mx              Set mark x
-dm<space>       Delete all marks in the current buffer
-m,              Set the next available 
-		alphabetical (lowercase) mark
-m;              Toggle the next available mark at the current line
-dmx             Delete mark x
-dm-             Delete all marks on the current line
-m]              Move to next mark
-m[              Move to previous mark
-m:              Preview mark. This will prompt you for a specific mark to
-	    	preview; press <cr> to preview the next mark.
-	    
-m[0-9]          Add a bookmark from bookmark group[0-9].
-dm[0-9]         Delete all bookmarks from bookmark group[0-9].
-m}              Move to the next bookmark having the same type 
-		as the bookmark under the cursor. Works across buffers.
-m{              Move to the previous bookmark having the same type as 
-		the bookmark under the cursor. Works across buffers.
-dm=             Delete the bookmark under the cursor.
+C-/		show helps
+<leader>fg	live grep 	[useful]
+<leader>ff	find files
+<leader>fb	find buffer
+<leader>fh	help tags
+[ESC]		toggle mode (input bar/ items)
+C-n/C-p		next/previous item
+C-x		goto, split
+C-v		goto, vsplit
+C-u/C-d		scroll up/down preview window
 
-
-
+C-q		send (not filtered) items to quickfixlist
+M-q		send all to qflist
+		These two are helpful to keep track of things
 
 |------------ Programming.. ---------------------------|
 \------------------------------------------------------/

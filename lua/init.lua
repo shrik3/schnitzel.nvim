@@ -5,13 +5,6 @@
 -- ---------------------------------------------------
 vim.g.mapleader = ' '
 vim.keymap.set('n', '<SPACE>', '<NOP>')
-vim.opt.termguicolors = true
--- it should be turned on by default 
--- here is only to make sure
-vim.cmd [[
-  syntax on
-]]
-
 
 -- Load Modules (plugins, Scripts etc.) --------------
 -- ---------------------------------------------------
@@ -34,11 +27,10 @@ if vim.fn.has('nvim')==1 or vim.fn.has('termguicolors') then
     vim.opt.termguicolors = true
 end
 
--- vim.cmd [[
---   syntax on
---   colorscheme tokyonight
---   autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
--- ]]
+vim.cmd [[
+    syntax on
+    autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
+]]
 
 -- Editor (looks) ------------------------------------
 -- ---------------------------------------------------

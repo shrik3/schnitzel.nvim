@@ -61,18 +61,28 @@ return require('packer').startup(function()
 -- +----------------------------------------------------------+
 -- |                  EDITING AND FUNCTIONALITIES             |
 -- +----------------------------------------------------------+
+    -- for ... tabs..
+    use 'godlygeek/tabular'
     -- don't exit vim upon closing the last buffer
     use 'rbgrouleff/bclose.vim'
     -- completes the brackets
     use 'LunarWatcher/auto-pairs'
     -- displays color for HEX color code
     use 'ap/vim-css-color'
-    -- ACK the fuzzy finder, using ag as backend
-    use 'mileszs/ack.vim'
-    vim.g.ackprg = 'ag --vimgrep'
-    vim.keymap.set('n', '<leader>f', ':Ack! ')
-    -- for ... tabs..
-    use 'godlygeek/tabular'
+
+    --- telescope fzf
+    use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    -- or                            , branch = '0.1.x',
+      requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    local builtin = require('telescope.builtin')
+    vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+    vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
 
 -- +----------------------------------------------------------+
 -- |                  MISC                                    |
