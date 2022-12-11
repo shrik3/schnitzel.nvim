@@ -25,7 +25,6 @@ If you find my set up hard to use or understand, [neovim-from-scratch](https://g
 is a good starting point for you.
 
 
-
 # How to set up
 
 **Prerequisites**
@@ -57,6 +56,18 @@ locate the error prone plugin, and check their instructions.
 
 # Programming: LSPs and others...
 For a quick start check my cheatsheet.
+
+Please check [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md)
+to set up lsp support for your own languages. Put the configurations into
+`/lua/plugin_config/lspconfig.lua`
+Note that the nvim's LSP support
+doesn't come with the language server, for each language server you need to
+manually install them.
+
+**For highlightings**, I use nvim-treesitter. Note that the nvim-treesitter
+needs some manual set up. e.g. for C highlighting, you need `:TSInstall c`.
+Also I suggest you install `:TSInstall comment` so that flags like `TODO` and
+`FIXME` can be correctlly highlighted
 
 
 # how to build your own setup
