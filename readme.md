@@ -31,6 +31,7 @@ is a good starting point for you.
 ## Prerequisites
 - make sure you have the newest neovim
 - make sure you have [Packer](https://github.com/wbthomason/packer.nvim) and [Plug](https://github.com/junegunn/vim-plug) installed
+- install a [nerd font](https://www.nerdfonts.com/)
 
 ## Remove or modify my 'personal' settings
 There are some settings that are specific to **my own workflow**, remove or
