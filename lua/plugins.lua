@@ -96,19 +96,13 @@ return require('packer').startup(function()
     -- require 'plugin_config.marks'
 
     -- measures the startup time for optimization
-    use 'tweekmonster/startuptime.vim'
+    -- use 'tweekmonster/startuptime.vim'
     -- wakatime for statistics, need to initialize token for fresh install
-    use 'wakatime/vim-wakatime'
+    -- use 'wakatime/vim-wakatime'
 
 -- +----------------------------------------------------------+
 -- |                  COMPLETION                              |
 -- +----------------------------------------------------------+
-    -- deoplete XXXX
-    -- use 'deoplete-plugins/deoplete-tag'
-    -- use {'deathlyfrantic/deoplete-spell', branch = 'main'}
-    -- Deoplete relatives
-    -- use 'Shougo/neco-syntax'
-    -- use 'Shougo/context_filetype.vim'
     
     -- nvim-cmp family
     use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
@@ -140,8 +134,7 @@ return require('packer').startup(function()
         end,
     })
     
-    -- treesitter does the tree sitting, 
-    -- e.g. provides (static) linting, better highlighting
+    -- treesitter does the tree sitting, gives better highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
         run = function()
