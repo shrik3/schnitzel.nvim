@@ -15,7 +15,7 @@ gd              Definition (peek)
 		  vsplit = '<C-c>v',
 		  split = '<C-c>i',
 		  tabe = '<C-c>t',
-		  quit = 'q',	
+		  quit = 'q',
 gD              Declarations
 gi              Implementation
 go              type def
@@ -31,7 +31,7 @@ K		Hover Doc..
 gr
 
 <F4>            Code Action
-<leader>ca	
+<leader>ca
 
 |------------ New habbits ........... -----------------|
 \------------------------------------------------------/
@@ -58,6 +58,14 @@ C-u/C-d		scroll up/down preview window
 C-q		send (not filtered) items to quickfixlist
 M-q		send all to qflist
 		These two are helpful to keep track of things
+
+|------------ Project managements ---------------------|
+\------------------------------------------------------/
+:SSave          save a project
+:SLoad          load a project, you can also do this on
+                the startup screen
+:SClose         close a project
+:SDelete        delete a project
 
 |------------ Programming.. ---------------------------|
 \------------------------------------------------------/
