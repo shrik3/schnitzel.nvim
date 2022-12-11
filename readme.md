@@ -85,6 +85,8 @@ First take a look at how the configs are organized in the following section.
 **To add/delege/modify configs**  
 check the following structure to find the best place for your config
 
+**To change the home (startup) screen**: 
+modify `/lua/plugin_config/startify.lua`. you can add your bookmarks here.
 
 # structure
 
