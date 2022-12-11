@@ -4,17 +4,41 @@ don't work well with packer.
 
 Note that some plugins may require manual setup.
 
-# what is
+# What is
 schnitzel.nvim is my personal IDE-like neovim configuration. 
 ![preview](https://github.com/shrik3/schnitzel.nvim/blob/master/preview.png)
 
-# how to set up
+Please be aware, this is my personal daily drive, opt to my own workflow,
+instead of an out-of-the-box set up for everyone. Some of my friends love my
+setup so I'm making them public here.
 
-**Prerequisites**
+This setup is for those who:
+- want a functional "IDE-like", yet blazing fast neovim.
+- want a well-structred and -documented config, that you can build your own
+  config on top of.
+- want to understand what the config is doing.
+- hate bloated configs.
+- **are willing to go through a little bit of pain** of learning and
+  troubleshotting.
+
+If you find my set up hard to use or understand, [neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch) 
+is a good starting point for you.
+
+
+
+# How to set up
+
+## Prerequisites
 - make sure you have the newest neovim
 - make sure you have [Packer](https://github.com/wbthomason/packer.nvim) and [Plug](https://github.com/junegunn/vim-plug) installed
 
-**Remove wakatime if you don't use it**  
+## Remove or modify my 'personal' settings
+There are some settings that are specific to **my own workflow**, remove or
+modify them before they cause problems. I keep them in this repo anyways only to
+showcase to you how to do some cool stuffs.
+
+
+**1. Remove wakatime if you don't use it**  
 I personally use [wakaTime](https://wakatime.com/vim) as a activity logger. If
 you don't use it, remove its config:
 
@@ -23,6 +47,8 @@ in `lua/plugins.lua`
 -- wakatime for statistics, need to initialize token for fresh install
 use 'wakatime/vim-wakatime'
 ```
+
+**2. Other environment related settings**
 
 **Backup your old nvim configs**  
 e.g. `~/.config/nvim`

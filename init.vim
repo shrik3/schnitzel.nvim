@@ -11,8 +11,9 @@ source ~/.config/nvim/legacy/plugins.vim
 " -- Custom Scripts(that are tricky in lua)-------------
 " -- ---------------------------------------------------
 source ~/.config/nvim/legacy/scripts.vim
-source ~/.config/nvim/neovide.vim
-
+if exists("g:neovide")
+    source ~/.config/nvim/neovide.vim
+endif
 " -- UI...----------------------------------------------
 " -- ---------------------------------------------------
 " temp (only for testing ... will be removed)
