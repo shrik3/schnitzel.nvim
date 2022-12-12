@@ -1,6 +1,3 @@
-This config uses both packer and plugged. The later is used for plugins that
-don't work well with packer.
-
 
 Note that some plugins may require manual setup.
 
@@ -25,31 +22,14 @@ If you find my set up hard to use or understand, [neovim-from-scratch](https://g
 is a good starting point for you.
 
 
-
 # How to set up
+
 
 ## Prerequisites
 - make sure you have the newest neovim
 - make sure you have [Packer](https://github.com/wbthomason/packer.nvim) and [Plug](https://github.com/junegunn/vim-plug) installed
 - install a [nerd font](https://www.nerdfonts.com/)
-
-## Remove or modify my 'personal' settings
-There are some settings that are specific to **my own workflow**, remove or
-modify them before they cause problems. I keep them in this repo anyways only to
-showcase to you how to do some cool stuffs.
-
-
-**1. Remove wakatime if you don't use it**  
-I personally use [wakaTime](https://wakatime.com/vim) as a activity logger. If
-you don't use it, remove its config:
-
-in `lua/plugins.lua`
-```lua
--- wakatime for statistics, need to initialize token for fresh install
-use 'wakatime/vim-wakatime'
-```
-
-**2. Other environment related settings**
+- install [ctags](https://github.com/universal-ctags/ctags) for plugin tagbar
 
 **Backup your old nvim configs**  
 e.g. `~/.config/nvim`
@@ -73,7 +53,47 @@ them.
 Some plugins may need manual install, if you encounter errors, follow the info,
 locate the error prone plugin, and check their instructions.
 
-# how to customize
+# How to use:
+First, check my cheatsheet.txt to get started.
+
+**How to work with Markdown and Latex**  
+This setup comes with basic markdown and latex support.
+
+For markdown preview, edit `/lua/plugin_config/vim-markdown-preview`, set your
+markdown preview browser by editting e.g. `let g:mkdp_browser = 'firefox'`.
+**PRIVACY NOTE!** by default the markdown previewer is open to local network,
+i.e. any machine from the same local network can access you being-previewed
+document. This is handy if you want to e.g. share document across devices. Make
+sure to turn this off if you are in a public network. To do this turn off this
+option:
+```
+let g:mkdp_open_to_the_world = 1
+```
+
+To start a markdown preview, type `:MarkdownPreview`.
+
+For latex preview, find the following line in the `/lua/plugins.lua` and set
+your previewer:
+```
+vim.g.livepreview_previewer = 'zathura'
+```
+
+To start a preview, type `:LLPStartPreview`
+
+**How to manage projects(session)**  
+You can save a session at any time with `:SSave`. If the project already exists
+you will be prompted whether to overwrite, otherwise you need to specify a
+project name so that a new project can be created. Your saved sessions will be
+shown in the startup screen. Check the cheatsheet for more commands.
+
+
+**How to configure and use LSPs**  
+Again, check the cheatsheet for basic LSP commands (e.g. goto def.). Note that
+you need to install the language server manually: check [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig#Suggested-configuration).
+To add a LSP server, edit `/lua/plugin_config/lspconfig.lua`.
+
+
+# How to customize
 First take a look at how the configs are organized in the following section.
 
 **To install a plugin**  
@@ -111,197 +131,3 @@ modify `/lua/plugin_config/startify.lua`. you can add your bookmarks here.
 └── syntax                 -- Custom syntax highlightings
 ```
 
-**why 2 set of configs / plugins / managers**  
-
-bear with me, 
-- there are some old school plugins that are written in vimscript,
-and some of them doesn't work with Packer. 
-- lua script is tricky to use for some certain vim configs/ functionalities
-
-
-
-# cheatsheet
-A handy cheatsheet of key mappings.
-```
-  __     _____ _    _ _____  _____ _  ______     __
-  ||    / ____| |  | |  __ \|_   _| |/ /___ \    ||
-  ||   | (___ | |__| | |__) | | | | ' /  __) |   ||
-__||__  \___ \|  __  |  _  /  | | |  <  |__ <  __||__
---..--  ____) | |  | | | \ \ _| |_| . \ ___) | --..--
-  ||   |_____/|_|  |_|_|  \_\_____|_|\_\____/    ||
-                USE VIM OR DIE !
------------------------------------------------------
-
-|------------ Programming. LSPs.. ---------------------|
-\------------------------------------------------------/
-
-K               Hover
-gd              Definition (peek)
-		  edit = '<C-c>o',
-		  vsplit = '<C-c>v',
-		  split = '<C-c>i',
-		  tabe = '<C-c>t',
-		  quit = 'q',	
-gD              Declarations
-gi              Implementation
-go              type def
-gr              references
-gl              diag. float (under cursor or line)
-gL              diag. current buffer
-[d , ]d         diag. prev. / next.
-C-K             help (manual)
-K		Hover Doc..
-<leader>o	outline
-
-<F2>            Rename
-gr
-
-<F4>            Code Action
-<leader>ca	
-
-
-|------------ Something Fresh. Marks. -----------------|
-\------------------------------------------------------/
-<leader>m	List all marks
-:Marks*		Other available commands
-mx              Set mark x
-dm<space>       Delete all marks in the current buffer
-m,              Set the next available 
-		alphabetical (lowercase) mark
-m;              Toggle the next available mark at the current line
-dmx             Delete mark x
-dm-             Delete all marks on the current line
-m]              Move to next mark
-m[              Move to previous mark
-m:              Preview mark. This will prompt you for a specific mark to
-	    	preview; press <cr> to preview the next mark.
-	    
-m[0-9]          Add a bookmark from bookmark group[0-9].
-dm[0-9]         Delete all bookmarks from bookmark group[0-9].
-m}              Move to the next bookmark having the same type 
-		as the bookmark under the cursor. Works across buffers.
-m{              Move to the previous bookmark having the same type as 
-		the bookmark under the cursor. Works across buffers.
-dm=             Delete the bookmark under the cursor.
-
-
-
-
-|------------ Programming.. ---------------------------|
-\------------------------------------------------------/
-
-<F3>            :ClangFormat (Plugin)
-<leader>c       kToggle Comment (plugin)
-<leader>cc
-<leader>f       Fuzzy Finder (ACK)
-
-# RUST (rust-tools)
-<leader>h       hover_actions
-<leader>a       code action group
-
-|------------ Trivias.. -------------------------------|
-\------------------------------------------------------/
-
-# F Keys
-<F2>            Lsp. Rename
-<F3>            Clang Format
-<F4>            Lsp. Code Action
-<F6>,<C-t>      Split Terminal [plugin]
-<F7>            In-buffer Terminal [builtin]
-<F8>            Tagbar (show symbols etc) [Plugin]
-<F9>            Neotree [plugin]
-<F10>           Neotree show buffers
-
-ZQ              quit
-:x              = :w
-:earlier 5m     go back to 5 minutes ago
-                (reverse the file and jump cursor location)
-
-|------------ Misc..... -------------------------------|
-\------------------------------------------------------/
-
-:!boxes -d [d]  call boxes, (used with selection, d for
-        design, e.g. cat)
-
-|------------ Edit.. ----------------------------------|
-\------------------------------------------------------/
-
->               add indent for multiple lines
->>              add indent for current line
-<               remove indent ..
-u               undo
-<C-R>           redo
-vap             select around the paragraph
-vi(             etc..
-.               repeat last command
-
-D or d$         delete till end of line
-C or c$         change till end of line
-c               switch to insert mode after d
-gg=G            fix indent  (vim built-in)
-daw / diw       a for around and i for inside, or dip/dap etc.
-di(             to delete in (), di[, di{, di" etc.
-
-<leader>ss      spell check [custom mapping/ plugins]
-z=              show possible words
-:set tw=[n]     set textwidth
-
-|------------ Nav. Matching.. -------------------------|
-\------------------------------------------------------/
-
-e               end of word
-$               end of line
-^               beginning of line
-w               for word
-p               for para
-%               match parenthesis
-
-|------------ NAV. ------------------------------------|
-\------------------------------------------------------/
-
-{ / }           pre. / next paragraph
-zz              put current line to center
-zt              put current line to top
-C-e, C-y        scroll up/down by line
-C-u, C-d        scroll up/down by page
-<C-g>           show current location (in percentage)
-gg / G ,        go to top / Bottom
-25%             go to 25 percent of file
-
-
-|------------ Workspaces. -----------------------------|
-\------------------------------------------------------/
-
-<F9>            :NERDTreeToggle (neotree)
-:sp :vsp        split
-:res [n]        resize
-<C-W> c         close split
-<C-W> h/j/k/l   nav. splits
-<C-h><C-j>      same [custom mappings]
-<C-k><C-l>
-
-RESIZE SPLITES:
-:vert/hor res +-[n]
-
-|------------ Buffers. --------------------------------|
-\------------------------------------------------------/
-
-<leader>bb      show list of buffers  (mapped to neotree)
-:ls             showbuffer
-:b[n]           switch to buffer [n]
-<A-TAB>         :bn    [custom mapping]
-
-
-|------------ Search / Replace.------------------------|
-\------------------------------------------------------/
-
-/ and ?         search forward and backward
-R               replace mode
-r[x]            replace all characters in selection with x
-
-:s/old/new/g    Replace in line
-:%s/old/new/g   Replace all in file
-:%s/old/new/gc  Replace all in file, confirm for each
-
-:sort           sort selected lines (by first letter)
-```
