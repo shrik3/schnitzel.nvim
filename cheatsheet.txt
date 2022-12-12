@@ -79,6 +79,12 @@ M-q		send all to qflist
 <leader>h       hover_actions
 <leader>a       code action group
 
+|------------ Markdown and Latex-----------------------|
+\------------------------------------------------------/
+:MarkdownPreview    Markdown
+:LLPStartPreview    Latex
+
+
 |------------ Trivias.. -------------------------------|
 \------------------------------------------------------/
 
