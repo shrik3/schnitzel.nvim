@@ -45,8 +45,8 @@ there will be tons of errors, don't worry, just ignore them, ignore them, ignore
 them.
 
 **Initialize all plugins**  
-- install Plug plugins `:PlugInstall`
-- install Packer plugins: `:PackerSync` and ':PackerCompile'
+- install Packer plugins: `:PackerSync` and `:PackerCompile`, also
+  `PackerInstall`
 - restart neovim
 
 **Don't expect things to work out-of-the-box**  
