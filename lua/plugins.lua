@@ -26,12 +26,16 @@ return require('packer').startup(function()
     vim.keymap.set('n', '<F9>', ':Neotree toggle<CR>')
     
     -- terminal (toggle with <C-T>)
-    use "akinsho/toggleterm.nvim"
-    require 'plugin_config.toggleterm'
+    use {
+        "akinsho/toggleterm.nvim",
+        config = [[require'plugin_config.toggleterm']]
+    }
 
     -- start screen
-    use 'mhinz/vim-startify'
-    require 'plugin_config.startify'
+    use {
+        'mhinz/vim-startify',
+        config = [[require 'plugin_config.startify']]
+    }
 
     -- Looks
     use 'shrik3/vision.nvim'
@@ -42,20 +46,25 @@ return require('packer').startup(function()
     -- lightline replacement
     use {
       'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+      config = [[require'plugin_config.lualine']]
     }
-    require 'plugin_config.lualine'
 
     -- bufferline replacement
-    use {'akinsho/bufferline.nvim', 
-            tag = "v3.*", 
-            requires = 'nvim-tree/nvim-web-devicons'
-        }
-    require("bufferline").setup{}
+    use {
+        'akinsho/bufferline.nvim', 
+        tag = "v3.*", 
+        requires = 'nvim-tree/nvim-web-devicons',
+        config = function() require('bufferline').setup() end
+    }
     
     -- tarbar shows a bar of tags
-    use 'majutsushi/tagbar'
-    vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>')
+    use{
+        'majutsushi/tagbar',
+        config = function() 
+            vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>')
+        end
+    } 
 
 -- +----------------------------------------------------------+
 -- |                  EDITING AND FUNCTIONALITIES             |
@@ -72,23 +81,20 @@ return require('packer').startup(function()
     --- telescope fzf
     use {
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    -- or                            , branch = '0.1.x',
-      requires = { {'nvim-lua/plenary.nvim'} }
+      requires = { {'nvim-lua/plenary.nvim'} },
+      config = [[require('plugin_config/telescope')]]
     }
 
-    local builtin = require('telescope.builtin')
-    vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-    vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-    vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-    vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 
 -- +----------------------------------------------------------+
 -- |                  MISC                                    |
 -- +----------------------------------------------------------+
     -- session manager:
-    use 'Shatur/neovim-session-manager'
-    require 'plugin_config.neovim-session-manager'
+    use {
+        'Shatur/neovim-session-manager',
+        config = [[require('plugin_config.neovim-session-manager')]]
+    }
     
     -- manage marks, but this plugin kinda suffers from bugs, 
     -- disable for noe
@@ -96,32 +102,44 @@ return require('packer').startup(function()
     -- require 'plugin_config.marks'
 
     -- measures the startup time for optimization
-    -- use 'tweekmonster/startuptime.vim'
+    use 'tweekmonster/startuptime.vim'
     -- wakatime for statistics, need to initialize token for fresh install
-    -- use 'wakatime/vim-wakatime'
+    use 'wakatime/vim-wakatime'
 
 -- +----------------------------------------------------------+
 -- |                  COMPLETION                              |
 -- +----------------------------------------------------------+
-    
     -- nvim-cmp family
-    use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-    use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
-    require 'plugin_config.nvim-cmp' -- configs for nvim-cmp
-    -- end nvim-cmp family
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      'hrsh7th/cmp-nvim-lsp',
+      'onsails/lspkind.nvim',
+      { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+      'lukas-reineke/cmp-under-comparator',
+      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
+    },
+    config = [[require('plugin_config.nvim-cmp')]],
+    event = 'InsertEnter',
+    wants = 'LuaSnip',
+  }
+
 
 -- +----------------------------------------------------------+
 -- |                  PROGRAMMING                             |
 -- +----------------------------------------------------------+
     
     -- LSP
-    use 'neovim/nvim-lspconfig'
-    require 'plugin_config.lspconfig'
+    use {
+        'neovim/nvim-lspconfig',
+        config=[[require'plugin_config.lspconfig']]
+    }
     -- lspSaga provides better UI for the LSP.
     use({
         "glepnir/lspsaga.nvim",
@@ -134,22 +152,33 @@ return require('packer').startup(function()
         end,
     })
     
-    -- treesitter does the tree sitting, gives better highlighting
+    -- treesitter does the tree sitting, 
+    -- e.g. provides (static) linting, better highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
+        requires = {
+          'nvim-treesitter/nvim-treesitter-refactor',
+          'RRethy/nvim-treesitter-textsubjects',
+        },
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
+        config = [[require'plugin_config.nvim-treesitter']]
     }
-    require 'plugin_config.nvim-treesitter'
 
-    -- Rust Lang : these two replace lsoconfig's native support for rust..
-    use 'simrat39/rust-tools.nvim'
-    require 'plugin_config.rust-tools'
-    -- Rust Lang Debugging
-    use 'mfussenegger/nvim-dap'
     
+    use 'mfussenegger/nvim-dap'
+    -- Rust Lang : these two replace lsoconfig's native support for rust..
+    -- Rust Lang Debugging
+    use {
+        'simrat39/rust-tools.nvim',
+        config = [[require'plugin_config.rust-tools']]
+    }
+    
+    -- AspectC++ highlighting
+    use 'shrik3/vim-aspectcpp'
+
     -- general auto formatting
     use 'Chiel92/vim-autoformat'
     vim.keymap.set('n', '<F3>', ':Autoformat<CR>')
@@ -158,8 +187,10 @@ return require('packer').startup(function()
 
     -- Toggle comments, replacement for nerdCommenter
     -- But I don't like it TODO find a better one
-    use 'terrortylor/nvim-comment'
-    require 'plugin_config.nvim-comment'
+    use{
+        'terrortylor/nvim-comment',
+        config = [[require'plugin_config.nvim-comment']]
+    } 
 
     -- git
     use 'airblade/vim-gitgutter'
@@ -189,15 +220,13 @@ return require('packer').startup(function()
     vim.g.vim_markdown_folding_disabled = 1
     vim.g.vim_markdown_auto_insert_bullets = 0
 
-    -- Note: markdown preview is managed by vim-Plug
-    --
     -- install without yarn or npm
     use({
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
         ft = { "markdown" },
+        config = [[require'plugin_config.markdown-preview']]
     })
-    require 'plugin_config.markdown-preview'
 
 end)
 
