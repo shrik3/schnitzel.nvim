@@ -46,16 +46,17 @@ return require('packer').startup(function()
     -- lightline replacement
     use {
       'nvim-lualine/lualine.nvim',
-      requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+      requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+      config = [[require'plugin_config.lualine']]
     }
-    require 'plugin_config.lualine'
 
     -- bufferline replacement
-    use {'akinsho/bufferline.nvim', 
-            tag = "v3.*", 
-            requires = 'nvim-tree/nvim-web-devicons'
-        }
-    require("bufferline").setup{}
+    use {
+        'akinsho/bufferline.nvim', 
+        tag = "v3.*", 
+        requires = 'nvim-tree/nvim-web-devicons',
+        config = function() require('bufferline').setup() end
+    }
     
     -- tarbar shows a bar of tags
     use 'majutsushi/tagbar'
