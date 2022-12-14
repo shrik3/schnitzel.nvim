@@ -136,8 +136,10 @@ return require('packer').startup(function()
 -- +----------------------------------------------------------+
     
     -- LSP
-    use 'neovim/nvim-lspconfig'
-    require 'plugin_config.lspconfig'
+    use {
+        'neovim/nvim-lspconfig',
+        config=[[require'plugin_config.lspconfig']]
+    }
     -- lspSaga provides better UI for the LSP.
     use({
         "glepnir/lspsaga.nvim",
@@ -218,8 +220,6 @@ return require('packer').startup(function()
     vim.g.vim_markdown_folding_disabled = 1
     vim.g.vim_markdown_auto_insert_bullets = 0
 
-    -- Note: markdown preview is managed by vim-Plug
-    --
     -- install without yarn or npm
     use({
         "iamcco/markdown-preview.nvim",
