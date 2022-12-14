@@ -102,9 +102,9 @@ return require('packer').startup(function()
     -- require 'plugin_config.marks'
 
     -- measures the startup time for optimization
-    use 'tweekmonster/startuptime.vim'
+    -- use 'tweekmonster/startuptime.vim'
     -- wakatime for statistics, need to initialize token for fresh install
-    use 'wakatime/vim-wakatime'
+    -- use 'wakatime/vim-wakatime'
 
 -- +----------------------------------------------------------+
 -- |                  COMPLETION                              |
@@ -177,7 +177,7 @@ return require('packer').startup(function()
     }
     
     -- AspectC++ highlighting
-    use 'shrik3/vim-aspectcpp'
+    -- use 'shrik3/vim-aspectcpp'
 
     -- general auto formatting
     use 'Chiel92/vim-autoformat'
