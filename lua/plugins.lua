@@ -109,23 +109,27 @@ return require('packer').startup(function()
 -- +----------------------------------------------------------+
 -- |                  COMPLETION                              |
 -- +----------------------------------------------------------+
-    -- deoplete XXXX
-    -- use 'deoplete-plugins/deoplete-tag'
-    -- use {'deathlyfrantic/deoplete-spell', branch = 'main'}
-    -- Deoplete relatives
-    -- use 'Shougo/neco-syntax'
-    -- use 'Shougo/context_filetype.vim'
-    
     -- nvim-cmp family
-    use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
-    use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
-    use 'hrsh7th/cmp-buffer'
-    use 'hrsh7th/cmp-path'
-    use 'hrsh7th/cmp-cmdline'
-    use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
-    require 'plugin_config.nvim-cmp' -- configs for nvim-cmp
-    -- end nvim-cmp family
+  use {
+    'hrsh7th/nvim-cmp',
+    requires = {
+      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+      'hrsh7th/cmp-nvim-lsp',
+      'onsails/lspkind.nvim',
+      { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+      'lukas-reineke/cmp-under-comparator',
+      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+      { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
+    },
+    config = [[require('plugin_config.nvim-cmp')]],
+    event = 'InsertEnter',
+    wants = 'LuaSnip',
+  }
+
 
 -- +----------------------------------------------------------+
 -- |                  PROGRAMMING                             |
@@ -150,12 +154,16 @@ return require('packer').startup(function()
     -- e.g. provides (static) linting, better highlighting
     use {
         'nvim-treesitter/nvim-treesitter',
+        requires = {
+          'nvim-treesitter/nvim-treesitter-refactor',
+          'RRethy/nvim-treesitter-textsubjects',
+        },
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
             ts_update()
         end,
+        config = [[require'plugin_config.nvim-treesitter']]
     }
-    require 'plugin_config.nvim-treesitter'
 
     -- Rust Lang : these two replace lsoconfig's native support for rust..
     use 'simrat39/rust-tools.nvim'
