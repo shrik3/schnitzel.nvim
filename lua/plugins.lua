@@ -165,11 +165,14 @@ return require('packer').startup(function()
         config = [[require'plugin_config.nvim-treesitter']]
     }
 
-    -- Rust Lang : these two replace lsoconfig's native support for rust..
-    use 'simrat39/rust-tools.nvim'
-    require 'plugin_config.rust-tools'
-    -- Rust Lang Debugging
+    
     use 'mfussenegger/nvim-dap'
+    -- Rust Lang : these two replace lsoconfig's native support for rust..
+    -- Rust Lang Debugging
+    use {
+        'simrat39/rust-tools.nvim',
+        config = [[require'plugin_config.rust-tools']]
+    }
     
     -- AspectC++ highlighting
     use 'shrik3/vim-aspectcpp'
@@ -182,8 +185,10 @@ return require('packer').startup(function()
 
     -- Toggle comments, replacement for nerdCommenter
     -- But I don't like it TODO find a better one
-    use 'terrortylor/nvim-comment'
-    require 'plugin_config.nvim-comment'
+    use{
+        'terrortylor/nvim-comment',
+        config = [[require'plugin_config.nvim-comment']]
+    } 
 
     -- git
     use 'airblade/vim-gitgutter'
@@ -220,8 +225,8 @@ return require('packer').startup(function()
         "iamcco/markdown-preview.nvim",
         run = function() vim.fn["mkdp#util#install"]() end,
         ft = { "markdown" },
+        config = [[require'plugin_config.markdown-preview']]
     })
-    require 'plugin_config.markdown-preview'
 
 end)
 
