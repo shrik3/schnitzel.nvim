@@ -48,6 +48,7 @@ C-/		show helps
 <leader>fg	live grep 	[useful]
 <leader>ff	find files
 <leader>fb	find buffer
+     |  C-d   	delete buffer
 <leader>fh	help tags
 [ESC]		toggle mode (input bar/ items)
 C-n/C-p		next/previous item

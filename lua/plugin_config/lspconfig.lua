@@ -97,6 +97,7 @@ require'lspconfig'.jedi_language_server.setup{
     capabilities = capabilities -- nvim-cmp
 }
 
+require'lspconfig'.texlab.setup{}
 -- require 'lspconfig'.clangd.setup{}
 --
 
