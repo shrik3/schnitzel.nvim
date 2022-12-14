@@ -59,8 +59,12 @@ return require('packer').startup(function()
     }
     
     -- tarbar shows a bar of tags
-    use 'majutsushi/tagbar'
-    vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>')
+    use{
+        'majutsushi/tagbar',
+        config = function() 
+            vim.keymap.set('n', '<F8>', ':TagbarToggle<CR>')
+        end
+    } 
 
 -- +----------------------------------------------------------+
 -- |                  EDITING AND FUNCTIONALITIES             |
@@ -77,10 +81,9 @@ return require('packer').startup(function()
     --- telescope fzf
     use {
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
-    -- or                            , branch = '0.1.x',
-      requires = { {'nvim-lua/plenary.nvim'} }
+      requires = { {'nvim-lua/plenary.nvim'} },
+      config = [[require('plugin_config/telescope')]]
     }
-    require 'plugin_config/telescope'
 
 
 
@@ -88,8 +91,10 @@ return require('packer').startup(function()
 -- |                  MISC                                    |
 -- +----------------------------------------------------------+
     -- session manager:
-    use 'Shatur/neovim-session-manager'
-    require 'plugin_config.neovim-session-manager'
+    use {
+        'Shatur/neovim-session-manager',
+        config = [[require('plugin_config.neovim-session-manager')]]
+    }
     
     -- manage marks, but this plugin kinda suffers from bugs, 
     -- disable for noe
