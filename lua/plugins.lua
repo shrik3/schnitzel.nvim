@@ -26,12 +26,16 @@ return require('packer').startup(function()
     vim.keymap.set('n', '<F9>', ':Neotree toggle<CR>')
     
     -- terminal (toggle with <C-T>)
-    use "akinsho/toggleterm.nvim"
-    require 'plugin_config.toggleterm'
+    use {
+        "akinsho/toggleterm.nvim",
+        config = [[require'plugin_config.toggleterm']]
+    }
 
     -- start screen
-    use 'mhinz/vim-startify'
-    require 'plugin_config.startify'
+    use {
+        'mhinz/vim-startify',
+        config = [[require 'plugin_config.startify']]
+    }
 
     -- Looks
     use 'shrik3/vision.nvim'
