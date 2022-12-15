@@ -185,12 +185,10 @@ return require('packer').startup(function()
     -- yet another one
     use 'rhysd/vim-clang-format'
 
-    -- Toggle comments, replacement for nerdCommenter
-    -- But I don't like it TODO find a better one
-    use{
-        'terrortylor/nvim-comment',
-        config = [[require'plugin_config.nvim-comment']]
-    } 
+    use {
+        'numToStr/Comment.nvim',
+        config = [[require'plugin_config.comment']]
+    }
 
     -- git
     use 'airblade/vim-gitgutter'
