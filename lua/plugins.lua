@@ -185,15 +185,18 @@ return require('packer').startup(function()
     -- yet another one
     use 'rhysd/vim-clang-format'
 
-    -- Toggle comments, replacement for nerdCommenter
-    -- But I don't like it TODO find a better one
-    use{
-        'terrortylor/nvim-comment',
-        config = [[require'plugin_config.nvim-comment']]
-    } 
+    use {
+        'numToStr/Comment.nvim',
+        config = [[require'plugin_config.comment']]
+    }
 
     -- git
-    use 'airblade/vim-gitgutter'
+    use {
+      'lewis6991/gitsigns.nvim',
+      config = function()
+        require('gitsigns').setup()
+      end
+    }
     
     -- latex / markdown
     -- well latex and markdown are not 'programming'
