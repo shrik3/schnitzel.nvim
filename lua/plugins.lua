@@ -151,7 +151,10 @@ return require('packer').startup(function()
             })
         end,
     })
-    
+
+    -- lsp status on the status line
+    use 'arkav/lualine-lsp-progress'
+
     -- treesitter does the tree sitting, 
     -- e.g. provides (static) linting, better highlighting
     use {
