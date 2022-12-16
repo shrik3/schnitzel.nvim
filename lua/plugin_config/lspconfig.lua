@@ -76,29 +76,29 @@ vim.api.nvim_create_autocmd('LspAttach', {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities() -- nvim-cmp
 
-require 'lspconfig'.ccls.setup {
-    capabilities = capabilities; -- nvim-cmp
-    cache = {
-        directory = "/tmp/ccls-cache";
-    };
-    autostart = true;
-    init_options = {
-    compilationDatabaseDirectory = "build";
-    index = {
-      threads = 0;
-    };
-    clang = {
-      excludeArgs = { "-frounding-math"} ;
-    };
-  }
-}
+-- require 'lspconfig'.ccls.setup {
+--     capabilities = capabilities; -- nvim-cmp
+--     cache = {
+--         directory = "/tmp/ccls-cache";
+--     };
+--     autostart = true;
+--     init_options = {
+--     compilationDatabaseDirectory = "build";
+--     index = {
+--       threads = 0;
+--     };
+--     clang = {
+--       excludeArgs = { "-frounding-math"} ;
+--     };
+--   }
+-- }
 -- require'lspconfig'.rust_analyzer.setup{}  -- Managed by rust-tools
 require'lspconfig'.jedi_language_server.setup{
     capabilities = capabilities -- nvim-cmp
 }
 
 require'lspconfig'.texlab.setup{}
--- require 'lspconfig'.clangd.setup{}
+require 'lspconfig'.clangd.setup{}
 --
 
 -- lua

@@ -1,6 +1,6 @@
 let s:guifontsize=13
 let s:guifont="Source\\ Code\\ Pro"
-set guifont=Source\ Code\ Pro:h11
+set guifont=Source\ Code\ Pro:h13
 
 
 let g:neovide_refresh_rate=60
