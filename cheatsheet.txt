@@ -48,8 +48,10 @@ C-/		show helps
 <leader>fg	live grep 	[useful]
 <leader>ff	find files
 <leader>fb	find buffer
+<leader><leader>  
      |  C-d   	delete buffer
 <leader>fh	help tags
+<leader>?	recent files
 [ESC]		toggle mode (input bar/ items)
 C-n/C-p		next/previous item
 C-x		goto, split

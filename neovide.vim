@@ -1,7 +1,9 @@
-let s:guifontsize=13
-let s:guifont="Source\\ Code\\ Pro"
-set guifont=Source\ Code\ Pro:h13
+let s:guifontsize=12
+" let s:guifont="Source\\ Code\\ Pro"
+" set guifont=Source\ Code\ Pro:h13
 
+let s:guifont="Fira\\ Code"
+set guifont=Fira\ Code:h12
 
 let g:neovide_refresh_rate=60
 " let g:neovide_transparency=0.8

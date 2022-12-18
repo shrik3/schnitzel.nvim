@@ -22,7 +22,7 @@ vim.g.LANG = "en"
 
 -- Themes, Fonts, Colors -----------------------------
 -- ---------------------------------------------------
-vim.opt.guifont = "Source Code Pro"
+vim.opt.guifont = "fira code"
 if vim.fn.has('nvim')==1 or vim.fn.has('termguicolors') then
     vim.opt.termguicolors = true
 end
@@ -109,6 +109,14 @@ vim.opt.tm = 500
 
 -- KeyMaps -------------------------------------------
 -- ---------------------------------------------------
+-- for paragraph nav.
+-- with Right-Alt, this can be done comfortably 
+-- with right hand.
+vim.cmd [[
+noremap <A-]> }
+noremap <A-[> {
+]]
+
 -- nav. panels
 vim.keymap.set('n', '<C-J>', '<C-W><C-J>')
 vim.keymap.set('n', '<C-K>', '<C-W><C-K>')
