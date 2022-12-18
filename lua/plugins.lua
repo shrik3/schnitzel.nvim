@@ -1,6 +1,13 @@
-vim.cmd [[packadd packer.nvim]]
+-- auto-install packer if none-exist.
+local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+local is_bootstrap = false
+if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+  is_bootstrap = true
+  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+  vim.cmd [[packadd packer.nvim]]
+end
 
-return require('packer').startup(function()
+require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
     
@@ -10,6 +17,7 @@ return require('packer').startup(function()
 -- +----------------------------------------------------------+
 -- |                  UI                                      |
 -- +----------------------------------------------------------+
+--
     -- neotree a file explorer/manager
     use {
         "nvim-neo-tree/neo-tree.nvim",
@@ -24,7 +32,7 @@ return require('packer').startup(function()
     vim.keymap.set('n', '<F10>', ':Neotree buffers toggle<CR>')
     vim.keymap.set('n', '<leader>bb', ':Neotree buffers toggle<CR>')
     vim.keymap.set('n', '<F9>', ':Neotree toggle<CR>')
-    
+
     -- terminal (toggle with <C-T>)
     use {
         "akinsho/toggleterm.nvim",
@@ -85,8 +93,8 @@ return require('packer').startup(function()
       config = [[require('plugin_config/telescope')]]
     }
 
-
-
+    -- split VeryLongWords for easier w nav
+    use 'chaoren/vim-wordmotion'
 -- +----------------------------------------------------------+
 -- |                  MISC                                    |
 -- +----------------------------------------------------------+
@@ -104,7 +112,7 @@ return require('packer').startup(function()
     -- measures the startup time for optimization
     use 'tweekmonster/startuptime.vim'
     -- wakatime for statistics, need to initialize token for fresh install
-    use 'wakatime/vim-wakatime'
+    -- use 'wakatime/vim-wakatime'
 
 -- +----------------------------------------------------------+
 -- |                  COMPLETION                              |
@@ -155,13 +163,13 @@ return require('packer').startup(function()
     -- lsp status on the status line
     use 'arkav/lualine-lsp-progress'
 
-    -- treesitter does the tree sitting, 
-    -- e.g. provides (static) linting, better highlighting
+    -- treesitter does the tree sitting,
+    -- better highlighting and ... 
     use {
         'nvim-treesitter/nvim-treesitter',
         requires = {
-          'nvim-treesitter/nvim-treesitter-refactor',
-          'RRethy/nvim-treesitter-textsubjects',
+            'nvim-treesitter/nvim-treesitter-refactor',
+            'RRethy/nvim-treesitter-textsubjects',
         },
         run = function()
             local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
@@ -170,7 +178,14 @@ return require('packer').startup(function()
         config = [[require'plugin_config.nvim-treesitter']]
     }
 
-    
+    use { -- Additional text objects via treesitter
+        'nvim-treesitter/nvim-treesitter-textobjects',
+        after = 'nvim-treesitter',
+    }
+
+    -- temp, for coorscheme tweaking
+    -- use 'nvim-treesitter/playground'
+
     use 'mfussenegger/nvim-dap'
     -- Rust Lang : these two replace lsoconfig's native support for rust..
     -- Rust Lang Debugging
@@ -178,7 +193,7 @@ return require('packer').startup(function()
         'simrat39/rust-tools.nvim',
         config = [[require'plugin_config.rust-tools']]
     }
-    
+
     -- AspectC++ highlighting
     use 'shrik3/vim-aspectcpp'
 
@@ -195,12 +210,12 @@ return require('packer').startup(function()
 
     -- git
     use {
-      'lewis6991/gitsigns.nvim',
-      config = function()
-        require('gitsigns').setup()
-      end
+        'lewis6991/gitsigns.nvim',
+        config = function()
+            require('gitsigns').setup()
+        end
     }
-    
+
     -- latex / markdown
     -- well latex and markdown are not 'programming'
     -- but let them just sit here..
@@ -219,7 +234,7 @@ return require('packer').startup(function()
     }
     vim.g.livepreview_previewer = 'zathura'
     vim.g.livepreview_use_biber = 1
-    
+
     -- vim-markdown , for markdown editing--
     use 'plasticboy/vim-markdown'
     vim.g.vim_markdown_math = 1
@@ -234,10 +249,48 @@ return require('packer').startup(function()
         config = [[require'plugin_config.markdown-preview']]
     })
 
+    ---- MISC----------------------
+    -- Which-key , trying..
+    use {
+        'folke/which-key.nvim',
+        config = function()
+            require('which-key').setup {}
+        end,
+        event = 'BufReadPost',
+    }
+
+    -- web...
+    -- use {
+    --     'glacambre/firenvim',
+    --     run = function() vim.fn['firenvim#install'](0) end 
+    -- }
+    use '/yuratomo/w3m.vim'
+
+    -- sync plugins for fresh setup
+    if is_bootstrap then
+        require('packer').sync()
+    end
 end)
 
--- additional configs for nvim-cmp related..
+
+-- When we are bootstrapping a configuration, it doesn't
+-- make sense to execute the rest of the init.lua.
 --
---
---
+-- You'll need to restart nvim, and then it will work.
+if is_bootstrap then
+    print '=================================='
+    print '    Plugins are being installed'
+    print '    Wait until Packer completes,'
+    print '       then restart nvim'
+    print '=================================='
+    return
+end
+
+-- Automatically source and re-compile packer whenever you save this init.lua
+local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
+vim.api.nvim_create_autocmd('BufWritePost', {
+    command = 'source <afile> | PackerCompile',
+    group = packer_group,
+    pattern = vim.fn.expand '$MYVIMRC',
+})
 
