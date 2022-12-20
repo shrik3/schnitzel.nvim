@@ -95,6 +95,13 @@ require('packer').startup(function(use)
 
     -- split VeryLongWords for easier w nav
     use 'chaoren/vim-wordmotion'
+    -- undo tree  
+    use {
+        'mbbill/undotree',
+        config = function()
+            vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+        end
+    }
 -- +----------------------------------------------------------+
 -- |                  MISC                                    |
 -- +----------------------------------------------------------+
@@ -148,6 +155,7 @@ require('packer').startup(function(use)
         'neovim/nvim-lspconfig',
         config=[[require'plugin_config.lspconfig']]
     }
+    -- use 'ray-x/lsp_signature.nvim'
     -- lspSaga provides better UI for the LSP.
     use({
         "glepnir/lspsaga.nvim",

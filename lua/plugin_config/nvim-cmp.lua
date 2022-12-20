@@ -1,3 +1,9 @@
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+keymap("i", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("s", "<C-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", opts)
+keymap("i", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
+keymap("s", "<C-k>", "<cmd>lua require'luasnip'.jump(-1)<CR>", opts)
 -- Set up nvim-cmp.
 local has_words_before = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
@@ -6,7 +12,7 @@ end
 local cmp = require'cmp'
 local luasnip = require'luasnip'
 cmp.setup({
-    completion = { completeopt = 'menu,menuone,noinsert' },
+    -- completion = { completeopt = 'menu,menuone,noselect' },
     sorting = {
         comparators = {
 
@@ -65,13 +71,12 @@ cmp.setup({
         ['<CR>'] = cmp.mapping.confirm({ select = false }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
     }),
     sources = cmp.config.sources({
+        { name = 'nvim_lsp_signature_help' },
         { name = 'nvim_lsp' },
-        { name = 'luasnip' }, -- For luasnip users.
-        -- { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
-    }, {
-        { name = 'buffer' },
+        { name = 'luasnip' },
+        { name = 'nvim_lua' },
         { name = 'path' },
+        { name = 'buffer', keyword_length = 3 },
     })
 })
 
@@ -85,12 +90,12 @@ cmp.setup.filetype('gitcommit', {
 })
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
-cmp.setup.cmdline({ '/', '?' }, {
-    mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-        { name = 'buffer' }
-    }
-})
+-- cmp.setup.cmdline({ '/', '?' }, {
+--     mapping = cmp.mapping.preset.cmdline(),
+--     sources = {
+--         { name = 'buffer' }
+--     }
+-- })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
