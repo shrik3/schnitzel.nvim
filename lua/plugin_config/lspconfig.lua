@@ -19,7 +19,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     -- Displays hover information about the symbol under the cursor
     bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
     
-    bufmap("n","<leader>o", "<cmd>LSoutlineToggle<CR>",{ silent = true })
+    bufmap("n","<leader>o", "<cmd>Lspsaga outline<CR>",{ silent = true })
 
     -- Show line diagnostics
     bufmap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
@@ -74,53 +74,30 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities() -- nvim-cmp
+local servers = { 'clangd', 'pyright', 'texlab' }
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+for _, lsp in ipairs(servers) do
+  require('lspconfig')[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
 
--- require 'lspconfig'.ccls.setup {
---     capabilities = capabilities; -- nvim-cmp
---     cache = {
---         directory = "/tmp/ccls-cache";
---     };
---     autostart = true;
---     init_options = {
---     compilationDatabaseDirectory = "build";
---     index = {
---       threads = 0;
---     };
---     clang = {
---       excludeArgs = { "-frounding-math"} ;
---     };
---   }
--- }
--- require'lspconfig'.rust_analyzer.setup{}  -- Managed by rust-tools
 require'lspconfig'.jedi_language_server.setup{
     capabilities = capabilities -- nvim-cmp
 }
 
-require'lspconfig'.texlab.setup{}
-require 'lspconfig'.clangd.setup{}
---
+require'lspconfig'.texlab.setup{
+    capabilities = capabilities -- nvim-cmp
+}
+require 'lspconfig'.clangd.setup{
+    capabilities = capabilities -- nvim-cmp
+}
 
--- lua
--- require'lspconfig'.sumneko_lua.setup {
---   settings = {
---     Lua = {
---       runtime = {
---         -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
---         version = 'LuaJIT',
---       },
---       diagnostics = {
---         -- Get the language server to recognize the `vim` global
---         globals = {'vim'},
---       },
---       workspace = {
---         -- Make the server aware of Neovim runtime files
---         library = vim.api.nvim_get_runtime_file("", true),
---       },
---       -- Do not send telemetry data containing a randomized but unique identifier
---       telemetry = {
---         enable = false,
---       },
---     },
---   },
--- }
+require("rust-tools").setup({
+	server = {
+		capabilities = capabilities,
+		on_attach = on_attach,
+	}
+})

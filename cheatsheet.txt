@@ -33,6 +33,8 @@ gr
 <F4>            Code Action
 <leader>ca
 
+(completion snips) C-J, C-K jump to next/prev parameter
+
 |------------ New habbits ........... -----------------|
 \------------------------------------------------------/
 ZZ		Close a window (exit if close the last)
