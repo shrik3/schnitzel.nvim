@@ -74,7 +74,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
 -- Set up lspconfig.
-local servers = { 'clangd', 'pyright', 'texlab' }
+-- local servers = { 'clangd', 'pyright', 'texlab' , 'rust_analyzer'}
+local servers = { 'clangd', 'pyright', 'texlab'}
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 for _, lsp in ipairs(servers) do
@@ -95,9 +96,9 @@ require 'lspconfig'.clangd.setup{
     capabilities = capabilities -- nvim-cmp
 }
 
-require("rust-tools").setup({
-	server = {
-		capabilities = capabilities,
-		on_attach = on_attach,
-	}
-})
+-- require("rust-tools").setup({
+-- 	server = {
+-- 		capabilities = capabilities,
+-- 		on_attach = on_attach,
+-- 	}
+-- })
