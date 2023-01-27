@@ -13,6 +13,9 @@ let g:startify_lists = [
 
 let g:startify_bookmarks = [ '~/docs/WHK/',
                             \'~/.config/nvim/',
+                            \'~/tracker.txt',
+                            \'~/notes',
+                            \'~/Vocabulary.txt',
                           \]
 
 let g:startify_custom_header = [
