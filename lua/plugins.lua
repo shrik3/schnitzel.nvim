@@ -161,10 +161,7 @@ require('packer').startup(function(use)
         "glepnir/lspsaga.nvim",
         branch = "main",
         config = function()
-            local saga = require("lspsaga")
-            saga.init_lsp_saga({
-                -- config
-            })
+            require('lspsaga').setup({})
         end,
     })
 
@@ -272,7 +269,7 @@ require('packer').startup(function(use)
     --     'glacambre/firenvim',
     --     run = function() vim.fn['firenvim#install'](0) end 
     -- }
-    use '/yuratomo/w3m.vim'
+    -- use '/yuratomo/w3m.vim'
 
     -- sync plugins for fresh setup
     if is_bootstrap then
