@@ -85,20 +85,3 @@ for _, lsp in ipairs(servers) do
   }
 end
 
-require'lspconfig'.jedi_language_server.setup{
-    capabilities = capabilities -- nvim-cmp
-}
-
-require'lspconfig'.texlab.setup{
-    capabilities = capabilities -- nvim-cmp
-}
-require 'lspconfig'.clangd.setup{
-    capabilities = capabilities -- nvim-cmp
-}
-
--- require("rust-tools").setup({
--- 	server = {
--- 		capabilities = capabilities,
--- 		on_attach = on_attach,
--- 	}
--- })
