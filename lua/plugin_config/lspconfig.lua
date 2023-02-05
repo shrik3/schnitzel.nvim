@@ -74,6 +74,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 
 -- Set up lspconfig.
+-- rust_analyzer is configured by rust_tools, don't add it here!
 -- local servers = { 'clangd', 'pyright', 'texlab' , 'rust_analyzer'}
 local servers = { 'clangd', 'pyright', 'texlab'}
 local capabilities = vim.lsp.protocol.make_client_capabilities()

@@ -111,15 +111,8 @@ require('packer').startup(function(use)
         config = [[require('plugin_config.neovim-session-manager')]]
     }
     
-    -- manage marks, but this plugin kinda suffers from bugs, 
-    -- disable for noe
-    -- use 'chentoast/marks.nvim'
-    -- require 'plugin_config.marks'
-
     -- measures the startup time for optimization
     use 'tweekmonster/startuptime.vim'
-    -- wakatime for statistics, need to initialize token for fresh install
-    -- use 'wakatime/vim-wakatime'
 
 -- +----------------------------------------------------------+
 -- |                  COMPLETION                              |
@@ -261,13 +254,6 @@ require('packer').startup(function(use)
         end,
         event = 'BufReadPost',
     }
-
-    -- web...
-    -- use {
-    --     'glacambre/firenvim',
-    --     run = function() vim.fn['firenvim#install'](0) end 
-    -- }
-    -- use '/yuratomo/w3m.vim'
 
     -- sync plugins for fresh setup
     if is_bootstrap then
