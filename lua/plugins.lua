@@ -160,9 +160,7 @@ require('packer').startup(function(use)
     use({
         "glepnir/lspsaga.nvim",
         branch = "main",
-        config = function()
-            require('lspsaga').setup({})
-        end,
+        config = [[require'plugin_config.lspsaga']]
     })
 
     -- lsp status on the status line
