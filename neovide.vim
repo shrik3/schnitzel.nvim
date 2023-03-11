@@ -1,9 +1,9 @@
-let s:guifontsize=12
+let s:guifontsize=10
 " let s:guifont="Source\\ Code\\ Pro"
 " set guifont=Source\ Code\ Pro:h13
 
 let s:guifont="Fira\\ Code"
-set guifont=Fira\ Code:h12
+set guifont=Fira\ Code:h10:l
 
 let g:neovide_refresh_rate=60
 " let g:neovide_transparency=0.8
@@ -16,7 +16,7 @@ let g:neovide_cursor_vfx_mode = "ripple"
 let g:neovide_cursor_vfx_opacity=200.0
 
 " disable the animation 
-let g:neovide_cursor_animation_length=0 
+let g:neovide_cursor_animation_length=0
 let g:neovide_cursor_trail_length=0
 
 " let g:neovide_cursor_vfx_particle_lifetime=1.2
