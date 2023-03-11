@@ -27,7 +27,6 @@ require("lspsaga").setup({
         split = "<C-c>i",
         tabe = "<C-c>t",
         quit = "q",
-        close = "<Esc>",
     }
 
 })
