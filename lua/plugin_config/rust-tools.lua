@@ -4,7 +4,10 @@ rt.setup({
   server = {
     settings = {
       ["rust-analyzer"] = {
-        inlayHints = { locationLinks = false },
+        inlayHints = { 
+            auto = false,
+            locationLinks = false 
+        },
       },
     },
   },
