@@ -30,7 +30,9 @@ end
 vim.cmd [[
     syntax on
     colorscheme vision
-    autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
+    " autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
+    highlight VertSplit guibg=NONE
+    highlight VertSplit ctermbg=NONE
 ]]
 
 -- Editor (looks) ------------------------------------
