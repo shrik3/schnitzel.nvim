@@ -33,6 +33,8 @@ au BufRead,BufNewFile *.pv setfiletype proverif
 au FileType markdown set tw=80
 au FileType text set tw=80
 au FileType latex set tw=80
+" use tab indentation for some languages
+au FileType c,cpp,python,rust set noet
 
 " return to last edit pos.
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
