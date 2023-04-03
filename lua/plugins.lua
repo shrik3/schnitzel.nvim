@@ -74,6 +74,13 @@ require('packer').startup(function(use)
         end
     } 
 
+    -- tmux integration
+    -- use({
+    --     "aserowy/tmux.nvim",
+    --     -- TODO put the config in seperate file, if needed
+    --     config = [[require('plugin_config/tmux')]]
+    -- })
+
 -- +----------------------------------------------------------+
 -- |                  EDITING AND FUNCTIONALITIES             |
 -- +----------------------------------------------------------+
@@ -158,31 +165,32 @@ require('packer').startup(function(use)
 
     -- lsp status on the status line
     use 'arkav/lualine-lsp-progress'
-
+    
+    -- disable treesitter because the performance is underwhelming
     -- treesitter does the tree sitting,
     -- better highlighting and ... 
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        requires = {
-            'nvim-treesitter/nvim-treesitter-refactor',
-            'RRethy/nvim-treesitter-textsubjects',
-        },
-        run = function()
-            local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-            ts_update()
-        end,
-        config = [[require'plugin_config.nvim-treesitter']]
-    }
-
-    use { -- Additional text objects via treesitter
-        'nvim-treesitter/nvim-treesitter-textobjects',
-        after = 'nvim-treesitter',
-    }
+    -- use {
+    --     'nvim-treesitter/nvim-treesitter',
+    --     requires = {
+    --         'nvim-treesitter/nvim-treesitter-refactor',
+    --         'RRethy/nvim-treesitter-textsubjects',
+    --     },
+    --     run = function()
+    --         local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+    --         ts_update()
+    --     end,
+    --     config = [[require'plugin_config.nvim-treesitter']]
+    -- }
+    --
+    -- use { -- Additional text objects via treesitter
+    --     'nvim-treesitter/nvim-treesitter-textobjects',
+    --     after = 'nvim-treesitter',
+    -- }
 
     -- temp, for coorscheme tweaking
     -- use 'nvim-treesitter/playground'
 
-    use 'mfussenegger/nvim-dap'
+    -- use 'mfussenegger/nvim-dap'
     -- Rust Lang : these two replace lsoconfig's native support for rust..
     -- Rust Lang Debugging
     use {
@@ -228,7 +236,7 @@ require('packer').startup(function(use)
         'xuhdev/vim-latex-live-preview',
         ft = {'tex'},
     }
-    vim.g.livepreview_previewer = 'zathura'
+    vim.g.livepreview_previewer = 'okular'
     vim.g.livepreview_use_biber = 1
 
     -- vim-markdown , for markdown editing--
