@@ -46,7 +46,9 @@ require('packer').startup(function(use)
     }
 
     -- Looks
-    use 'shrik3/vision.nvim'
+    use {
+        'shrik3/vision.nvim',
+    }
  
     -- as the name suggests, scroll available color themes
     use 'vim-scripts/ScrollColors'
@@ -126,25 +128,24 @@ require('packer').startup(function(use)
 -- +----------------------------------------------------------+
     -- nvim-cmp family
     use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  use {
-    'hrsh7th/nvim-cmp',
-    requires = {
-      { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
-      'hrsh7th/cmp-nvim-lsp',
-      'onsails/lspkind.nvim',
-      { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
-      { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
-      'lukas-reineke/cmp-under-comparator',
-      { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
-      { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
-    },
-    config = [[require('plugin_config.nvim-cmp')]],
-    event = 'InsertEnter',
-    wants = 'LuaSnip',
-  }
-
+    use {
+        'hrsh7th/nvim-cmp',
+        requires = {
+            { 'hrsh7th/cmp-buffer', after = 'nvim-cmp' },
+            'hrsh7th/cmp-nvim-lsp',
+            'onsails/lspkind.nvim',
+            { 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' },
+            { 'hrsh7th/cmp-path', after = 'nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' },
+            { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' },
+            'lukas-reineke/cmp-under-comparator',
+            { 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' },
+            { 'hrsh7th/cmp-nvim-lsp-document-symbol', after = 'nvim-cmp' },
+        },
+        config = [[require('plugin_config.nvim-cmp')]],
+        event = 'InsertEnter',
+        wants = 'LuaSnip',
+    }
 
 -- +----------------------------------------------------------+
 -- |                  PROGRAMMING                             |
