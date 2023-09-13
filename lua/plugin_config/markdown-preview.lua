@@ -6,6 +6,7 @@ let g:mkdp_browser = 'vimb'
 let g:mkdp_open_ip = '127.0.0.1'
 let g:mkdp_port = 6789
 let g:mkdp_refresh_slow = 1
+let g:mkdp_theme = 'light'
 let g:mkdp_preview_options = {
     \ 'mkit': {},
     \ 'katex': {},

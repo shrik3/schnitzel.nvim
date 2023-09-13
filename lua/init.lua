@@ -119,6 +119,10 @@ noremap <A-]> }
 noremap <A-[> {
 ]]
 
+-- quirks
+vim.keymap.set('v', '<C-B>', ':!boxes -d stone <cr>')
+vim.keymap.set('v', '<C-S-B>', ':!boxes -d stone -r <cr>')
+
 -- nav. panels
 vim.keymap.set('n', '<C-J>', '<C-W><C-J>')
 vim.keymap.set('n', '<C-K>', '<C-W><C-K>')

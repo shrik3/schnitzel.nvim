@@ -34,6 +34,10 @@ require("telescope").setup {
   }
 }
 
+
+-- this replaces lspsaga
+require("telescope").load_extension("lsp_handlers")
+
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {desc = 'find files'})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = 'live grep'})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = 'Find existing buffers'})

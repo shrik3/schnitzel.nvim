@@ -95,6 +95,11 @@ require('packer').startup(function(use)
     -- displays color for HEX color code
     use 'ap/vim-css-color'
 
+    -- replaces lspsaga
+    use {
+        "gbrlsnchs/telescope-lsp-handlers.nvim"
+    } 
+
     --- telescope fzf
     use {
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
@@ -156,18 +161,22 @@ require('packer').startup(function(use)
         'neovim/nvim-lspconfig',
         config=[[require'plugin_config.lspconfig']]
     }
+    
+
     -- use 'ray-x/lsp_signature.nvim'
+    -- with all the love for lspsaga, I'm stopping using it because 
+    -- this plugin is constantly breaking with neovim updates.
     -- lspSaga provides better UI for the LSP.
-    use({
-        "glepnir/lspsaga.nvim",
-        branch = "main",
-        requires = {
-            {"nvim-tree/nvim-web-devicons"},
-            --Please make sure you install markdown and markdown_inline parser
-            {"nvim-treesitter/nvim-treesitter"}
-        },
-        config = [[require'plugin_config.lspsaga']]
-    })
+    -- use({
+    --     "glepnir/lspsaga.nvim",
+    --     branch = "main",
+    --     requires = {
+    --         {"nvim-tree/nvim-web-devicons"},
+    --         --Please make sure you install markdown and markdown_inline parser
+    --         {"nvim-treesitter/nvim-treesitter"}
+    --     },
+    --     config = [[require'plugin_config.lspsaga']]
+    -- })
 
     -- lsp status on the status line
     use 'arkav/lualine-lsp-progress'
@@ -199,10 +208,10 @@ require('packer').startup(function(use)
     -- use 'mfussenegger/nvim-dap'
     -- Rust Lang : these two replace lsoconfig's native support for rust..
     -- Rust Lang Debugging
-    use {
-        'simrat39/rust-tools.nvim',
-        config = [[require'plugin_config.rust-tools']]
-    }
+    -- use {
+    --     'simrat39/rust-tools.nvim',
+    --     config = [[require'plugin_config.rust-tools']]
+    -- }
 
     -- AspectC++ highlighting
     use 'shrik3/vim-aspectcpp'

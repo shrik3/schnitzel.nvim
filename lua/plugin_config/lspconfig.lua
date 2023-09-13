@@ -12,63 +12,52 @@ vim.api.nvim_create_autocmd('LspAttach', {
       local opts = {buffer = true}
       vim.keymap.set(mode, lhs, rhs, opts)
     end
-   
-    -- LSP SAGA
-    bufmap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-
+    
+    -- Use telescope extension for LSP
+    bufmap('n', '<leader>gh', '<cmd>lua vim.lsp.buf.references()<cr>')
     -- Displays hover information about the symbol under the cursor
     bufmap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<cr>')
-    
-    bufmap("n","<leader>o", "<cmd>Lspsaga outline<CR>",{ silent = true })
-
-    -- Show line diagnostics
-    bufmap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
-
-    -- Show cursor diagnostic
-    bufmap("n", "gl", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
     -- Lists all the implementations for the symbol under the cursor
     bufmap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<cr>')
-
-    -- Jump to the definition
-    -- bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
-    bufmap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-    bufmap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-
     -- Jump to declaration
     bufmap('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<cr>')
-
-
+    -- Jump to defs
+    bufmap('n', 'gd', '<cmd> lua vim.lsp.buf.definition()<cr>')
     -- Jumps to the definition of the type symbol
     bufmap('n', 'go', '<cmd>lua vim.lsp.buf.type_definition()<cr>')
-
-    -- Lists all the references 
-    -- replaced by Lspsaga lsp_finder
-    -- bufmap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<cr>')
-
-    -- Displays a function's signature information
-    -- replaced by Lspsaga hover_doc
-    -- bufmap('n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
-
-    -- Renames all references to the symbol under the cursor
-    -- bufmap('n', '<F2>', '<cmd>lua vim.lsp.buf.rename()<cr>')
-    bufmap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
-    bufmap("n", "<F2>", "<cmd>Lspsaga rename<CR>", { silent = true })
-
-    -- Selects a code action available at the current cursor position
-    -- bufmap('n', '<F4>', '<cmd>lua vim.lsp.buf.code_action()<cr>')
-    -- bufmap('x', '<F4>', '<cmd>lua vim.lsp.buf.range_code_action()<cr>')
-    bufmap({"n","v"}, "<F4>", "<cmd>Lspsaga code_action<CR>", { silent = true })
-    bufmap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-    
-
     -- Show diagnostics in a floating window
     bufmap('n', 'gL', '<cmd>lua vim.diagnostic.setloclist()<cr>')
-
     -- Move to the previous diagnostic
     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
-
     -- Move to the next diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
+    
+    bufmap('n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
+
+    bufmap({"n","v"}, "<F4>", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
+    bufmap({"n","v"}, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
+
+    bufmap("n", "<F2>", "<cmd> lua vim.lsp.buf.rename()<CR>", { silent = true })
+
+
+    -- LSP SAGA ver.
+    -- bufmap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+    -- bufmap("n","<leader>o", "<cmd>Lspsaga outline<CR>",{ silent = true })
+    -- -- Show line diagnostics
+    -- bufmap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+    -- -- Show cursor diagnostic
+    -- bufmap("n", "gl", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+    -- -- Jump to the definition
+    -- -- bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+    -- bufmap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+    -- bufmap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+    -- bufmap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+    -- bufmap("n", "<F2>", "<cmd>Lspsaga rename<CR>", { silent = true })
+    -- -- Selects a code action available at the current cursor position
+    -- bufmap({"n","v"}, "<F4>", "<cmd>Lspsaga code_action<CR>", { silent = true })
+    -- bufmap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+    -- END LSP SAGA ver.
+
   end
 })
 
