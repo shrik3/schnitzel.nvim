@@ -29,7 +29,7 @@ end
 
 vim.cmd [[
     syntax on
-    colorscheme vision
+    colorscheme alabaster
     " autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
     highlight VertSplit guibg=NONE
     highlight VertSplit ctermbg=NONE
