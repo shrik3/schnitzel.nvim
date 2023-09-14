@@ -51,7 +51,7 @@ require('packer').startup(function(use)
     }
     
     use {
-        'shrik3f/alabaster.nvim',
+        'shrik3/alabaster.nvim',
     }
  
     -- as the name suggests, scroll available color themes
