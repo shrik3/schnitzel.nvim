@@ -47,10 +47,6 @@ require('packer').startup(function(use)
 
     -- Looks
     use {
-        'shrik3/vision.nvim',
-    }
-    
-    use {
         'shrik3/alabaster.nvim',
     }
  
@@ -80,12 +76,6 @@ require('packer').startup(function(use)
         end
     } 
 
-    -- tmux integration
-    -- use({
-    --     "aserowy/tmux.nvim",
-    --     -- TODO put the config in seperate file, if needed
-    --     config = [[require('plugin_config/tmux')]]
-    -- })
 
 -- +----------------------------------------------------------+
 -- |                  EDITING AND FUNCTIONALITIES             |
@@ -167,55 +157,16 @@ require('packer').startup(function(use)
     }
     
 
-    -- use 'ray-x/lsp_signature.nvim'
-    -- with all the love for lspsaga, I'm stopping using it because 
-    -- this plugin is constantly breaking with neovim updates.
-    -- lspSaga provides better UI for the LSP.
-    -- use({
-    --     "glepnir/lspsaga.nvim",
-    --     branch = "main",
-    --     requires = {
-    --         {"nvim-tree/nvim-web-devicons"},
-    --         --Please make sure you install markdown and markdown_inline parser
-    --         {"nvim-treesitter/nvim-treesitter"}
-    --     },
-    --     config = [[require'plugin_config.lspsaga']]
-    -- })
 
     -- lsp status on the status line
     use 'arkav/lualine-lsp-progress'
     
-    -- disable treesitter because the performance is underwhelming
-    -- treesitter does the tree sitting,
-    -- better highlighting and ... 
-    -- use {
-    --     'nvim-treesitter/nvim-treesitter',
-    --     requires = {
-    --         'nvim-treesitter/nvim-treesitter-refactor',
-    --         'RRethy/nvim-treesitter-textsubjects',
-    --     },
-    --     run = function()
-    --         local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
-    --         ts_update()
-    --     end,
-    --     config = [[require'plugin_config.nvim-treesitter']]
-    -- }
-    --
-    -- use { -- Additional text objects via treesitter
-    --     'nvim-treesitter/nvim-treesitter-textobjects',
-    --     after = 'nvim-treesitter',
-    -- }
-
-    -- temp, for coorscheme tweaking
-    -- use 'nvim-treesitter/playground'
-
-    -- use 'mfussenegger/nvim-dap'
     -- Rust Lang : these two replace lsoconfig's native support for rust..
     -- Rust Lang Debugging
-    -- use {
-    --     'simrat39/rust-tools.nvim',
-    --     config = [[require'plugin_config.rust-tools']]
-    -- }
+    use {
+        'simrat39/rust-tools.nvim',
+        config = [[require'plugin_config.rust-tools']]
+    }
 
     -- AspectC++ highlighting
     use 'shrik3/vim-aspectcpp'
