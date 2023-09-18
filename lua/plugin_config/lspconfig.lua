@@ -31,42 +31,18 @@ vim.api.nvim_create_autocmd('LspAttach', {
     bufmap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<cr>')
     -- Move to the next diagnostic
     bufmap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<cr>')
-    
-    bufmap('n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
 
+    bufmap('n', '<leader>gs', '<cmd>lua vim.lsp.buf.signature_help()<cr>')
     bufmap({"n","v"}, "<F4>", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
     bufmap({"n","v"}, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
-
     bufmap("n", "<F2>", "<cmd> lua vim.lsp.buf.rename()<CR>", { silent = true })
-
-
-    -- LSP SAGA ver.
-    -- bufmap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-    -- bufmap("n","<leader>o", "<cmd>Lspsaga outline<CR>",{ silent = true })
-    -- -- Show line diagnostics
-    -- bufmap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
-    -- -- Show cursor diagnostic
-    -- bufmap("n", "gl", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
-    -- -- Jump to the definition
-    -- -- bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
-    -- bufmap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
-    -- bufmap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
-    -- bufmap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
-    -- bufmap("n", "<F2>", "<cmd>Lspsaga rename<CR>", { silent = true })
-    -- -- Selects a code action available at the current cursor position
-    -- bufmap({"n","v"}, "<F4>", "<cmd>Lspsaga code_action<CR>", { silent = true })
-    -- bufmap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
-    -- END LSP SAGA ver.
 
   end
 })
 
-
 -- Set up lspconfig.
 -- rust_analyzer is configured by rust_tools, don't add it here!
--- local servers = { 'clangd', 'pyright', 'texlab' , 'rust_analyzer'}
 local servers = { 'clangd', 'jedi_language_server', 'texlab', 'cmake', 'bashls' }
--- local servers = { 'jedi_language_server', 'texlab', 'cmake', 'bashls' }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 for _, lsp in ipairs(servers) do

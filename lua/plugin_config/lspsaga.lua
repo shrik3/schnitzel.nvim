@@ -1,3 +1,5 @@
+-- LSPSAGE is replaced by telescope's lsphandler.
+
 require("lspsaga").setup({
     -- NOTE: the keymaps are defined in lspconfig.lua, because these keymaps 
     -- should only work when a language serve is attached. 

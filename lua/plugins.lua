@@ -113,12 +113,6 @@ require('packer').startup(function(use)
 -- +----------------------------------------------------------+
 -- |                  MISC                                    |
 -- +----------------------------------------------------------+
-    -- session manager:
-    use {
-        'Shatur/neovim-session-manager',
-        config = [[require('plugin_config.neovim-session-manager')]]
-    }
-    
     -- measures the startup time for optimization
     use 'tweekmonster/startuptime.vim'
 
@@ -156,8 +150,6 @@ require('packer').startup(function(use)
         config=[[require'plugin_config.lspconfig']]
     }
     
-
-
     -- lsp status on the status line
     use 'arkav/lualine-lsp-progress'
     
@@ -176,7 +168,8 @@ require('packer').startup(function(use)
     vim.keymap.set('n', '<F3>', ':Autoformat<CR>')
     -- yet another one
     use 'rhysd/vim-clang-format'
-
+    
+    -- toggle comments
     use {
         'numToStr/Comment.nvim',
         config = [[require'plugin_config.comment']]
@@ -224,7 +217,7 @@ require('packer').startup(function(use)
     })
 
     ---- MISC----------------------
-    -- Which-key , trying..
+    -- Which-key :show help tips for keymappings
     use {
         'folke/which-key.nvim',
         config = function()

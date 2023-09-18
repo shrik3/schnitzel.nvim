@@ -67,3 +67,25 @@ use { -- Additional text objects via treesitter
 
 # temp, for coorscheme tweaking
 use 'nvim-treesitter/playground'
+
+
+
+# configs/keymaps for lspsaga
+
+-- LSP SAGA ver.
+-- bufmap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+-- bufmap("n","<leader>o", "<cmd>Lspsaga outline<CR>",{ silent = true })
+-- -- Show line diagnostics
+-- bufmap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+-- -- Show cursor diagnostic
+-- bufmap("n", "gl", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+-- -- Jump to the definition
+-- -- bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+-- bufmap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+-- bufmap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+-- bufmap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+-- bufmap("n", "<F2>", "<cmd>Lspsaga rename<CR>", { silent = true })
+-- -- Selects a code action available at the current cursor position
+-- bufmap({"n","v"}, "<F4>", "<cmd>Lspsaga code_action<CR>", { silent = true })
+-- bufmap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+-- END LSP SAGA ver.
