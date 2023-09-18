@@ -1,6 +1,11 @@
 
 Note that some plugins may require manual setup.
 
+# NOTE
+
+This config has been reworked to use lazy.nvim.   This readme needs update.
+
+
 # What is
 schnitzel.nvim is my personal IDE-like neovim configuration. 
 ![preview](https://github.com/shrik3/schnitzel.nvim/blob/master/preview.png)

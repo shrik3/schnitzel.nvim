@@ -4,13 +4,6 @@ lua << EOF
     require"init"
 EOF
 
-" -- Legacy Plugins(managed by vim Plug)----------------
-" -- ---------------------------------------------------
-" if you want to use a vim script based plugin manager
-" e.g. vim-Plug, uncomment the following line and add
-" your plugin configs there.
-" source ~/.config/nvim/legacy/plugins.vim
-
 " -- Custom Scripts(that are tricky in lua)-------------
 " -- ---------------------------------------------------
 source ~/.config/nvim/legacy/scripts.vim

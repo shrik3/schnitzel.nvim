@@ -1,0 +1,18 @@
+local M = {
+    'author/plugin',
+    dependencies = {
+        'author/plugindep'
+    },
+}
+
+M.config = function()
+
+    -- configs
+
+    require("plugin").setup({
+
+        })
+
+end
+
+return M

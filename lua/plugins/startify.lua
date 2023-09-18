@@ -1,3 +1,10 @@
+
+-- start screen
+local M = {
+    'mhinz/vim-startify',
+}
+
+M.config = function() 
 vim.cmd[[
 
 "" Startify, package is managed by Packer, but configed in vimscript
@@ -31,3 +38,6 @@ let g:startify_custom_header = [
             \]
 
 ]]
+end
+
+return M

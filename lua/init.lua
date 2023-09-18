@@ -8,8 +8,8 @@ vim.keymap.set('n', '<SPACE>', '<NOP>')
 
 -- Load Modules (plugins, Scripts etc.) --------------
 -- ---------------------------------------------------
-require "plugins"
-require "scripts"
+require "lazy_plugins"
+-- require "scripts"
 
 -- Other Parameters ----------------------------------
 -- ---------------------------------------------------
