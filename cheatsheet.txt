@@ -181,7 +181,7 @@ RESIZE SPLITES:
 :ls             showbuffer
 :b[n]           switch to buffer [n]
 <A-TAB>         :bn    [custom mapping]
-
+<leader>bg 	git status with neotree
 
 |------------ Search / Replace.------------------------|
 \------------------------------------------------------/

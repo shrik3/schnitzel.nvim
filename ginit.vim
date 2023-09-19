@@ -1,6 +1,6 @@
-:GuiFont Fira Code:h14:l
+" :GuiFont Fira Code:h14:l
 " :GuiFont Source Code Pro:h14:l
-:GuiTabline 0
+" :GuiTabline 0
 
 let s:fontsize = 12
 let s:minsize = 6
