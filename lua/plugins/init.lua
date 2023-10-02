@@ -8,6 +8,10 @@ return {
 --
     -- Looks
     'shrik3/alabaster.nvim',
+    
+    -- A collection of base16 colors.
+    -- would work better in pure tty
+    'Soares/base16.nvim',
  
     -- as the name suggests, scroll available color themes
     'vim-scripts/ScrollColors',
@@ -44,19 +48,13 @@ return {
 -- |                  MISC                                    |
 -- +----------------------------------------------------------+
     -- measures the startup time for optimization
-    'tweekmonster/startuptime.vim',
+    -- Replaced by lazy's builtin
+    -- 'tweekmonster/startuptime.vim',
 
 -- +----------------------------------------------------------+
 -- |                  COMPLETION                              |
 -- +----------------------------------------------------------+
     -- see plugins/nvim-cmp
-    {
-        "L3MON4D3/LuaSnip",
-        -- follow latest release.
-        version = "2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
-        -- install jsregexp (optional!).
-        build = "make install_jsregexp"
-    },
 
 -- +----------------------------------------------------------+
 -- |                  PROGRAMMING                             |
