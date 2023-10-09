@@ -34,7 +34,14 @@ return {
     -- completes the brackets
     'LunarWatcher/auto-pairs',
     -- displays color for HEX color code
-    'ap/vim-css-color',
+    -- 'ap/vim-css-color',
+    -- css-color replaced by nvim-colorizer
+    {
+        'NvChad/nvim-colorizer.lua',
+        config = function()
+        require 'colorizer'.setup()
+    end
+    },
     -- split VeryLongWords for easier w nav
     'chaoren/vim-wordmotion',
     -- undo tree  
