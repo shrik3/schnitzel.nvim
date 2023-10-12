@@ -9,7 +9,7 @@ vim.keymap.set('n', '<SPACE>', '<NOP>')
 -- Load Modules (plugins, Scripts etc.) --------------
 -- ---------------------------------------------------
 require "lazy_plugins"
--- require "scripts"
+require "hack"
 
 -- Other Parameters ----------------------------------
 -- ---------------------------------------------------
@@ -89,7 +89,7 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 -- linebreak / linewrap
 vim.opt.lbr = true
-vim.opt.tw = 500
+vim.opt.tw = 200
 vim.opt.wrap = true
 -- Search
 vim.opt.magic = true -- for regular exp.
@@ -119,9 +119,6 @@ noremap <A-]> }
 noremap <A-[> {
 ]]
 
--- quirks
-vim.keymap.set('v', '<C-B>', ':!boxes -d stone <cr>')
-vim.keymap.set('v', '<C-S-B>', ':!boxes -d stone -r <cr>')
 
 -- nav. panels
 vim.keymap.set('n', '<C-J>', '<C-W><C-J>')

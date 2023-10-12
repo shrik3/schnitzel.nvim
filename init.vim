@@ -22,15 +22,17 @@ endif
 " custom syntax for proverif
 au BufRead,BufNewFile *.pv setfiletype proverif
 
-autocmd BufNew,BufRead *.asm set ft=nasm
-autocmd BufNew,BufRead *.s set ft=nasm
-autocmd BufNew,BufRead *.S set ft=asm
+" autocmd BufNew,BufRead *.asm set ft=nasm
+" autocmd BufNew,BufRead *.s set ft=nasm
+" autocmd BufNew,BufRead *.S set ft=asm
 
 " filetype auto commands
-au FileType markdown set tw=80
-au FileType text set tw=80
-au FileType latex set tw=80
-" use tab indentation for some languages
+au FileType markdown,text,latex set tw=80
+au FileType c,cpp,asm,nasm set tw=80
+au FileType python set tw=120
+au FileType java set tw=400
+" force tab indentation for some languages
+au FileType make set noet
 au FileType nasm,ld,asm,c,cpp,python,rust set noet
 
 " return to last edit pos.
