@@ -8,8 +8,8 @@ vim.keymap.set('n', '<SPACE>', '<NOP>')
 
 -- Load Modules (plugins, Scripts etc.) --------------
 -- ---------------------------------------------------
-require "plugins"
-require "scripts"
+require "lazy_plugins"
+require "hack"
 
 -- Other Parameters ----------------------------------
 -- ---------------------------------------------------
@@ -29,8 +29,10 @@ end
 
 vim.cmd [[
     syntax on
-    colorscheme vision
-    autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
+    colorscheme alabaster
+    " autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
+    highlight VertSplit guibg=NONE
+    highlight VertSplit ctermbg=NONE
 ]]
 
 -- Editor (looks) ------------------------------------
@@ -87,7 +89,7 @@ vim.opt.shiftwidth = 4
 vim.opt.tabstop = 4
 -- linebreak / linewrap
 vim.opt.lbr = true
-vim.opt.tw = 500
+vim.opt.tw = 200
 vim.opt.wrap = true
 -- Search
 vim.opt.magic = true -- for regular exp.
@@ -116,6 +118,7 @@ vim.cmd [[
 noremap <A-]> }
 noremap <A-[> {
 ]]
+
 
 -- nav. panels
 vim.keymap.set('n', '<C-J>', '<C-W><C-J>')

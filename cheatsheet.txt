@@ -11,11 +11,6 @@ __||__  \___ \|  __  |  _  /  | | |  <  |__ <  __||__
 \------------------------------------------------------/
 K               Hover
 gd              Definition (peek)
-		  edit = '<C-c>o',
-		  vsplit = '<C-c>v',
-		  split = '<C-c>i',
-		  tabe = '<C-c>t',
-		  quit = 'q',
 gD              Declarations
 gi              Implementation
 go              type def
@@ -24,8 +19,8 @@ gl              diag. float (under cursor or line)
 gL              diag. current buffer
 [d , ]d         diag. prev. / next.
 C-K             help (manual)
-K		Hover Doc..
-<leader>o	outline
+K               Hover Doc..
+<leader>o       outline
 
 <F2>            Rename
 gr
@@ -35,34 +30,51 @@ gr
 
 (completion snips) C-J, C-K jump to next/prev parameter
 
-|------------ New habbits ........... -----------------|
+
+
+|------------ VCS (git integration).. -----------------|
 \------------------------------------------------------/
-ZZ		Close a window (exit if close the last)
-zz		mapped to :update
-C-S		mapped to :update
-:w		stop using :w
-[,]		use these instead of pressing down j/k
+From DiffView:
+:DiffviewOpen           toggle diffview
+:DiffviewFileHistory    toggle commit history
+
+Merge Tool: 
+Use Diffview during a (conflicted) merge.
+<leader>co      choose OURS
+<leader>ct      choose THEIRS
+<leader>cb      choose base
+<leader>ca      choose all version
+dx              choose none
 
 
 |------------ Something Fresh. telescope. -------------|
 \------------------------------------------------------/
-C-/		show helps
-<leader>fg	live grep 	[useful]
-<leader>ff	find files
-<leader>fb	find buffer
+C-/             show helps
+<leader>fg      live grep       [useful]
+<leader>ff      find files
+<leader>fb      find buffer
 <leader><leader>  
-     |  C-d   	delete buffer
-<leader>fh	help tags
-<leader>?	recent files
-[ESC]		toggle mode (input bar/ items)
-C-n/C-p		next/previous item
-C-x		goto, split
-C-v		goto, vsplit
-C-u/C-d		scroll up/down preview window
+     |  C-d     delete buffer
+<leader>fh      help tags
+<leader>?       recent files
+[ESC]           toggle mode (input bar/ items)
+C-n/C-p         next/previous item
+C-x             goto, split
+C-v             goto, vsplit
+C-u/C-d         scroll up/down preview window
 
-C-q		send (not filtered) items to quickfixlist
-M-q		send all to qflist
-		These two are helpful to keep track of things
+C-q             send (not filtered) items to quickfixlist
+M-q             send all to qflist
+                These two are helpful to keep track of things
+
+
+|------------ New habbits ........... -----------------|
+\------------------------------------------------------/
+ZZ              Close a window (exit if close the last)
+zz              mapped to :update
+C-S             mapped to :update
+:w              stop using :w
+[,]             use these instead of pressing down j/k
 
 |------------ Project managements ---------------------|
 \------------------------------------------------------/
@@ -168,6 +180,7 @@ gg / G ,        go to top / Bottom
 :res [n]        resize
 <C-W> c         close split
 <C-W> h/j/k/l   nav. splits
+<C-W> H/J/K/L 	move splits around
 <C-h><C-j>      same [custom mappings]
 <C-k><C-l>
 
@@ -181,7 +194,7 @@ RESIZE SPLITES:
 :ls             showbuffer
 :b[n]           switch to buffer [n]
 <A-TAB>         :bn    [custom mapping]
-
+<leader>bg      git status with neotree
 
 |------------ Search / Replace.------------------------|
 \------------------------------------------------------/

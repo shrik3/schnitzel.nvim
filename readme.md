@@ -1,35 +1,33 @@
-
 Note that some plugins may require manual setup.
+
+# NOTE
+The config has switched to lazy.nvim (previously using packer.nvim). The old
+packer-based config can still be found in the master branch but will no longer
+be maintained.
+
 
 # What is
 schnitzel.nvim is my personal IDE-like neovim configuration. 
-![preview](https://github.com/shrik3/schnitzel.nvim/blob/master/preview.png)
+![preview](https://github.com/shrik3/schnitzel.nvim/blob/lazy/preview.png)
 
-Please be aware, this is my personal daily drive, opt to my own workflow,
-instead of an out-of-the-box set up for everyone. Some of my friends love my
-setup so I'm making them public here.
+**Should I use it?**  
+probably not, because this is optimized to my own preference and workflow.
 
-This setup is for those who:
-- want a functional "IDE-like", yet blazing fast neovim.
-- want a well-structred and -documented config, that you can build your own
-  config on top of.
-- want to understand what the config is doing.
-- hate bloated configs.
-- **are willing to go through a little bit of pain** of learning and
-  troubleshotting.
+If you want a cleaner (and much likely better) starting point, checkout the
+[starter templetes out there](https://github.com/rockerBOO/awesome-neovim#starter-templates)
 
-If you find my set up hard to use or understand, [neovim-from-scratch](https://github.com/LunarVim/Neovim-from-scratch) 
-is a good starting point for you.
-
-
-# How to set up
+**What's it good for**  
+- it's minimal, ide-like and modular
+- it's a basic collection of plugins and configs that works out-of-the box for
+  most use cases
+- lua as first-class citizen but there's also room for the old good vimscript
 
 
 ## Prerequisites
-- make sure you have the newest neovim
-- make sure you have [Packer](https://github.com/wbthomason/packer.nvim) and (optionally)[Plug](https://github.com/junegunn/vim-plug) installed
+- neovim 0.9 + 
 - install a [nerd font](https://www.nerdfonts.com/)
 - install [ctags](https://github.com/universal-ctags/ctags) for plugin tagbar
+- this config doesn't use mason, i.e. you need to manually install lsp servers
 
 **Backup your old nvim configs**  
 e.g. `~/.config/nvim`
@@ -41,17 +39,9 @@ git clone https://github.com/shrik3/schnitzel.nvim.git ~/.config/nvim
 ```
 
 **Launch neovim**:  
-there will be tons of errors, don't worry, just ignore them, ignore them, ignore
-them.
+and let Lazy.nvim handle the plugins initialization for the first time. Then
+**restart neovim**. Should you run into troubles, try `:checkhealth lazy`.
 
-**Initialize all plugins**  
-- install Packer plugins: `:PackerSync` and `:PackerCompile`, also
-  `PackerInstall`
-- restart neovim
-
-**Don't expect things to work out-of-the-box**  
-Some plugins may need manual install, if you encounter errors, follow the info,
-locate the error prone plugin, and check their instructions.
 
 # How to use:
 First, check my cheatsheet.txt to get started.
@@ -96,38 +86,42 @@ To add a LSP server, edit `/lua/plugin_config/lspconfig.lua`.
 # How to customize
 First take a look at how the configs are organized in the following section.
 
-**To install a plugin**  
-- (recommended) name your plugin in `lua/plugins.lua` and if necessary, put its
-  config in `lua/plugin_config/`, then include the config in `lua/plugins.lua`.
-  After making changes, restart nvim,  call `:PackerSync` and `PackerCompile`.
-- (legacy), using Plug, name your plugin in `legacy/plugins.vim` and its config
-  in `legacy/plugin_config/`. Restart neovim and call `PlugInstall`
-
-**To add/delege/modify configs**  
-check the following structure to find the best place for your config
+**To install a neo plugin**:  
+For plugins that requires only a few or no configs, you can add a line in
+`lua/plugins/init.lua`.  Otherwise it's recomennded to split the config into a
+separate file: use `lua/plugins/template.txt` as a template. Lazy.nvim will
+automacally scan the `plugins` folder and load the config files in it.
 
 **To change the home (startup) screen**: 
-modify `/lua/plugin_config/startify.lua`. you can add your bookmarks here.
+modify `/lua/plugins/startify.lua`. you can add your bookmarks here.
 
 # structure
 
 ```
+
 .
-├── init.vim             -- vim script configs
-├── lua                  -- where lua script lives
-│   ├── init.lua             -- Lua config base
-│   ├── plugin_config        -- Dir for plugin configs
-│   ├── plugins.lua          -- Packer managed plugins
-│   └── scripts.lua          -- utility scripts
-├── legacy               -- where vim script lives
-│   ├── plugin_config        -- vimscript plugin configs (Plug)
-│   ├── plugins.vim          -- Plug managed plugins
-│   └── scripts.vim          -- MISC. Legacy vimscript utils
-├── ginit.vim            -- additional configs for gui (e.g. nvim-qt)
-├── neovide.vim          -- Additional configs for neovide
-├── plugin               -- Packer generated files, don't touch
+├── cheatsheet.txt
+├── ginit.vim               -- configs for gui vim such as nvim-qt
+├── neovide.vim             -- configs for neovide
+├── init.vim                -- entry point of the config, for vimscript config
+├── legacy                  
+│   ├── archived            -- stuffs that are no longer used
+│   │   ├── ...
+│   │   └── ...
+│   └── scripts.vim         -- old vimscript utility scripts
+├── lua
+│   ├── init.lua            -- Entry point of lua config
+│   ├── lazy_plugins.lua    -- For lazy.nvim. You don't need to modify
+│   └── plugins             -- Dir for plugin configs
+│       ├── init.lua        -- where most of the simple plugins are named
+│       ├── ....lua         -- more complicated plugin configs in separate files
+│       └── template.txt    -- Use this as a template to add new plugin
+├── preview.png
 ├── readme.md
-├── color                  -- custom themes
-└── syntax                 -- Custom syntax highlightings
+├── LICENSE
+└── syntax                  -- Some of my custome syntax defs.
+
+7 directories, 31 files
+
 ```
 

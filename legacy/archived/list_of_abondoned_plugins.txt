@@ -1,0 +1,91 @@
+"aserowy/tmux.nvim",
+"glepnir/lspsaga.nvim",
+'nvim-treesitter/nvim-treesitter',
+'shrik3/vision.nvim',
+
+
+
+----------------
+Configs That I used
+----------------
+
+# tmux integration: it doesn't worth it.
+
+use({
+    "aserowy/tmux.nvim",
+    -- TODO put the config in seperate file, if needed
+    config = [[require('plugin_config/tmux')]]
+})
+
+
+# replaced by others
+use 'ray-x/lsp_signature.nvim'
+
+
+
+# with all the love for lspsaga, I'm stopping using it because
+# this plugin is constantly breaking with neovim updates.
+# lspSaga provides better UI for the LSP.
+
+use({
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    requires = {
+        {"nvim-tree/nvim-web-devicons"},
+        --Please make sure you install markdown and markdown_inline parser
+        {"nvim-treesitter/nvim-treesitter"}
+    },
+    config = [[require'plugin_config.lspsaga']]
+})
+
+
+# I don't need this complexity
+use 'mfussenegger/nvim-dap'
+
+
+# disable treesitter because the performance is underwhelming
+# treesitter does the tree sitting,
+# better highlighting and ...
+
+use {
+    'nvim-treesitter/nvim-treesitter',
+    requires = {
+        'nvim-treesitter/nvim-treesitter-refactor',
+        'RRethy/nvim-treesitter-textsubjects',
+    },
+    run = function()
+        local ts_update = require('nvim-treesitter.install').update({ with_sync = true })
+        ts_update()
+    end,
+    config = [[require'plugin_config.nvim-treesitter']]
+}
+
+use { -- Additional text objects via treesitter
+    'nvim-treesitter/nvim-treesitter-textobjects',
+    after = 'nvim-treesitter',
+}
+
+# temp, for coorscheme tweaking
+use 'nvim-treesitter/playground'
+
+
+
+# configs/keymaps for lspsaga
+
+-- LSP SAGA ver.
+-- bufmap("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
+-- bufmap("n","<leader>o", "<cmd>Lspsaga outline<CR>",{ silent = true })
+-- -- Show line diagnostics
+-- bufmap("n", "gl", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true })
+-- -- Show cursor diagnostic
+-- bufmap("n", "gl", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true })
+-- -- Jump to the definition
+-- -- bufmap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<cr>')
+-- bufmap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true })
+-- bufmap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
+-- bufmap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
+-- bufmap("n", "<F2>", "<cmd>Lspsaga rename<CR>", { silent = true })
+-- -- Selects a code action available at the current cursor position
+-- bufmap({"n","v"}, "<F4>", "<cmd>Lspsaga code_action<CR>", { silent = true })
+-- bufmap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+-- END LSP SAGA ver.
