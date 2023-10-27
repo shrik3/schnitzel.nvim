@@ -9,7 +9,6 @@ vim.keymap.set('n', '<SPACE>', '<NOP>')
 -- Load Modules (plugins, Scripts etc.) --------------
 -- ---------------------------------------------------
 require "lazy_plugins"
-require "hack"
 
 -- Other Parameters ----------------------------------
 -- ---------------------------------------------------
