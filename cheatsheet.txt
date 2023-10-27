@@ -7,6 +7,23 @@ __||__  \___ \|  __  |  _  /  | | |  <  |__ <  __||__
                 USE VIM OR DIE !
 -----------------------------------------------------
 
+
+|------------ MOST COMMON ......  ---------------------|
+\------------------------------------------------------/
+
+<F10>               Show opened buffers
+<leader><leader>    Show opened buffers but in a split
+<F9>                File navigation
+<F8>                ctags
+<leader>cc          toggle comment
+<leader>fg          live grep (strings) requires ripgrep
+<leader>ff          live grep (files)
+:DiffviewOpen       review git diffs
+:DiffviewClose
+:DiffviewFileHistory
+ctrl-t              toggle a terminal
+
+
 |------------ Programming. LSPs.. ---------------------|
 \------------------------------------------------------/
 K               Hover
@@ -38,7 +55,7 @@ From DiffView:
 :DiffviewOpen           toggle diffview
 :DiffviewFileHistory    toggle commit history
 
-Merge Tool: 
+Merge Tool:
 Use Diffview during a (conflicted) merge.
 <leader>co      choose OURS
 <leader>ct      choose THEIRS
@@ -47,13 +64,13 @@ Use Diffview during a (conflicted) merge.
 dx              choose none
 
 
-|------------ Something Fresh. telescope. -------------|
+|------------ Telescope ..-----------------------------|
 \------------------------------------------------------/
 C-/             show helps
 <leader>fg      live grep       [useful]
 <leader>ff      find files
 <leader>fb      find buffer
-<leader><leader>  
+<leader><leader>
      |  C-d     delete buffer
 <leader>fh      help tags
 <leader>?       recent files
@@ -68,13 +85,6 @@ M-q             send all to qflist
                 These two are helpful to keep track of things
 
 
-|------------ New habbits ........... -----------------|
-\------------------------------------------------------/
-ZZ              Close a window (exit if close the last)
-zz              mapped to :update
-C-S             mapped to :update
-:w              stop using :w
-[,]             use these instead of pressing down j/k
 
 |------------ Project managements ---------------------|
 \------------------------------------------------------/
@@ -88,10 +98,8 @@ C-S             mapped to :update
 \------------------------------------------------------/
 
 <F3>            :ClangFormat (Plugin)
-<leader>c       kToggle Comment (plugin)
+<leader>c       Toggle Comment (plugin)
 <leader>cc
-<leader>f       Fuzzy Finder (ACK)
-
 # RUST (rust-tools)
 <leader>h       hover_actions
 <leader>a       code action group
@@ -124,7 +132,12 @@ ZQ              quit
 \------------------------------------------------------/
 
 :!boxes -d [d]  call boxes, (used with selection, d for
-        design, e.g. cat)
+                design, e.g. cat) requires boxes
+ZZ              Close a window (exit if close the last)
+zz              mapped to :update
+C-S             mapped to :update
+:w              stop using :w
+[,]             use these instead of pressing down j/k
 
 |------------ Edit.. ----------------------------------|
 \------------------------------------------------------/
