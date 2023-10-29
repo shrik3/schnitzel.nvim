@@ -23,12 +23,14 @@ If you want a cleaner (and much likely better) starting point, checkout the
 - lua as first-class citizen but there's also room for the old good vimscript
 
 
-## Prerequisites
+# Prerequisites
 - neovim 0.9 + 
 - install a [nerd font](https://www.nerdfonts.com/)
 - install [ctags](https://github.com/universal-ctags/ctags) for plugin tagbar
+- install [ripgrep](https://github.com/BurntSushi/ripgrep)
 - this config doesn't use mason, i.e. you need to manually install lsp servers
 
+# Get started
 **Backup your old nvim configs**  
 e.g. `~/.config/nvim`
 
@@ -38,10 +40,9 @@ clone this repo and dump everything into your config dir. e.g.
 git clone https://github.com/shrik3/schnitzel.nvim.git ~/.config/nvim
 ```
 
-**Launch neovim**:  
+**Launch neovim and sync the plugins**:  
 and let Lazy.nvim handle the plugins initialization for the first time. Then
 **restart neovim**. Should you run into troubles, try `:checkhealth lazy`.
-
 
 # How to use:
 First, check my cheatsheet.txt to get started.
