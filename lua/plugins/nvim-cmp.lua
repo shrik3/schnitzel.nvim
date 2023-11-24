@@ -8,6 +8,7 @@ local M = {
 		"hrsh7th/cmp-cmdline",
 		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
+        'quangnguyen30192/cmp-nvim-tags',
 	},
 }
 
@@ -76,6 +77,7 @@ M.config = function()
         sources = cmp.config.sources({
             { name = "nvim_lsp" },
             { name = "nvim_lua" },
+            { name = "tags"},
             { name = "luasnip" }, -- For luasnip users.
             -- { name = "orgmode" },
         }, {

@@ -4,6 +4,7 @@ local M = {
 
 M.config = function()
     local util = require "formatter.util"
+    local defaults = require("formatter.defaults")
 
     -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
     require("formatter").setup {
@@ -18,13 +19,15 @@ M.config = function()
             -- lua = {
             -- },
 
+            cpp = defaults.clangformat,
+            c = defaults.clangformat,
             -- Use the special "*" filetype for defining formatter configurations on
             -- any filetype
             ["*"] = {
                 -- "formatter.filetypes.any" defines default configurations for any
                 -- filetype
                 require("formatter.filetypes.any").remove_trailing_whitespace
-            }
+            },
         }
     }
 

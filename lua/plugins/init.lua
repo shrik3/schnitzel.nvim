@@ -74,6 +74,11 @@ return {
 
     -- show lsp server status on lualine
     {'arkav/lualine-lsp-progress', dependencies = {'nvim-lualine/lualine.nvim'}},
+    
+    {
+        name = 'hare.vim',
+        url  = 'https://git.sr.ht/~sircmpwn/hare.vim'
+    },
 
     -- AspectC++ highlighting
     'shrik3/vim-aspectcpp',

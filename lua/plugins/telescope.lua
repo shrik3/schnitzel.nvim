@@ -51,6 +51,7 @@ M.config = function()
     vim.keymap.set('n', '<leader>fg', builtin.live_grep, {desc = 'live grep'})
     vim.keymap.set('n', '<leader>fb', builtin.buffers, {desc = 'Find existing buffers'})
     vim.keymap.set('n', '<leader>fh', builtin.help_tags, {desc = 'help tags'})
+    vim.keymap.set('n', '<leader>ft', builtin.tags, {desc = 'seach tags'})
     vim.keymap.set('n', '<leader>?' , builtin.oldfiles, { desc = '[?] Find recently opened files' })
     vim.keymap.set('n', '<leader><space>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 end
