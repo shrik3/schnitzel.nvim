@@ -1,20 +1,21 @@
-Note that some plugins may require manual setup.
+**Branches**  
+The master branch is a "stable" version that I share publically. If you want a
+out-of-box setup, this is what you go for. The "my-own" branch is the up-to-date
+dotfiles that I daily drive. You are welcome to take a look, but do expect
+frequent breaking changes.
 
-# NOTE
-The config has switched to lazy.nvim (previously using packer.nvim). The old
-packer-based config can still be found in the master branch but will no longer
-be maintained.
-
-
-# What is
-schnitzel.nvim is my personal IDE-like neovim configuration. 
+# What is this
+schnitzel.nvim is my personal neovim configuration that I daily drive for
+programming, note taking and, well, probably all text related tasks. 
 ![preview](https://github.com/shrik3/schnitzel.nvim/blob/lazy/preview.png)
 
-**Should I use it?**  
-probably not, because this is optimized to my own preference and workflow.
+# For beginners
 
-If you want a cleaner (and much likely better) starting point, checkout the
-[starter templetes out there](https://github.com/rockerBOO/awesome-neovim#starter-templates)
+I suggest you read through this section if you are a (neo)vim beginner.
+
+**Should I use it?**  
+probably not, at least you Shouldn't copy exactly my config and use it for the
+long run, because this is optimized to my own preference and workflow.
 
 **What's it good for**  
 - it's minimal, ide-like and modular
@@ -22,6 +23,26 @@ If you want a cleaner (and much likely better) starting point, checkout the
   most use cases
 - lua as first-class citizen but there's also room for the old good vimscript
 
+**How should I use this one?** -- I suggest the following:
+1. simply look around and find what's interesting for you, I'm happy if this
+   could add to your armory.
+2. if you want to actually use this config, it's better to **fork it and, never
+   come back** to pull again: I'll try to keep the master as stable as I can but
+   breaking changes are expected. My workflow, needs, and taste will also change
+   over time. I can't promise you a smooth experience in the long term.
+
+**Where can I learn about neovim / find resources**
+- As always, read the friend manuals. Also the `:help <something>` command has
+  good coverage.
+- Run the vim tutor if you are an absolute beginner. The `vimtutor` program
+  is ususally installed together with vim. In neovim you can also call `:Tutor`.
+- rockerBOO's [awesome-neovim](https://github.com/rockerBOO/awesome-neovim#starter-templates)
+    is a great collection of plugins and other useful stuffs.
+- If you want to build a configuration of you own, take a look at the 
+    [starter templetes](https://github.com/rockerBOO/awesome-neovim#starter-templates)
+    in the awesome-neovim repo
+
+**Build what you use, and use what you build**
 
 # Prerequisites
 - neovim 0.9 + 
@@ -29,6 +50,7 @@ If you want a cleaner (and much likely better) starting point, checkout the
 - install [ctags](https://github.com/universal-ctags/ctags) for plugin tagbar
 - install [ripgrep](https://github.com/BurntSushi/ripgrep)
 - this config doesn't use mason, i.e. you need to manually install lsp servers
+- Note that some plugins may require manual setup.
 
 # Get started
 **Backup your old nvim configs**  
@@ -44,8 +66,14 @@ git clone https://github.com/shrik3/schnitzel.nvim.git ~/.config/nvim
 and let Lazy.nvim handle the plugins initialization for the first time. Then
 **restart neovim**. Should you run into troubles, try `:checkhealth lazy`.
 
-# How to use:
+# How to use - Perks:
 First, check my cheatsheet.txt to get started.
+
+
+**How to configure and use LSPs**  
+Again, check the cheatsheet for basic LSP commands (e.g. goto def.). Note that
+you need to install the language server manually: check [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig#Suggested-configuration).
+To add a LSP server, edit `/lua/plugin_config/lspconfig.lua`.
 
 **How to work with Markdown and Latex**  
 This setup comes with basic markdown and latex support.
@@ -78,12 +106,6 @@ project name so that a new project can be created. Your saved sessions will be
 shown in the startup screen. Check the cheatsheet for more commands.
 
 
-**How to configure and use LSPs**  
-Again, check the cheatsheet for basic LSP commands (e.g. goto def.). Note that
-you need to install the language server manually: check [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig#Suggested-configuration).
-To add a LSP server, edit `/lua/plugin_config/lspconfig.lua`.
-
-
 # How to customize
 First take a look at how the configs are organized in the following section.
 
@@ -99,7 +121,6 @@ modify `/lua/plugins/startify.lua`. you can add your bookmarks here.
 # structure
 
 ```
-
 .
 ├── cheatsheet.txt
 ├── ginit.vim               -- configs for gui vim such as nvim-qt
