@@ -82,6 +82,8 @@ return {
 
     -- AspectC++ highlighting
     'shrik3/vim-aspectcpp',
+    -- aarch64 assembly syntax hl
+    'compnerd/arm64asm-vim',
 
     -- git
     {
