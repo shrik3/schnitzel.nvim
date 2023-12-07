@@ -43,6 +43,7 @@ command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 " custom syntax for proverif
 au FileType markdown,text,latex set tw=80
 au FileType nasm,c,cpp          set tw=80
+au FileType mail                set tw=80
 au FileType python              set tw=120
 " this is a meme
 au FileType java                set tw=400
