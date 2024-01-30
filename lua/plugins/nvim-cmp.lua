@@ -39,7 +39,10 @@ M.config = function()
 		},
 
 		window = {
-			completion = cmp.config.window.bordered(),
+			completion = {
+                border = "rounded",
+                winhighlight = "Normal:CmpNormal",
+            }
 			-- documentation = cmp.config.window.bordered(),
 		},
 

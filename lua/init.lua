@@ -43,7 +43,7 @@ vim.opt.colorcolumn = "96"
 -- status line
 vim.opt.laststatus = 2
 -- for git-gutter
-vim.opt.signcolumn = "yes"
+-- vim.opt.signcolumn = "yes"
 -- 7 lines below cursor when moving vertically with j/k
 vim.opt.so = 7
 -- always show current position

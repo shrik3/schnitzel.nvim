@@ -8,7 +8,6 @@ EOF
 " -- ---------------------------------------------------
 source ~/.config/nvim/legacy/scripts.vim
 
-
 " -- UI...----------------------------------------------
 " -- ---------------------------------------------------
 " -- you can safely remove this if you don't use neovide
@@ -18,14 +17,6 @@ endif
 
 " -- Custom Scripts(one liners)-------------------------
 " -- ---------------------------------------------------
-
-" custom syntax for proverif
-au BufRead,BufNewFile *.pv      setfiletype proverif
-
-" autocmd BufNew,BufRead *.asm set ft=nasm
-" autocmd BufNew,BufRead *.s set ft=nasm
-" autocmd BufNew,BufRead *.S set ft=asm
-
 " this command enforces:
 " - at the beginning of lines, use <TAB> as identations
 " - inside of the lines, use spaces for tabulation
@@ -40,9 +31,19 @@ func! RetabIndents()
     call winrestview(saved_view)
 endfunc
 
-" filetype auto commands
+" return to last edit pos.
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+au FocusGained,BufEnter * checktime
+" :W sudo saves the file 
+" this normally won't work... use sudoedit instead.
+command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
+
+" -- Filetype perks ...........-------------------------
+" -- ---------------------------------------------------
+" custom syntax for proverif
 au FileType markdown,text,latex set tw=80
 au FileType nasm,c,cpp          set tw=80
+au FileType mail                set tw=80
 au FileType python              set tw=120
 " this is a meme
 au FileType java                set tw=400
@@ -52,11 +53,11 @@ au FileType c,cpp               set cindent
 " force tab indentation for some languages
 au FileType make                            set noet
 au FileType nasm,ld,asm,c,cpp,python,rust   set noet
+" tab is 8 spaces for c, per kernel code style
+au FileType c                               set ts=8
+au FileType c                               set shiftwidth=8
+au BufRead,BufNewFile *.pv                  set ft=proverif
+au BufEnter *.h                             set ft=c
 
-" return to last edit pos.
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-au FocusGained,BufEnter * checktime
 
-" :W sudo saves the file 
-command! W execute 'w !sudo tee % > /dev/null' <bar> edit!
 
