@@ -5,6 +5,7 @@ local M = {
 M.config = function()
     local util = require "formatter.util"
     local defaults = require("formatter.defaults")
+    local ft = require("formatter.filetypes")
 
     -- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
     require("formatter").setup {
@@ -14,11 +15,15 @@ M.config = function()
         log_level = vim.log.levels.WARN,
         -- All formatter configurations are opt-in
         filetype = {
-            -- Formatter configurations for filetype "lua" go here
-            -- and will be executed in order
-            -- lua = {
-            -- },
-
+            rust = {
+                function()
+                    return {
+                        exe = "rustfmt",
+                        args = {"--emit=stdout"},
+                        stdin = true
+                    }
+                end
+            },
             cpp = defaults.clangformat,
             c = defaults.clangformat,
             -- Use the special "*" filetype for defining formatter configurations on

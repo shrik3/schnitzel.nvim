@@ -42,7 +42,7 @@ return{
         config = function()
             vim.cmd [[
             let g:mkdp_open_to_the_world = 1
-            let g:mkdp_browser = 'vimb'
+            let g:mkdp_browser = 'firefox'
             let g:mkdp_open_ip = '127.0.0.1'
             let g:mkdp_port = 6789
             let g:mkdp_refresh_slow = 1

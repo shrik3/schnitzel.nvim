@@ -42,7 +42,7 @@ vim.opt.cursorline = true
 -- mark column (too wide)
 vim.opt.colorcolumn = "96"
 -- status line
-vim.opt.laststatus = 3
+vim.opt.laststatus = 2
 -- for git-gutter
 -- vim.opt.signcolumn = "yes"
 -- 7 lines below cursor when moving vertically with j/k
