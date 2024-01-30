@@ -45,9 +45,7 @@ M.config = function()
         end
     })
 
-    -- Set up lspconfig. Name your LSPs here!
-    -- local servers = { 'clangd', 'jedi_language_server', 'texlab', 'cmake', 'bashls', 'rust_analyzer' }
-    -- local servers = {}
+    local servers = { 'jedi_language_server', 'texlab', 'cmake', 'bashls', 'rust_analyzer', 'gopls'}
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
     for _, lsp in ipairs(servers) do
