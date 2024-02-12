@@ -11,6 +11,25 @@ vim.keymap.set('n', '<SPACE>', '<NOP>')
 require "lazy_plugins"
 require "hack"
 
+-- Accessibility    ----------------------------------
+-- ---------------------------------------------------
+-- This options works for BIG fonts.
+-- jk on wrapped lines instead of physical lines
+vim.cmd [[
+noremap j gj
+noremap k gk
+]]
+
+-- Accessibility/tab
+vim.opt.smarttab = false
+vim.opt.expandtab = true
+-- when shiftwidth set to 0, tabstop will always be used
+vim.opt.shiftwidth = 0
+vim.opt.tabstop = 4
+
+-- set indent on soft-wrapped lines
+vim.opt.bri = true
+
 -- Other Parameters ----------------------------------
 -- ---------------------------------------------------
 vim.opt.shell = "/usr/bin/fish"
@@ -82,11 +101,6 @@ vim.opt.swapfile = false
 -- auto/smart indent
 vim.opt.ai = true
 vim.opt.si = true
--- tab
-vim.opt.smarttab = true
-vim.opt.expandtab = true
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
 -- linebreak / linewrap
 vim.opt.lbr = true
 vim.opt.tw = 200
