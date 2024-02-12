@@ -24,6 +24,7 @@ return {
 -- +----------------------------------------------------------+
 -- |                  EDITING AND FUNCTIONALITIES             |
 -- +----------------------------------------------------------+
+   'ntpeters/vim-better-whitespace',
     -- for ... tabs..
     'godlygeek/tabular',
 
@@ -49,12 +50,12 @@ return {
     'chaoren/vim-wordmotion',
 
     -- undo tree
-    {
-        'mbbill/undotree',
-        config = function()
-            vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
-        end
-    },
+    -- {
+    --     'mbbill/undotree',
+    --     config = function()
+    --         vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+    --     end
+    -- },
 
 -- +----------------------------------------------------------+
 -- |                  MISC                                    |
@@ -72,9 +73,14 @@ return {
 -- |                  PROGRAMMING                             |
 -- +----------------------------------------------------------+
 
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^4',
+        ft = { 'rust'},
+    },
     -- show lsp server status on lualine
     {'arkav/lualine-lsp-progress', dependencies = {'nvim-lualine/lualine.nvim'}},
-    
+
     {
         name = 'hare.vim',
         url  = 'https://git.sr.ht/~sircmpwn/hare.vim'

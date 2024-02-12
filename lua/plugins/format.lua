@@ -2,6 +2,7 @@ local M = {
     'mhartington/formatter.nvim',
 }
 
+-- https://github.com/mhartington/formatter.nvim/tree/master/lua/formatter/filetypes
 M.config = function()
     local util = require "formatter.util"
     local defaults = require("formatter.defaults")
@@ -26,6 +27,9 @@ M.config = function()
             },
             cpp = defaults.clangformat,
             c = defaults.clangformat,
+            -- python = ft.python, -- fuck, who decides to use space indent on python?
+            sh = ft.sh.shfmt,
+            lua = ft.lua.stylua,
             -- Use the special "*" filetype for defining formatter configurations on
             -- any filetype
             ["*"] = {
