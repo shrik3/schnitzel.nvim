@@ -3,22 +3,22 @@
 --
 -- Important stuffs go first -------------------------
 -- ---------------------------------------------------
-vim.g.mapleader = ' '
-vim.keymap.set('n', '<SPACE>', '<NOP>')
+vim.g.mapleader = " "
+vim.keymap.set("n", "<SPACE>", "<NOP>")
 
 -- Load Modules (plugins, Scripts etc.) --------------
 -- ---------------------------------------------------
-require "lazy_plugins"
-require "hack"
+require("lazy_plugins")
+require("hack")
 
 -- Accessibility    ----------------------------------
 -- ---------------------------------------------------
 -- This options works for BIG fonts.
 -- jk on wrapped lines instead of physical lines
-vim.cmd [[
+vim.cmd([[
 noremap j gj
 noremap k gk
-]]
+]])
 
 -- Accessibility/tab
 vim.opt.smarttab = false
@@ -42,17 +42,17 @@ vim.g.LANG = "en"
 -- Themes, Fonts, Colors -----------------------------
 -- ---------------------------------------------------
 vim.opt.guifont = "fira code"
-if vim.fn.has('nvim')==1 or vim.fn.has('termguicolors') then
-    vim.opt.termguicolors = true
+if vim.fn.has("nvim") == 1 or vim.fn.has("termguicolors") then
+	vim.opt.termguicolors = true
 end
 
-vim.cmd [[
+vim.cmd([[
     syntax on
     colorscheme alabaster
     " autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
     highlight VertSplit guibg=NONE
     highlight VertSplit ctermbg=NONE
-]]
+]])
 
 -- Editor (looks) ------------------------------------
 -- ---------------------------------------------------
@@ -115,7 +115,7 @@ vim.opt.incsearch = true
 vim.opt.errorbells = false
 vim.opt.visualbell = false
 -- MISC.
-vim.opt.langmenu="en"
+vim.opt.langmenu = "en"
 
 -- Performance ---------------------------------------
 -- ---------------------------------------------------
@@ -126,28 +126,27 @@ vim.opt.tm = 500
 -- KeyMaps -------------------------------------------
 -- ---------------------------------------------------
 -- for paragraph nav.
--- with Right-Alt, this can be done comfortably 
+-- with Right-Alt, this can be done comfortably
 -- with right hand.
-vim.cmd [[
+vim.cmd([[
 noremap <A-]> }
 noremap <A-[> {
-]]
-
+]])
 
 -- nav. panels
-vim.keymap.set('n', '<C-J>', '<C-W><C-J>')
-vim.keymap.set('n', '<C-K>', '<C-W><C-K>')
-vim.keymap.set('n', '<C-L>', '<C-W><C-L>')
-vim.keymap.set('n', '<C-H>', '<C-W><C-H>')
+vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
+vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
+vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
+vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
 
 -- use C-s to save, also use :update instead of :w
-vim.keymap.set('n','<C-S>',':update<cr>')
-vim.keymap.set('i','<C-S>','<Esc>:update<cr>gi')
-vim.keymap.set('n','zz',':update<cr>')
+vim.keymap.set("n", "<C-S>", ":update<cr>")
+vim.keymap.set("i", "<C-S>", "<Esc>:update<cr>gi")
+vim.keymap.set("n", "zz", ":update<cr>")
 
 -- close buffer
-vim.keymap.set('n', '<leader>bk', ':Bclose<CR>',{silent=true})
+vim.keymap.set("n", "<leader>bk", ":Bclose<CR>", { silent = true })
 -- disable highlights (nohl)
-vim.keymap.set('n', '<leader><CR>', ':noh<CR>',{silent=true})
+vim.keymap.set("n", "<leader><CR>", ":noh<CR>", { silent = true })
 -- spell check
-vim.keymap.set('n', '<leader>ss', ':setlocal spell!<CR>')
+vim.keymap.set("n", "<leader>ss", ":setlocal spell!<CR>")
