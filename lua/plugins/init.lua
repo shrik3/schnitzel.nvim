@@ -56,14 +56,6 @@ return {
 	-- split VeryLongWords for easier w nav
 	"chaoren/vim-wordmotion",
 
-	-- undo tree
-	-- {
-	--     'mbbill/undotree',
-	--     config = function()
-	--         vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
-	--     end
-	-- },
-
 	-- +----------------------------------------------------------+
 	-- |                  MISC                                    |
 	-- +----------------------------------------------------------+
