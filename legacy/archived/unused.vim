@@ -97,3 +97,31 @@ source $VIMRUNTIME/menu.vim
 " better split bar
 highlight VertSplit guibg=NONE
 highlight VertSplit ctermbg=NONE
+
+" delete tailing space on save (for some filetypes)
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
+autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
+
+" this command enforces:
+" - at the beginning of lines, use <TAB> as identations
+" - inside of the lines, use spaces for tabulation
+" a handy command to retab spaces at BEGINNING of lines only
+command! RetabIndents retab!|call RetabIndents()
+func! RetabIndents()
+    let default_tab = &expandtab
+    set et
+    let saved_view = winsaveview()
+    execute '%s@^\(\ \{'.&ts.'\}\)\+@\=repeat("\t", len(submatch(0))/'.&ts.')@e'
+    let &expandtab=default_tab
+    call winrestview(saved_view)
+endfunc
+
+" :W sudo saves the file
+" this normally won't work... use sudoedit instead.
+command! W execute 'w !sudo tee % > /dev/null' <bar> edit!

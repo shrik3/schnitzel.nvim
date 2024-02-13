@@ -8,7 +8,11 @@ vim.keymap.set("n", "<SPACE>", "<NOP>")
 
 -- Load Modules (plugins, Scripts etc.) --------------
 -- ---------------------------------------------------
+<<<<<<< HEAD
+require "lazy_plugins"
+=======
 require("lazy_plugins")
+require("hack")
 
 -- Accessibility    ----------------------------------
 -- ---------------------------------------------------
@@ -28,6 +32,7 @@ vim.opt.tabstop = 4
 
 -- set indent on soft-wrapped lines
 vim.opt.bri = true
+>>>>>>> my-own
 
 -- Other Parameters ----------------------------------
 -- ---------------------------------------------------

@@ -47,6 +47,17 @@ M.config = function()
 	-- setup neoconf before LSPs.
 	require("neoconf").setup({})
 
+<<<<<<< HEAD
+    local servers = { 'jedi_language_server', 'texlab', 'cmake', 'bashls', 'rust_analyzer', 'gopls'}
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
+    for _, lsp in ipairs(servers) do
+        require('lspconfig')[lsp].setup {
+            on_attach = on_attach,
+            capabilities = capabilities,
+        }
+    end
+=======
 	-- Set up lspconfig.
 	local servers = { "jedi_language_server", "texlab", "cmake", "bashls", "gopls" }
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -57,6 +68,7 @@ M.config = function()
 			capabilities = capabilities,
 		})
 	end
+>>>>>>> my-own
 end
 
 return M
