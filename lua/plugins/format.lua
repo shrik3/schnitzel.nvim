@@ -30,6 +30,7 @@ M.config = function()
 			-- python = ft.python, -- fuck, who decides to use space indent on python?
 			sh = ft.sh.shfmt,
 			lua = ft.lua.stylua,
+            tex = ft.tex.latexindent,
 			-- Use the special "*" filetype for defining formatter configurations on
 			-- any filetype
 			["*"] = {
