@@ -13,14 +13,15 @@ return {
 	},
 
 	-- latex preview... (kinda redundant ??)
-	{
-		"xuhdev/vim-latex-live-preview",
-		ft = { "tex" },
-		config = function()
-			vim.g.livepreview_previewer = "okular"
-			vim.g.livepreview_use_biber = 1
-		end,
-	},
+	-- {
+	-- 	"xuhdev/vim-latex-live-preview",
+	-- 	ft = { "tex" },
+	-- 	config = function()
+	-- 		vim.g.livepreview_previewer = "okular"
+	-- 		vim.g.livepreview_use_biber = 1
+	--            vim.g.livepreview_engine = 'latexmk -pdf'
+	-- 	end,
+	-- },
 
 	-- vim-markdown , for markdown editing--
 	{
