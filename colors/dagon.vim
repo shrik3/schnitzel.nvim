@@ -1,3 +1,31 @@
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⢻⣽⣿⣿⣿⣿⣿⣿⣿⣿⣽⣛⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⠋⣡⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣌⠙⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⣿⠿⡏⣇⠀⢌⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡷⡀⠙⡟⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡋⡡⠂⠔⢈⠄⠈⣤⣿⣿⣿⣿⢟⠯⠇⠂⠈⢉⠙⢻⣿⣿⣿⣿⣟⢃⠒⠁⠀⠩⡙⠹⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⢁⡼⢁⠎⢀⠛⢠⡄⢸⣿⣿⣿⣿⠁⠮⡀⠀⠀⠈⣆⠠⢻⣿⣿⣿⣿⠁⡆⠐⡀⠡⡈⢢⠘⡿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡿⢉⠥⡲⠋⣠⠞⡀⣼⢁⠏⢳⠘⣿⣿⡟⡞⣹⢒⠅⠨⢉⠔⣇⠸⡌⣿⣿⣿⣧⢀⣷⡀⢱⠀⢣⠀⢣⣈⠋⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⠟⡩⠊⢁⠌⡠⠞⡹⢂⠔⣹⠘⠀⢸⠀⣿⣿⣕⣡⠘⢎⠐⠈⢑⣴⠃⠀⡣⢻⣿⣿⢏⢸⠀⢣⢸⡆⠀⢷⣄⠙⠅⠢⣙⢿⣿⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⡟⠷⠮⠄⢀⢎⠎⠀⣀⢇⢎⠀⡯⠔⣀⠜⢄⢘⣿⣷⡈⠢⣄⡑⠀⢉⣀⡤⠈⢡⣺⣿⣿⡦⢸⡀⢸⢰⠈⢆⠙⠈⠑⡈⡄⠁⠑⢝⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⡯⠰⠁⢀⣤⣧⡁⠀⣄⠎⠎⠀⣀⡷⢿⠀⡩⢘⡄⢻⣿⡇⢻⣮⣟⢄⠀⣯⣽⠅⡇⠈⢿⣯⢀⠎⠂⢺⡶⡆⠈⢆⠗⡀⠈⢎⢄⠀⠀⢞⠙⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣇⠓⠀⢸⢳⠁⠀⢸⠯⢸⠀⠁⠀⢐⢹⢈⠊⡀⡗⠘⠷⢸⢴⠈⠏⠀⢯⡆⢤⠄⢣⠄⢙⠇⠘⡃⠠⢻⠛⡧⠀⠨⡌⣴⠀⠈⢾⢿⡄⡀⠆⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣈⠀⠀⡎⠃⠀⠀⢈⡍⣄⠠⠀⠀⢈⡼⣁⣴⣾⣧⡔⠀⠺⣸⢰⡇⢰⡇⢱⣀⠹⡐⡇⡀⢀⡸⠄⢰⣸⡿⠀⠀⠀⡁⠬⡆⢀⠊⡟⡏⠀⠸⢹⣿⣿⣿
+" ⣿⣿⣿⣿⢧⠀⠁⣰⠀⠤⠀⢀⠇⠀⡇⠀⠐⠀⢁⡇⣿⣿⣿⣿⣷⠀⢳⣿⣸⢷⢸⡏⡼⢀⠳⡘⡝⠇⢀⣿⣷⢝⡾⡏⠠⢄⠀⢡⢠⠁⠂⠀⢷⢱⠈⡎⢞⣿⣿⣿
+" ⣿⣿⣿⡏⠆⢀⠠⡈⠓⠒⠈⡁⠔⢰⠁⡄⠀⠀⡁⢰⢿⣿⣿⣿⣿⢾⢾⣡⡽⠇⣸⣟⡩⣎⠰⡇⡿⠘⣠⣿⣿⣷⡇⡷⠈⠕⠠⢸⠀⠀⠀⠂⠀⠇⠈⠀⠢⢻⣿⣿
+" ⣿⣿⡟⡘⠤⠠⡅⡗⢀⡠⡀⠠⠎⠈⢸⠀⢀⠔⠖⢠⡜⣿⣿⣯⢖⢃⡾⢹⡟⣰⣟⡈⢣⡇⢨⡾⣷⣷⣿⣿⣿⣿⣳⣀⠤⣀⣴⠺⡀⢐⠀⠀⠀⢰⠇⡠⠂⢋⣿⣿
+" ⣿⣟⣱⠀⢀⢠⠁⡇⠀⠀⠔⠢⠀⠂⠇⡎⡠⢐⣷⣬⡗⢻⣿⣿⣿⢸⡯⢫⣾⣿⣿⣷⡠⢻⡈⣃⣿⣿⣿⣿⣿⡿⡿⣟⣄⣿⠿⣜⠟⠁⠀⢀⠀⢨⠈⡄⠀⠘⡘⣿
+" ⣿⢧⣿⣿⣾⣿⣦⣃⣇⣤⠒⠀⠀⠀⣻⣶⣦⣿⣿⣿⣞⢹⣿⣿⣿⡜⢾⡋⣿⢿⡻⣿⣷⠝⡗⢽⣽⣦⣿⣿⣿⣿⣷⣞⣎⠙⢿⡹⠒⠅⡘⠁⠐⢹⠀⢠⠀⠀⡀⢙
+" ⣿⣿⣿⣿⣿⣿⣿⡸⣿⣷⣿⣿⣷⣶⣧⣿⣿⣿⣿⣿⣶⢸⣿⣿⢿⣘⣯⣡⡿⣿⣾⣟⣽⣗⣿⡿⣫⣿⣿⣿⣿⣋⣻⣷⡣⡭⡯⣻⣆⡄⢤⣀⣄⣸⣰⣿⣿⣿⣿⡀
+" ⣿⣿⣿⣿⣿⣿⣿⣷⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡏⢿⡹⢻⣿⣟⣿⣿⡟⣸⣿⠓⣜⣿⣿⣿⣿⣰⣿⣿⣿⣿⠻⣚⣷⣿⣿⣿⣿⣿⣸⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣇⣿⣿⣿⣿⣿⣿⣿⣿⣷⢰⠀⣞⣿⣿⡟⡿⣽⡿⡿⣿⣺⣿⣿⣿⣿⣿⣿⣿⣿⣿⡗⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡼⣼⣹⣿⣿⣿⣝⣿⡿⣷⣿⣬⣨⣿⣿⣿⣿⣿⣿⣿⣿⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⢟⠿⣿⣯⣯⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣷⣿⡏⣿⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+" ⣿ WE SHALL DIVE DOWN THROUGH BLACK ABYSSES ... AND IN THAT ⣿
+" ⣿  LAIR OF THE DEEP ONES WE SHALL DWELL AMIDST WONDER AND  ⣿
+" ⣿                      GLORY FOREVER                       ⣿
+" ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
+
+"" dagon is a minimalistic monochrome colortheme with amber tone
 "" based on:
 "" https://github.com/ryanpcmcquen/true-monochrome_vim
 
@@ -9,13 +37,7 @@ if version > 580
 endif
 
 "" give it a name and set the background
-
-""
-"" now, on to the good stuff! TODO
-""
-"" cterm        hex
-"" 46           #00d56d
-
+"" Amber: #00d56d
 set background=dark
 
 " The basic
@@ -25,11 +47,11 @@ hi Normal          guifg=#00d56d    guibg=#000000    ctermfg=46       ctermbg=bl
 hi Cursor          guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=white    gui=NONE         cterm=NONE
 hi IncSearch       guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=white    gui=ITALIC       cterm=NONE
 hi Search          guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=white    gui=ITALIC       cterm=NONE
-hi Visual          guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=white    gui=ITALIC       cterm=NONE
-hi VisualNOS       guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=white    gui=ITALIC       cterm=NONE
-hi CursorLine                       guibg=#000033                                      gui=NONE                   
-hi CursorColumn    guifg=#00d56d    guibg=#000033    ctermfg=grey     ctermbg=white    gui=NONE         cterm=NONE
-hi ColorColumn                      guibg=#000033                     ctermbg=darkblue
+hi Visual          guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=white    gui=NONE         cterm=NONE
+hi VisualNOS       guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=white    gui=NONE         cterm=NONE
+hi CursorLine                       guibg=#000022                                      gui=NONE
+hi CursorColumn    guifg=#00d56d    guibg=#000022    ctermfg=grey     ctermbg=white    gui=NONE         cterm=NONE
+hi ColorColumn                      guibg=#000022                     ctermbg=darkblue
 hi LineNr          guifg=#666666    guibg=#000000    ctermfg=grey     ctermbg=black    gui=NONE         cterm=NONE
 hi Todo            guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=46       gui=BOLD         cterm=BOLD
 hi Pmenu           guifg=#00d56d                     ctermfg=white    ctermbg=black    gui=BOLD         cterm=BOLD
@@ -37,7 +59,7 @@ hi PmenuSbar       guifg=#A0A0A0                     ctermfg=grey               
 hi PmenuSel        guifg=#A0A0A0                     ctermfg=grey                      gui=ITALIC       cterm=NONE
 hi PmenuThumb      guifg=#A0A0A0                     ctermfg=grey                      gui=NONE         cterm=NONE
 
-"" highlighting ... 
+"" highlighting ...
 hi Label           guifg=#FFFFFF                     ctermfg=white                     gui=NONE         cterm=NONE
 hi PreProc         guifg=#FFFFFF                     ctermfg=white                     gui=NONE         cterm=NONE
 hi Operator        guifg=#00d56d                     ctermfg=46                        gui=NONE         cterm=NONE
