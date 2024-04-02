@@ -49,7 +49,7 @@ hi IncSearch       guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=wh
 hi Search          guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=white    gui=ITALIC       cterm=NONE
 hi Visual          guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=white    gui=NONE         cterm=NONE
 hi VisualNOS       guifg=#000000    guibg=#00d56d    ctermfg=black    ctermbg=white    gui=NONE         cterm=NONE
-hi CursorLine                       guibg=#000022                                      gui=NONE
+hi CursorLine                       guibg=#003333                                      gui=NONE
 hi CursorColumn    guifg=#00d56d    guibg=#000022    ctermfg=grey     ctermbg=white    gui=NONE         cterm=NONE
 hi ColorColumn                      guibg=#000022                     ctermbg=darkblue
 hi LineNr          guifg=#666666    guibg=#000000    ctermfg=grey     ctermbg=black    gui=NONE         cterm=NONE
@@ -105,4 +105,17 @@ hi StorageClass    guifg=#00d56d                     ctermfg=white              
 hi Type            guifg=#00d56d                     ctermfg=white                     gui=NONE         cterm=NONE
 hi Constant        guifg=#00d56d                     ctermfg=white                     gui=NONE         cterm=NONE
 hi Number          guifg=#FFFFFF                     ctermfg=white                     gui=NONE         cterm=NONE
-hi String          guifg=#AAAA00                     ctermfg=white                     gui=ITALIC       cterm=ITALIC
+hi String          guifg=#AAAA00                     ctermfg=white                     gui=NONE         cterm=NONE
+
+"" for mini.tabline
+
+hi MiniTablineModifiedVisible   guifg=#FFFF00 guibg=#FF0000 ctermfg=yellow ctermbg=red  gui=NONE cterm=NONE
+hi MiniTablineModifiedCurrent   guifg=#FFFF00 guibg=NONE    ctermfg=yellow ctermbg=red  gui=BOLD cterm=BOLD
+hi MiniTablineCurrent           guifg=#FFFF00 guibg=NONE    ctermfg=yellow ctermbg=NONE gui=BOLD cterm=BOLD
+hi MiniTablineVisible           guifg=#00D56D guibg=NONE    ctermfg=green  ctermbg=NONE gui=NONE cterm=NONE
+" hi MiniTablineModifiedCurrent` - buffer is modified and current.
+" hi MiniTablineVisible` - buffer is visible (displayed in some window).
+" hi MiniTablineHidden` - buffer is hidden (not displayed).
+" hi MiniTablineModifiedHidden` - buffer is modified and hidden.
+" hi MiniTablineFill` - unused right space of tabline.
+" hi MiniTablineTabpagesection` - section with tabpage information.
