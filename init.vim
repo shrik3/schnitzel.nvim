@@ -23,6 +23,7 @@ au FocusGained,BufEnter * checktime
 " -- ---------------------------------------------------
 " custom syntax for proverif
 au FileType markdown,text,latex set tw=80
+au FileType tex                 set tw=80
 au FileType nasm,c,cpp          set tw=80
 au FileType mail                set tw=80
 au FileType python              set tw=120

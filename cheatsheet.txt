@@ -52,7 +52,7 @@ gr
 |------------ VCS (git integration).. -----------------|
 \------------------------------------------------------/
 From DiffView:
-:DiffviewOpen           toggle diffview
+:DiffviewOpen           toggle diffview <F5>
 :DiffviewFileHistory    toggle commit history
 
 Merge Tool:
@@ -62,7 +62,7 @@ Use Diffview during a (conflicted) merge.
 <leader>cb      choose base
 <leader>ca      choose all version
 dx              choose none
-
+<leader>gbl     blame line (Gitsigns)
 
 |------------ Telescope ..-----------------------------|
 \------------------------------------------------------/

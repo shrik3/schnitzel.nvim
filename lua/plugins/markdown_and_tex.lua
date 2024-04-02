@@ -1,26 +1,27 @@
 -- latex / markdown
 return {
-	{
-		"lervag/vimtex",
-		ft = { "tex" },
-		config = function()
-			vim.g.vimtex_view_general_viewer = "zathura"
-			vim.g.vimtex_quickfix_mode = 1
-			vim.g.tex_conceal = ""
-			-- the default item indent is stupid
-			vim.g.tex_indent_items = 0
-		end,
-	},
+	-- {
+	-- 	"lervag/vimtex",
+	-- 	ft = { "tex" },
+	-- 	config = function()
+	-- 		vim.g.vimtex_view_general_viewer = "zathura"
+	-- 		vim.g.vimtex_quickfix_mode = 1
+	-- 		vim.g.tex_conceal = ""
+	-- 		-- the default item indent is stupid
+	-- 		vim.g.tex_indent_items = 0
+	-- 	end,
+	-- },
 
 	-- latex preview... (kinda redundant ??)
-	{
-		"xuhdev/vim-latex-live-preview",
-		ft = { "tex" },
-		config = function()
-			vim.g.livepreview_previewer = "okular"
-			vim.g.livepreview_use_biber = 1
-		end,
-	},
+	-- {
+	-- 	"xuhdev/vim-latex-live-preview",
+	-- 	ft = { "tex" },
+	-- 	config = function()
+	-- 		vim.g.livepreview_previewer = "okular"
+	-- 		vim.g.livepreview_use_biber = 1
+	--            vim.g.livepreview_engine = 'latexmk -pdf'
+	-- 	end,
+	-- },
 
 	-- vim-markdown , for markdown editing--
 	{

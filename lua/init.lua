@@ -47,7 +47,7 @@ end
 
 vim.cmd([[
     syntax on
-    colorscheme alabaster
+    colorscheme dagon
     " autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
     highlight VertSplit guibg=NONE
     highlight VertSplit ctermbg=NONE

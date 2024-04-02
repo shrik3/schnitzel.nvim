@@ -4,11 +4,34 @@ local M = {
 	-- dependencies = { "nvim-tree/nvim-web-devicons", opt = true },
 }
 
+local colors = {
+    black   = '#000000',
+    amber   = '#00d56d'
+}
+
+local th = function()
+    return {
+        normal = {
+            a = { fg = colors.amber, bg = colors.black, gui = 'bold' },
+            b = { fg = colors.amber, bg = colors.black },
+            c = { fg = colors.amber, bg = colors.black },
+        },
+        insert = { a = { fg = colors.amber, bg = colors.black, gui = 'bold' } },
+        visual = { a = { fg = colors.amber, bg = colors.black, gui = 'bold' } },
+        replace = { a = { fg = colors.amber, bg = colors.black, gui = 'bold' } },
+        inactive = {
+            a = { fg = colors.amber, bg = colors.black, gui = 'bold' },
+            b = { fg = colors.amber, bg = colors.black },
+            c = { fg = colors.amber, bg = colors.black },
+        },
+    }
+end
+
 M.config = function()
 	require("lualine").setup({
 		options = {
 			icons_enabled = false,
-			theme = "auto",
+			theme = th,
 			component_separators = { left = "", right = "" },
 			section_separators = { left = "|", right = "|" },
 			disabled_filetypes = {
