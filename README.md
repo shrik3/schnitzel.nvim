@@ -126,3 +126,7 @@ modify `/lua/plugins/startify.lua`. you can add your bookmarks here.
 
 ```
 
+# License
+
+I don't know if dotfiles need a license. But if you care, consider this public
+domain.
