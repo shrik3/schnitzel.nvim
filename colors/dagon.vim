@@ -63,7 +63,7 @@ hi PmenuThumb      guifg=#A0A0A0                     ctermfg=grey               
 hi Label           guifg=#FFFFFF                     ctermfg=white                     gui=NONE         cterm=NONE
 hi PreProc         guifg=#FFFFFF                     ctermfg=white                     gui=NONE         cterm=NONE
 hi Operator        guifg=#00d56d                     ctermfg=46                        gui=NONE         cterm=NONE
-hi Comment         guifg=#888888                     ctermfg=grey                      gui=ITALIC       cterm=NONE
+hi Comment         guifg=#888888                     ctermfg=grey                      gui=NONE         cterm=NONE
 hi Folded          guifg=#888888                     ctermfg=grey                      gui=NONE         cterm=NONE
 hi DiffChange      guifg=#FFFFFF                     ctermfg=grey                      gui=NONE         cterm=NONE
 hi DiffDelete      guifg=#ff0000                     ctermfg=grey                      gui=NONE         cterm=NONE
