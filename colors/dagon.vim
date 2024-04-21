@@ -25,10 +25,6 @@
 " ⣿                      GLORY FOREVER                       ⣿
 " ⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿
 
-"" dagon is a minimalistic monochrome colortheme with amber tone
-"" based on:
-"" https://github.com/ryanpcmcquen/true-monochrome_vim
-
 hi clear
 if version > 580
   if exists("syntax_on")
