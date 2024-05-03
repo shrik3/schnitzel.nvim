@@ -18,10 +18,35 @@ __||__  \___ \|  __  |  _  /  | | |  <  |__ <  __||__
 <leader>cc          toggle comment
 <leader>fg          live grep (strings) requires ripgrep
 <leader>ff          live grep (files)
-:DiffviewOpen       review git diffs
-:DiffviewClose
-:DiffviewFileHistory
-ctrl-t              toggle a terminal
+
+|------------ VCS (git integration).. -----------------|
+\------------------------------------------------------/
+From DiffView:
+:DiffviewOpen           toggle diffview <F5>
+:DiffviewFileHistory    toggle commit history
+
+Merge Tool:
+Use Diffview during a (conflicted) merge.
+<leader>co      choose OURS
+<leader>ct      choose THEIRS
+<leader>cb      choose base
+<leader>ca      choose all version
+dx              choose none
+<leader>gbl     blame line (Gitsigns)
+
+
+Gitsigns keymaps
+<leader>gs      stage hunk (normal or visual)
+<leader>gS      stage buffer
+<leader>gr      reset hunk (normal or visual)
+<leader>gR      reset buffer
+<leader>gu      undo stage hunk
+<leader>gp      preview hunk
+<leader>gb      blame line
+<leader>gtb     toggle caurrent line blame
+<leader>gtd     gitsigns
+:Gitsigns diffthis
+:Gitsigns diffthis('~')
 
 
 |------------ Programming. LSPs.. ---------------------|
@@ -49,20 +74,6 @@ gr
 
 
 
-|------------ VCS (git integration).. -----------------|
-\------------------------------------------------------/
-From DiffView:
-:DiffviewOpen           toggle diffview <F5>
-:DiffviewFileHistory    toggle commit history
-
-Merge Tool:
-Use Diffview during a (conflicted) merge.
-<leader>co      choose OURS
-<leader>ct      choose THEIRS
-<leader>cb      choose base
-<leader>ca      choose all version
-dx              choose none
-<leader>gbl     blame line (Gitsigns)
 
 |------------ Telescope ..-----------------------------|
 \------------------------------------------------------/

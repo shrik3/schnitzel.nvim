@@ -90,13 +90,4 @@ return {
 	-- aarch64 assembly syntax hl
 	"compnerd/arm64asm-vim",
 
-	-- git
-	{
-		"lewis6991/gitsigns.nvim",
-		config = function()
-			require("gitsigns").setup()
-            vim.keymap.set("n", "<leader>gbl", ":Gitsigns blame_line<CR>")
-		end,
-	},
-
 }
