@@ -8,7 +8,6 @@ return {
 		end,
 	},
 	{ "folke/neoconf.nvim", cmd = "Neoconf" },
-	"folke/neodev.nvim",
 	-- +----------------------------------------------------------+
 	-- |                  UI                                      |
 	-- +----------------------------------------------------------+
@@ -76,6 +75,7 @@ return {
 		"mrcjkb/rustaceanvim",
 		version = "^4",
 		ft = { "rust" },
+        lazy = false,
 	},
 	-- show lsp server status on lualine
 	-- { "arkav/lualine-lsp-progress", dependencies = { "nvim-lualine/lualine.nvim" } },

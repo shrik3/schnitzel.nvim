@@ -1,7 +1,7 @@
 --- telescope fzf
 local M = {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.3",
+	tag = "0.1.6",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
 		"gbrlsnchs/telescope-lsp-handlers.nvim",
