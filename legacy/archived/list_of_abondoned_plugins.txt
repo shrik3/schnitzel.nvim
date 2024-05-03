@@ -68,6 +68,13 @@ use { -- Additional text objects via treesitter
 # temp, for coorscheme tweaking
 use 'nvim-treesitter/playground'
 
+# Great plugin, but overlaps Gitsigns. I only need one.
+{
+	"sindrets/diffview.nvim",
+	config = function()
+		vim.keymap.set("n", "<F5>", ":DiffviewOpen<CR>")
+	end,
+},
 
 
 # configs/keymaps for lspsaga

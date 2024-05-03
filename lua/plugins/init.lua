@@ -78,7 +78,7 @@ return {
 		ft = { "rust" },
 	},
 	-- show lsp server status on lualine
-	{ "arkav/lualine-lsp-progress", dependencies = { "nvim-lualine/lualine.nvim" } },
+	-- { "arkav/lualine-lsp-progress", dependencies = { "nvim-lualine/lualine.nvim" } },
 
 	{
 		name = "hare.vim",
@@ -99,10 +99,4 @@ return {
 		end,
 	},
 
-	{
-		"sindrets/diffview.nvim",
-		config = function()
-			vim.keymap.set("n", "<F5>", ":DiffviewOpen<CR>")
-		end,
-	},
 }
