@@ -105,6 +105,7 @@ hi String          guifg=#AAAA00                     ctermfg=white              
 
 "" for mini.tabline
 
+hi StatusLine                   guifg=#00d56d guibg=NONE    ctermfg=green  ctermbg=NONE
 hi MiniTablineModifiedVisible   guifg=#FFFF00 guibg=#FF0000 ctermfg=yellow ctermbg=red  gui=NONE cterm=NONE
 hi MiniTablineModifiedCurrent   guifg=#FFFF00 guibg=NONE    ctermfg=yellow ctermbg=red  gui=BOLD cterm=BOLD
 hi MiniTablineCurrent           guifg=#FFFF00 guibg=NONE    ctermfg=yellow ctermbg=NONE gui=BOLD cterm=BOLD
