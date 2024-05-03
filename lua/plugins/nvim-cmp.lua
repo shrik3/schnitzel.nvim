@@ -29,7 +29,7 @@ M.config = function()
 	end
 	local cmp = require("cmp")
 	local luasnip = require("luasnip")
-
+    require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/snippets"})
 	cmp.setup({
 		snippet = {
 			expand = function(args)
