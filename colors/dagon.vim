@@ -54,6 +54,7 @@ hi Pmenu           guifg=#00d56d                     ctermfg=white    ctermbg=bl
 hi PmenuSbar       guifg=#A0A0A0                     ctermfg=grey                      gui=NONE         cterm=NONE
 hi PmenuSel        guifg=#A0A0A0                     ctermfg=grey                      gui=ITALIC       cterm=NONE
 hi PmenuThumb      guifg=#A0A0A0                     ctermfg=grey                      gui=NONE         cterm=NONE
+hi SignColumn      guifg=#ffffff    guibg=#000000    ctermfg=blue     ctermbg=black    gui=NONE         cterm=NONE
 
 "" highlighting ...
 hi Label           guifg=#FFFFFF                     ctermfg=white                     gui=NONE         cterm=NONE
@@ -110,6 +111,8 @@ hi MiniTablineModifiedVisible   guifg=#FFFF00 guibg=#FF0000 ctermfg=yellow cterm
 hi MiniTablineModifiedCurrent   guifg=#FFFF00 guibg=NONE    ctermfg=yellow ctermbg=red  gui=BOLD cterm=BOLD
 hi MiniTablineCurrent           guifg=#FFFF00 guibg=NONE    ctermfg=yellow ctermbg=NONE gui=BOLD cterm=BOLD
 hi MiniTablineVisible           guifg=#00D56D guibg=NONE    ctermfg=green  ctermbg=NONE gui=NONE cterm=NONE
+hi MiniTablineHidden            guifg=#00D56D guibg=NONE    ctermfg=green  ctermbg=NONE gui=NONE cterm=NONE
+hi MiniTablineModifiedHidden    guifg=#00D56D guibg=#FF0000 ctermfg=green  ctermbg=red  gui=NONE cterm=NONE
 " hi MiniTablineModifiedCurrent` - buffer is modified and current.
 " hi MiniTablineVisible` - buffer is visible (displayed in some window).
 " hi MiniTablineHidden` - buffer is hidden (not displayed).
