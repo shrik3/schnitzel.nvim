@@ -47,7 +47,7 @@ if vim.fn.has("nvim") == 1 or vim.fn.has("termguicolors") then
 end
 
 vim.cmd([[
-    syntax on
+    syntax off
     colorscheme dagon
     " autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
     highlight VertSplit guibg=NONE

@@ -71,12 +71,12 @@ return {
 	-- |                  PROGRAMMING                             |
 	-- +----------------------------------------------------------+
 
-	{
-		"mrcjkb/rustaceanvim",
-		version = "^4",
-		ft = { "rust" },
-        lazy = false,
-	},
+	-- {
+	-- 	"mrcjkb/rustaceanvim",
+	-- 	version = "^4",
+	-- 	ft = { "rust" },
+ --        lazy = false,
+	-- },
 	-- show lsp server status on lualine
 	-- { "arkav/lualine-lsp-progress", dependencies = { "nvim-lualine/lualine.nvim" } },
 

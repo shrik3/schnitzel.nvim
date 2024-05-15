@@ -33,7 +33,7 @@ au FileType c,cpp               set cindent
 " expand tab by default, but force noet for some..
 " force tab indentation for some languages
 au FileType make                            set noet
-au FileType nasm,ld,asm,c,cpp,python,rust   set noet
+au FileType nasm,ld,asm,c,cpp,python        set noet
 " tab is 8 spaces for c, per kernel code style
 au FileType c                               set ts=8
 au FileType c                               set shiftwidth=8
