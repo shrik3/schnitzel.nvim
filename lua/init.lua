@@ -5,12 +5,10 @@
 -- ---------------------------------------------------
 vim.g.mapleader = " "
 vim.keymap.set("n", "<SPACE>", "<NOP>")
-
 -- Load Modules (plugins, Scripts etc.) --------------
 -- ---------------------------------------------------
 require("lazy_plugins")
 require("hack")
-
 -- Accessibility    ----------------------------------
 -- ---------------------------------------------------
 -- This options works for BIG fonts.
@@ -19,26 +17,21 @@ vim.cmd([[
 noremap j gj
 noremap k gk
 ]])
-
 -- Accessibility/tab
 vim.opt.smarttab = false
 vim.opt.expandtab = true
 -- when shiftwidth set to 0, tabstop will always be used
 vim.opt.shiftwidth = 0
 vim.opt.tabstop = 4
-
 -- set indent on soft-wrapped lines
 vim.opt.bri = true
-
 -- Other Parameters ----------------------------------
 -- ---------------------------------------------------
 vim.opt.shell = "/usr/bin/fish"
 vim.opt.encoding = "utf8"
-
 -- Globals -------------------------------------------
 -- ---------------------------------------------------
 vim.g.LANG = "en"
-
 -- Themes, Fonts, Colors -----------------------------
 -- ---------------------------------------------------
 vim.opt.guifont = "fira code"
@@ -49,11 +42,9 @@ end
 vim.cmd([[
     syntax off
     colorscheme dagon
-    " autocmd! ColorScheme * hi VertSplit cterm=NONE gui=NONE
     highlight VertSplit guibg=NONE
     highlight VertSplit ctermbg=NONE
 ]])
-
 -- Editor (looks) ------------------------------------
 -- ---------------------------------------------------
 vim.opt.nu = true
@@ -72,7 +63,6 @@ vim.opt.ruler = true
 vim.opt.culopt = "both"
 -- enable cursorline
 vim.opt.cmdheight = 1
-
 -- Behiviour -----------------------------------------
 -- ---------------------------------------------------
 vim.opt.foldenable = false
@@ -103,7 +93,7 @@ vim.opt.ai = true
 vim.opt.si = true
 -- linebreak / linewrap
 vim.opt.lbr = true
-vim.opt.tw = 200
+vim.opt.tw = 80
 vim.opt.wrap = true
 -- Search
 vim.opt.magic = true -- for regular exp.
@@ -116,13 +106,11 @@ vim.opt.errorbells = false
 vim.opt.visualbell = false
 -- MISC.
 vim.opt.langmenu = "en"
-
 -- Performance ---------------------------------------
 -- ---------------------------------------------------
 vim.opt.lazyredraw = true
 vim.opt.updatetime = 100
 vim.opt.tm = 500
-
 -- KeyMaps -------------------------------------------
 -- ---------------------------------------------------
 -- for paragraph nav.
@@ -132,18 +120,15 @@ vim.cmd([[
 noremap <A-]> }
 noremap <A-[> {
 ]])
-
 -- nav. panels
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
-
 -- use C-s to save, also use :update instead of :w
 vim.keymap.set("n", "<C-S>", ":update<cr>")
 vim.keymap.set("i", "<C-S>", "<Esc>:update<cr>gi")
 vim.keymap.set("n", "zz", ":update<cr>")
-
 -- close buffer
 vim.keymap.set("n", "<leader>bk", ":Bclose<CR>", { silent = true })
 -- disable highlights (nohl)

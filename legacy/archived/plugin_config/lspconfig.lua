@@ -7,7 +7,7 @@ M.config = function()
 	-- currently nvim-lspconfig and lspSaga
 	-- See `:help vim.diagnostic.*` for documentation on any of the below functions
 	local opts = { noremap = true, silent = true }
--- Use an on_attach function to only map the following keys
+	-- Use an on_attach function to only map the following keys
 	-- after the language server attaches to the current buffer
 	vim.api.nvim_create_autocmd("LspAttach", {
 		desc = "LSP actions",

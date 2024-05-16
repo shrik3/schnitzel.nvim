@@ -7,7 +7,7 @@ be maintained.
 
 
 # What is
-schnitzel.nvim is my personal IDE-like neovim configuration. 
+schnitzel.nvim is my personal neovim configuration. 
 ![preview](https://github.com/shrik3/schnitzel.nvim/blob/lazy/preview.png)
 
 **Should I use it?**  
@@ -17,7 +17,7 @@ If you want a cleaner (and much likely better) starting point, checkout the
 [starter templetes out there](https://github.com/rockerBOO/awesome-neovim#starter-templates)
 
 **What's it good for**  
-- it's minimal, ide-like and modular
+- it's minimal
 - it's a basic collection of plugins and configs that works out-of-the box for
   most use cases
 - lua as first-class citizen but there's also room for the old good vimscript

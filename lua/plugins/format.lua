@@ -29,7 +29,7 @@ M.config = function()
 			c = defaults.clangformat,
 			sh = ft.sh.shfmt,
 			lua = ft.lua.stylua,
-            tex = ft.tex.latexindent,
+			tex = ft.tex.latexindent,
 			-- Use the special "*" filetype for defining formatter configurations on
 			-- any filetype
 			["*"] = {
