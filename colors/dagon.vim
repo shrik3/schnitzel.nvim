@@ -63,6 +63,8 @@ hi PmenuSbar       guifg=#A0A0A0                     ctermfg=grey               
 hi PmenuSel        guifg=#A0A0A0                     ctermfg=grey                      gui=ITALIC       cterm=NONE
 hi PmenuThumb      guifg=#A0A0A0                     ctermfg=grey                      gui=NONE         cterm=NONE
 hi SignColumn      guifg=#ffffff    guibg=#000000    ctermfg=white    ctermbg=black    gui=NONE         cterm=NONE
+hi FoldColumn      guifg=#ffffff    guibg=#000000    ctermfg=white    ctermbg=black    gui=NONE         cterm=NONE
+hi Folded          guifg=#FFFFFF    guibg=#000022    ctermfg=white     ctermbg=black    gui=NONE         cterm=NONE
 
 "" highlighting ...
 hi Label           guifg=#FFFFFF                     ctermfg=white    ctermbg=black    gui=NONE         cterm=NONE
