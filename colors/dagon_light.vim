@@ -40,11 +40,11 @@ set background=light
 hi Normal          guifg=#000000    guibg=#c6c6c6    ctermfg=46       ctermbg=black    gui=NONE         cterm=NONE
 
 "" Special items
-hi Cursor          guifg=#c6c6c6    guibg=#000000    ctermfg=black    ctermbg=white    gui=NONE         cterm=NONE
-hi IncSearch       guifg=#c6c6c6    guibg=#000000    ctermfg=black    ctermbg=white    gui=ITALIC       cterm=NONE
-hi Search          guifg=#c6c6c6    guibg=#000000    ctermfg=black    ctermbg=white    gui=ITALIC       cterm=NONE
-hi Visual          guifg=#c6c6c6    guibg=#000000    ctermfg=black    ctermbg=white    gui=NONE         cterm=NONE
-hi VisualNOS       guifg=#c6c6c6    guibg=#000000    ctermfg=black    ctermbg=white    gui=NONE         cterm=NONE
+hi Cursor          guifg=#c6c6c6    guibg=#000000    ctermfg=white    ctermbg=black    gui=NONE         cterm=NONE
+hi IncSearch       guifg=#c6c6c6    guibg=#000000    ctermfg=white    ctermbg=black    gui=ITALIC       cterm=NONE
+hi Search          guifg=#c6c6c6    guibg=#000000    ctermfg=white    ctermbg=black    gui=ITALIC       cterm=NONE
+hi Visual          guifg=#c6c6c6    guibg=#000000    ctermfg=white    ctermbg=black    gui=NONE         cterm=NONE
+hi VisualNOS       guifg=#c6c6c6    guibg=#000000    ctermfg=white    ctermbg=black    gui=NONE         cterm=NONE
 hi CursorLine                       guibg=#FFFFFF                                      gui=NONE
 hi CursorColumn    guifg=#000000    guibg=#000022    ctermfg=grey     ctermbg=white    gui=NONE         cterm=NONE
 hi ColorColumn     guifg=#FFFFFF    guibg=#888888                     ctermbg=grey
