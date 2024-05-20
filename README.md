@@ -25,10 +25,9 @@ If you want a cleaner (and much likely better) starting point, checkout the
 
 # Prerequisites
 - neovim 0.9 + 
-- install a [nerd font](https://www.nerdfonts.com/)
+- install a [nerd font](https://www.nerdfonts.com/) 
 - install [ctags](https://github.com/universal-ctags/ctags) for plugin tagbar
 - install [ripgrep](https://github.com/BurntSushi/ripgrep)
-- this config doesn't use mason, i.e. you need to manually install lsp servers
 
 # Get started
 **Backup your old nvim configs**  
@@ -50,7 +49,7 @@ First, check my cheatsheet.txt to get started.
 **How to work with Markdown and Latex**  
 This setup comes with basic markdown and latex support.
 
-For markdown preview, edit `/lua/plugin_config/vim-markdown-preview`, set your
+For markdown preview, edit `/lua/plugin_config/markdown`, set your
 markdown preview browser by editting e.g. `let g:mkdp_browser = 'firefox'`.
 **PRIVACY NOTE!** by default the markdown previewer is open to local network,
 i.e. any machine from the same local network can access you being-previewed
@@ -70,19 +69,6 @@ vim.g.livepreview_previewer = 'zathura'
 ```
 
 To start a preview, type `:LLPStartPreview`
-
-**How to manage projects(session)**  
-You can save a session at any time with `:SSave`. If the project already exists
-you will be prompted whether to overwrite, otherwise you need to specify a
-project name so that a new project can be created. Your saved sessions will be
-shown in the startup screen. Check the cheatsheet for more commands.
-
-
-**How to configure and use LSPs**  
-Again, check the cheatsheet for basic LSP commands (e.g. goto def.). Note that
-you need to install the language server manually: check [nvim-lspconfig](https://github.com/neovim/nvim-lspconfig#Suggested-configuration).
-To add a LSP server, edit `/lua/plugin_config/lspconfig.lua`.
-
 
 # How to customize
 First take a look at how the configs are organized in the following section.
