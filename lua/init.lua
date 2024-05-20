@@ -41,7 +41,7 @@ end
 
 vim.cmd([[
     syntax on
-    colorscheme dagon
+    colorscheme dagon_n
     highlight VertSplit guibg=NONE
     highlight VertSplit ctermbg=NONE
 ]])
