@@ -1,16 +1,7 @@
 return {
-	{
-		"folke/which-key.nvim",
-		event = "VeryLazy",
-		init = function()
-			vim.o.timeout = true
-			vim.o.timeoutlen = 300
-		end,
-	},
 	{ "folke/neoconf.nvim", cmd = "Neoconf" },
-	{ "echasnovski/mini.tabline", config = { show_icons = false } },
-	"shrik3/alabaster.nvim",
-	-- "vim-scripts/ScrollColors",
+	-- "shrik3/alabaster.nvim",
+	"shrik3/dagon",
 	-- tagbar shows a bar of tags
 	{
 		"majutsushi/tagbar",
@@ -21,8 +12,6 @@ return {
 	"ntpeters/vim-better-whitespace",
 	-- for ... tabs..
 	"godlygeek/tabular",
-	-- don't exit vim upon closing the last buffer
-	"rbgrouleff/bclose.vim",
 	-- completes the brackets
 	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
 	-- displays color for HEX color code
@@ -39,4 +28,7 @@ return {
 	"shrik3/vim-aspectcpp",
 	-- aarch64 assembly syntax hl
 	"compnerd/arm64asm-vim",
+    -- not in use --
+	-- "vim-scripts/ScrollColors",
+	-- { "echasnovski/mini.tabline", config = { show_icons = false } },
 }

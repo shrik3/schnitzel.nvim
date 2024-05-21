@@ -130,7 +130,7 @@ vim.keymap.set("n", "<C-S>", ":update<cr>")
 vim.keymap.set("i", "<C-S>", "<Esc>:update<cr>gi")
 vim.keymap.set("n", "zz", ":update<cr>")
 -- close buffer
-vim.keymap.set("n", "<leader>bk", ":Bclose<CR>", { silent = true })
+vim.keymap.set("n", "<leader>bk", ":bdelete<CR>", { silent = true })
 -- disable highlights (nohl)
 vim.keymap.set("n", "<leader><CR>", ":noh<CR>", { silent = true })
 -- spell check
