@@ -31,12 +31,6 @@ M.config = function()
 	local luasnip = require("luasnip")
 	require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" })
 	cmp.setup({
-		-- snippet = {
-		-- 	expand = function(args)
-		-- 		require("luasnip").lsp_expand(args.body) -- For `luasnip` users.
-		-- 	end,
-		-- },
-
 		window = {
 			completion = {
 				border = "rounded",
@@ -79,10 +73,9 @@ M.config = function()
 		sources = cmp.config.sources({
 			-- { name = "nvim_lsp" },
 			{ name = "luasnip" },
-		}, {
 			{ name = "buffer" },
 			{ name = "path" },
-		}),
+        }),
 	})
 
 	cmp.setup.cmdline(":", {
