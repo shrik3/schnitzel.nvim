@@ -11,7 +11,7 @@ M.config = function()
 	-- Provides the Format, FormatWrite, FormatLock, and FormatWriteLock commands
 	require("formatter").setup({
 		-- Enable or disable logging
-		logging = true,
+		logging = false,
 		-- Set the log level
 		log_level = vim.log.levels.WARN,
 		-- All formatter configurations are opt-in
@@ -27,10 +27,9 @@ M.config = function()
 			},
 			cpp = defaults.clangformat,
 			c = defaults.clangformat,
-			-- python = ft.python, -- fuck, who decides to use space indent on python?
 			sh = ft.sh.shfmt,
 			lua = ft.lua.stylua,
-            tex = ft.tex.latexindent,
+			tex = ft.tex.latexindent,
 			-- Use the special "*" filetype for defining formatter configurations on
 			-- any filetype
 			["*"] = {

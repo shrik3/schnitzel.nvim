@@ -1,10 +1,10 @@
 --- telescope fzf
 local M = {
 	"nvim-telescope/telescope.nvim",
-	tag = "0.1.3",
+	branch = "master",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"gbrlsnchs/telescope-lsp-handlers.nvim",
+		-- "gbrlsnchs/telescope-lsp-handlers.nvim",
 	},
 }
 
@@ -12,9 +12,7 @@ M.config = function()
 	local builtin = require("telescope.builtin")
 	-- https://vimawesome.com/plugin/telescope-nvim
 	require("telescope").setup({
-		defaults = {
-			-- Your defaults config goes in here
-		},
+		defaults = {}, -- Your defaults config goes in here
 		pickers = {
 			-- Your special builtin config goes in here
 			buffers = {
@@ -32,21 +30,13 @@ M.config = function()
 					},
 				},
 			},
-			find_files = {
-				theme = "ivy",
-			},
-
-			live_grep = {
-				theme = "ivy",
-			},
+			find_files = {theme = "ivy",},
+			live_grep = {theme = "ivy",},
 		},
-		extensions = {
-			-- Your extension config goes in here
-		},
+		extensions = {}, -- Your extension config goes in here
 	})
 
-	-- this replaces lspsaga
-	require("telescope").load_extension("lsp_handlers") -- TODO find a better place for this
+	-- require("telescope").load_extension("lsp_handlers") -- TODO find a better place for this
 
 	vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find files" })
 	vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "live grep" })

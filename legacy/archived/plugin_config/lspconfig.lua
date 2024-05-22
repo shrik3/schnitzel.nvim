@@ -7,7 +7,6 @@ M.config = function()
 	-- currently nvim-lspconfig and lspSaga
 	-- See `:help vim.diagnostic.*` for documentation on any of the below functions
 	local opts = { noremap = true, silent = true }
-
 	-- Use an on_attach function to only map the following keys
 	-- after the language server attaches to the current buffer
 	vim.api.nvim_create_autocmd("LspAttach", {
@@ -48,7 +47,7 @@ M.config = function()
 	require("neoconf").setup({})
 
 	-- Set up lspconfig.
-	local servers = { "jedi_language_server", "texlab", "cmake", "bashls", "gopls"}
+	local servers = { "jedi_language_server", "texlab", "cmake", "bashls", "gopls" }
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 	for _, lsp in ipairs(servers) do
