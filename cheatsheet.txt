@@ -9,7 +9,7 @@ __||__  \___ \|  __  |  _  /  | | |  <  |__ <  __||__
 
 
 |------------ MOST COMMON ......  ---------------------|
-\------------------------------------------------------/
+-------------------------------------------------------/
 
 <leader><leader>    Show opened buffers + grep
      |  C-d         close selected buffer
@@ -29,7 +29,7 @@ __||__  \___ \|  __  |  _  /  | | |  <  |__ <  __||__
 C-/                 show helps (while the grep window open)
 
 |------------ VCS (git integration).. -----------------|
-\------------------------------------------------------/
+-------------------------------------------------------/
 Gitsigns keymaps
 <leader>gs      stage hunk (normal or visual)
 <leader>gS      stage buffer
@@ -47,7 +47,7 @@ Gitsigns keymaps
 
 
 |------------ Telescope ..-----------------------------|
-\------------------------------------------------------/
+-------------------------------------------------------/
 [ESC]           toggle mode (input bar/ items)
 C-n/C-p         next/previous item
 C-x             goto, split
@@ -57,9 +57,19 @@ C-q             send (not filtered) items to quickfixlist
 M-q             send all to qflist
                 These two are helpful to keep track of things
 
+|------------ BOOKMARKS...........---------------------|
+-------------------------------------------------------/
+NOTE: the bookmarks are cached globally at $HOME/.bookmarks
+<leader>ml      open bookmark list
+<leader>mm      toggle bookmark at current line
+<leader>me      edit bookmark (notes)
+<leader>mc      clear bookmarks in current buffer
+<leader>mn      go to next marked location
+<leader>mp      go to previous marked location
+<leader>mx      delete all bookmarks
 
 |------------ Markdown and Latex-----------------------|
-\------------------------------------------------------/
+-------------------------------------------------------/
 :MarkdownPreview    Markdown
 
 
