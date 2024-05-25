@@ -1,5 +1,5 @@
 " This file holds unused code, they are no longer used but worth keeping as a reference...
-" This file MUST NOT be souced into the config. If you want to use any of these, copy-paste 
+" This file MUST NOT be souced into the config. If you want to use any of these, copy-paste
 " the snippets to where they should be .
 
 
@@ -59,7 +59,7 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 " Super useful! From an idea by Michael Naumann
 function! CmdLine(str)
     call feedkeys(":" . a:str)
-endfunction 
+endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
