@@ -1,5 +1,4 @@
 return {
-	{ "folke/neoconf.nvim", cmd = "Neoconf" },
 	"shrik3/dagon",
 	-- tagbar shows a bar of tags
 	{
@@ -22,7 +21,6 @@ return {
 	},
 	-- split VeryLongWords for easier w nav
 	"chaoren/vim-wordmotion",
-	{ name = "hare.vim", url = "https://git.sr.ht/~sircmpwn/hare.vim" },
 	-- aarch64 assembly syntax hl
 	"compnerd/arm64asm-vim",
 }
