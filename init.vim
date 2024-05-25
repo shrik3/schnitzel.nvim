@@ -4,16 +4,23 @@ lua << EOF
     require"init"
 EOF
 
-" -- Custom Scripts(that are tricky in lua)-------------
-" -- ---------------------------------------------------
-source ~/.config/nvim/legacy/scripts.vim
-
 if exists("g:neovide")
     source ~/.config/nvim/neovide.vim
 endif
 
 " -- Custom Scripts(one liners)-------------------------
 " -- ---------------------------------------------------
+map <A-Tab> :call SwitchBuffer() <CR>
+map <S-Tab> :call SwitchBufferP() <CR>
+function! SwitchBuffer()
+    :set showtabline=2
+    :bn
+endfunction
+
+function! SwitchBufferP()
+    :set showtabline=2
+    :bp
+endfunction
 
 " return to last edit pos.
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
@@ -39,3 +46,4 @@ au FileType c                               set ts=8
 au FileType c                               set shiftwidth=8
 au BufRead,BufNewFile *.pv                  set ft=proverif
 au BufEnter *.h                             set ft=c
+

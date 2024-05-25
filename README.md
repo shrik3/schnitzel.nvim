@@ -4,21 +4,10 @@ out-of-box setup, this is what you go for. The "my-own" branch is the up-to-date
 dotfiles that I daily drive. You are welcome to take a look, but do expect
 frequent breaking changes.
 
-# NOTE
-The config has switched to lazy.nvim (previously using packer.nvim). The old
-packer-based config can still be found in the master branch but will no longer
-be maintained.
-
 # What is
 schnitzel.nvim is my personal neovim configuration. 
-
-# For beginners
-
-I suggest you read through this section if you are a (neo)vim beginner.
-
-**Should I use it?**  
-probably not, at least you Shouldn't copy exactly my config and use it for the
-long run, because this is optimized to my own preference and workflow.
+If you want a cleaner (and much likely better) starting point, checkout the
+[starter templetes out there](https://github.com/rockerBOO/awesome-neovim#starter-templates)
 
 **What's it good for**  
 - it's minimal
@@ -65,7 +54,8 @@ git clone https://github.com/shrik3/schnitzel.nvim.git ~/.config/nvim
 
 **Launch neovim and sync the plugins**:  
 and let Lazy.nvim handle the plugins initialization for the first time. Then
-**restart neovim**. Should you run into troubles, try `:checkhealth lazy`.
+**restart neovim**. Should you run into troubles, try `:checkhealth lazy`. To
+update the plugins use `:Lazy sync`
 
 # How to use - Perks:
 First, check my cheatsheet.txt to get started.
@@ -79,38 +69,16 @@ To add a LSP server, edit `/lua/plugin_config/lspconfig.lua`.
 **How to work with Markdown and Latex**  
 This setup comes with basic markdown and latex support.
 
-For markdown preview, edit `/lua/plugin_config/markdown`, set your
-markdown preview browser by editting e.g. `let g:mkdp_browser = 'firefox'`.
-**PRIVACY NOTE!** by default the markdown previewer is open to local network,
-i.e. any machine from the same local network can access you being-previewed
-document. This is handy if you want to e.g. share document across devices. Make
-sure to turn this off if you are in a public network. To do this turn off this
-option:
-```
-let g:mkdp_open_to_the_world = 1
-```
-
-To start a markdown preview, type `:MarkdownPreview`.
-
-For latex preview, find the following line in the `/lua/plugins.lua` and set
-your previewer:
-```
-vim.g.livepreview_previewer = 'zathura'
-```
-
-To start a preview, type `:LLPStartPreview`
 
 # How to customize
 First take a look at how the configs are organized in the following section.
 
-**To install a neo plugin**:  
+**To install a new plugin**:  
 For plugins that requires only a few or no configs, you can add a line in
 `lua/plugins/init.lua`.  Otherwise it's recomennded to split the config into a
 separate file: use `lua/plugins/template.txt` as a template. Lazy.nvim will
 automacally scan the `plugins` folder and load the config files in it.
 
-**To change the home (startup) screen**: 
-modify `/lua/plugins/startify.lua`. you can add your bookmarks here.
 
 # structure
 
@@ -145,3 +113,27 @@ modify `/lua/plugins/startify.lua`. you can add your bookmarks here.
 
 I don't know if dotfiles need a license. But if you care, consider this public
 domain.
+
+
+# Notes
+
+For markdown preview, edit `/lua/plugin_config/markdown`, set your
+markdown preview browser by editting e.g. `let g:mkdp_browser = 'firefox'`.
+**PRIVACY NOTE!** by default the markdown previewer is open to local network,
+i.e. any machine from the same local network can access you being-previewed
+document. This is handy if you want to e.g. share document across devices. Make
+sure to turn this off if you are in a public network. To do this turn off this
+option:
+```
+let g:mkdp_open_to_the_world = 1
+```
+
+To start a markdown preview, type `:MarkdownPreview`.
+
+For latex preview, find the following line in the `/lua/plugins.lua` and set
+your previewer:
+```
+vim.g.livepreview_previewer = 'zathura'
+```
+
+To start a preview, type `:LLPStartPreview`

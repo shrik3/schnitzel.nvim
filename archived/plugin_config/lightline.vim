@@ -20,17 +20,17 @@ endfunction
 
 function! MyFilename()
   if expand('%:t') == 'ControlP'
-    return g:lightline.ctrlp_prev . ' ' . g:lightline.subseparator.left . ' ' . 
+    return g:lightline.ctrlp_prev . ' ' . g:lightline.subseparator.left . ' ' .
           \ g:lightline.ctrlp_item . ' ' . g:lightline.subseparator.left . ' ' .
           \ g:lightline.ctrlp_next
   endif
   if expand('%:t') == '__Tagbar__'
-    return  'Tagbar ' . g:lightline.subseparator.left . ' ' . 
+    return  'Tagbar ' . g:lightline.subseparator.left . ' ' .
           \ g:lightline.fname
   endif
   return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() : 
-        \  &ft == 'unite' ? unite#get_status_string() : 
+        \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
+        \  &ft == 'unite' ? unite#get_status_string() :
         \  &ft == 'vimshell' ? vimshell#get_status_string() :
         \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
         \ ('' != MyModified() ? ' ' . MyModified() : '')

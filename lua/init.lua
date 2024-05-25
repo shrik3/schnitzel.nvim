@@ -1,23 +1,10 @@
--- plugins... (packer)
--- note that packer is installed from AUR
---
 -- Important stuffs go first -------------------------
--- ---------------------------------------------------
 vim.g.mapleader = " "
 vim.keymap.set("n", "<SPACE>", "<NOP>")
--- Load Modules (plugins, Scripts etc.) --------------
--- ---------------------------------------------------
+-- Source other configs ------------------------------
 require("lazy_plugins")
 
 -- Accessibility    ----------------------------------
--- ---------------------------------------------------
--- This options works for BIG fonts.
--- jk on wrapped lines instead of physical lines
-vim.cmd([[
-noremap j gj
-noremap k gk
-]])
--- Accessibility/tab
 vim.opt.smarttab = false
 vim.opt.expandtab = true
 -- when shiftwidth set to 0, tabstop will always be used
@@ -25,36 +12,30 @@ vim.opt.shiftwidth = 0
 vim.opt.tabstop = 4
 -- set indent on soft-wrapped lines
 vim.opt.bri = true
--- Other Parameters ----------------------------------
--- ---------------------------------------------------
+-- ENVs-----------------------------------------------
 vim.opt.shell = "/usr/bin/fish"
 vim.opt.encoding = "utf8"
--- Globals -------------------------------------------
--- ---------------------------------------------------
 vim.g.LANG = "en"
--- Themes, Fonts, Colors -----------------------------
--- ---------------------------------------------------
+vim.opt.langmenu = "en"
+-- Fonts and Colors-----------------------------------
 vim.opt.guifont = "fira code"
 if vim.fn.has("nvim") == 1 or vim.fn.has("termguicolors") then
 	vim.opt.termguicolors = true
 end
-
 vim.cmd([[
     syntax on
     colorscheme dagon
     highlight VertSplit guibg=NONE
     highlight VertSplit ctermbg=NONE
 ]])
--- Editor (looks) ------------------------------------
--- ---------------------------------------------------
+
+-- UI ------------------------------------------------
 vim.opt.nu = true
 vim.opt.cursorline = true
 -- mark column (too wide)
 vim.opt.colorcolumn = "96"
 -- status line
 vim.opt.laststatus = 2
--- for git-gutter
--- vim.opt.signcolumn = "yes"
 -- 7 lines below cursor when moving vertically with j/k
 vim.opt.so = 7
 -- always show current position
@@ -63,14 +44,12 @@ vim.opt.ruler = true
 vim.opt.culopt = "both"
 -- enable cursorline
 vim.opt.cmdheight = 1
--- Behiviour -----------------------------------------
--- ---------------------------------------------------
 vim.opt.foldenable = false
+-- Functions -----------------------------------------
 vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 -- Completion
 vim.opt.wildmenu = true
 vim.opt.completeopt = "menuone"
-
 -- hide buffer when it's abandoned vim.opt.hid = true
 -- configure backspace so it acts as it should do
 vim.opt.backspace = "eol,start,indent"
@@ -101,22 +80,18 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
--- turn off sound
+-- MISC ----------------------------------------------
 vim.opt.errorbells = false
 vim.opt.visualbell = false
--- MISC.
-vim.opt.langmenu = "en"
--- Performance ---------------------------------------
--- ---------------------------------------------------
+-- Performance
 vim.opt.lazyredraw = true
 vim.opt.updatetime = 100
 vim.opt.tm = 500
--- KeyMaps -------------------------------------------
--- ---------------------------------------------------
--- for paragraph nav.
--- with Right-Alt, this can be done comfortably
--- with right hand.
+-- Basic bindings ------------------------------------
+-- jk on wrapped lines instead of physical lines
 vim.cmd([[
+noremap j gj
+noremap k gk
 noremap <A-]> }
 noremap <A-[> {
 ]])

@@ -1,1 +1,1 @@
-require("luasnip").filetype_extend("mail", {"gitcommit"})
+require("luasnip").filetype_extend("mail", { "gitcommit" })
