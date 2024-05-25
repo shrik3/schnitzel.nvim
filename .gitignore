@@ -4,3 +4,4 @@ plugin/packer_compiled.lua
 ref_init_.lua
 lazy-lock.json
 colors
+syntax
