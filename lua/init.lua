@@ -13,7 +13,7 @@ vim.opt.tabstop = 4
 -- set indent on soft-wrapped lines
 vim.opt.bri = true
 -- ENVs-----------------------------------------------
-vim.opt.shell = "/usr/bin/fish"
+vim.opt.shell = "/usr/bin/bash"
 vim.opt.encoding = "utf8"
 vim.g.LANG = "en"
 vim.opt.langmenu = "en"
