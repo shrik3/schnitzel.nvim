@@ -28,7 +28,4 @@ return {
 	"shrik3/vim-aspectcpp",
 	-- aarch64 assembly syntax hl
 	"compnerd/arm64asm-vim",
-    -- not in use --
-	-- "vim-scripts/ScrollColors",
-	-- { "echasnovski/mini.tabline", config = { show_icons = false } },
 }

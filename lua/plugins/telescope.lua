@@ -30,8 +30,8 @@ M.config = function()
 					},
 				},
 			},
-			find_files = {theme = "ivy",},
-			live_grep = {theme = "ivy",},
+			find_files = { theme = "ivy" },
+			live_grep = { theme = "ivy" },
 		},
 		extensions = {}, -- Your extension config goes in here
 	})

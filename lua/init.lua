@@ -25,15 +25,11 @@ vim.opt.shiftwidth = 0
 vim.opt.tabstop = 4
 -- set indent on soft-wrapped lines
 vim.opt.bri = true
--- Other Parameters ----------------------------------
--- ---------------------------------------------------
+
 vim.opt.shell = "/usr/bin/fish"
 vim.opt.encoding = "utf8"
--- Globals -------------------------------------------
--- ---------------------------------------------------
 vim.g.LANG = "en"
--- Themes, Fonts, Colors -----------------------------
--- ---------------------------------------------------
+
 vim.opt.guifont = "fira code"
 if vim.fn.has("nvim") == 1 or vim.fn.has("termguicolors") then
 	vim.opt.termguicolors = true
@@ -45,16 +41,12 @@ vim.cmd([[
     highlight VertSplit guibg=NONE
     highlight VertSplit ctermbg=NONE
 ]])
--- Editor (looks) ------------------------------------
--- ---------------------------------------------------
 vim.opt.nu = true
 vim.opt.cursorline = true
 -- mark column (too wide)
 vim.opt.colorcolumn = "96"
 -- status line
 vim.opt.laststatus = 2
--- for git-gutter
--- vim.opt.signcolumn = "yes"
 -- 7 lines below cursor when moving vertically with j/k
 vim.opt.so = 7
 -- always show current position
@@ -63,14 +55,11 @@ vim.opt.ruler = true
 vim.opt.culopt = "both"
 -- enable cursorline
 vim.opt.cmdheight = 1
--- Behiviour -----------------------------------------
--- ---------------------------------------------------
 vim.opt.foldenable = false
 vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
 -- Completion
 vim.opt.wildmenu = true
 vim.opt.completeopt = "menuone"
-
 -- hide buffer when it's abandoned vim.opt.hid = true
 -- configure backspace so it acts as it should do
 vim.opt.backspace = "eol,start,indent"
@@ -106,13 +95,9 @@ vim.opt.errorbells = false
 vim.opt.visualbell = false
 -- MISC.
 vim.opt.langmenu = "en"
--- Performance ---------------------------------------
--- ---------------------------------------------------
 vim.opt.lazyredraw = true
 vim.opt.updatetime = 100
 vim.opt.tm = 500
--- KeyMaps -------------------------------------------
--- ---------------------------------------------------
 -- for paragraph nav.
 -- with Right-Alt, this can be done comfortably
 -- with right hand.

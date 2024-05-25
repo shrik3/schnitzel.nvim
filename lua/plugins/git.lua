@@ -1,8 +1,8 @@
-local M = {
+local gitsign = {
     "lewis6991/gitsigns.nvim",
 }
 
-M.config = function()
+gitsign.config = function()
     require('gitsigns').setup {
         signs = {
             add          = { text = '┃' },
@@ -74,7 +74,6 @@ M.config = function()
             map('n', '<leader>gs', gitsigns.stage_hunk)
             map('v', '<leader>gs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
             map('n', '<leader>gS', gitsigns.stage_buffer)
-
             map('n', '<leader>gr', gitsigns.reset_hunk)
             map('v', '<leader>gr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
             map('n', '<leader>gR', gitsigns.reset_buffer)
@@ -90,4 +89,4 @@ M.config = function()
     }
 end
 
-return M
+return {gitsign}
