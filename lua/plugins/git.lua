@@ -1,6 +1,4 @@
-local gitsign = {
-    "lewis6991/gitsigns.nvim",
-}
+local gitsign = { "lewis6991/gitsigns.nvim" }
 
 gitsign.config = function()
     require('gitsigns').setup {
@@ -70,6 +68,7 @@ gitsign.config = function()
                     gitsigns.nav_hunk('prev')
                 end
             end)
+
             -- Actions
             map('n', '<leader>gs', gitsigns.stage_hunk)
             map('v', '<leader>gs', function() gitsigns.stage_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
@@ -77,7 +76,6 @@ gitsign.config = function()
             map('n', '<leader>gr', gitsigns.reset_hunk)
             map('v', '<leader>gr', function() gitsigns.reset_hunk {vim.fn.line('.'), vim.fn.line('v')} end)
             map('n', '<leader>gR', gitsigns.reset_buffer)
-
             map('n', '<leader>gu', gitsigns.undo_stage_hunk)
             map('n', '<leader>gp', gitsigns.preview_hunk)
             map('n', '<leader>gb', function() gitsigns.blame_line{full=true} end)
