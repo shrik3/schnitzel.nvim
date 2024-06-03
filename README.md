@@ -112,7 +112,7 @@ automacally scan the `plugins` folder and load the config files in it.
 # License
 
 I don't know if dotfiles need a license. But if you care, consider this public
-domain.
+domain (CC0).
 
 
 # Notes
