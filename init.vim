@@ -22,6 +22,9 @@ function! SwitchBufferP()
     :bp
 endfunction
 
+" a better retab functoin
+:command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+
 " return to last edit pos.
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 au FocusGained,BufEnter * checktime
@@ -42,7 +45,7 @@ au FileType c,cpp               set cindent
 au FileType make                            set noet
 au FileType nasm,ld,asm,c,cpp,python        set noet
 " tab is 8 spaces for c, per kernel code style
-au FileType c                               set ts=8
+au FileType c,asm,nasm                      set ts=8
 au FileType c                               set shiftwidth=8
 au BufRead,BufNewFile *.pv                  set ft=proverif
 au BufEnter *.h                             set ft=c

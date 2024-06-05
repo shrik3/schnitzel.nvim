@@ -28,4 +28,8 @@ return {
 	"shrik3/vim-aspectcpp",
 	-- aarch64 assembly syntax hl
 	"compnerd/arm64asm-vim",
+	{
+		"HakonHarnes/img-clip.nvim",
+		event = "VeryLazy",
+	},
 }
