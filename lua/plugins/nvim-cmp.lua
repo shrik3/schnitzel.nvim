@@ -78,13 +78,14 @@ M.config = function()
 		}),
 	})
 
-	cmp.setup.cmdline(":", {
-		mapping = cmp.mapping.preset.cmdline(),
-		sources = cmp.config.sources({
-			{ name = "path" },
-			{ name = "cmdline" },
-		}),
-	})
+    -- it breaks visual selection. Disable for now
+	-- cmp.setup.cmdline(":", {
+	-- 	mapping = cmp.mapping.preset.cmdline(),
+	-- 	sources = cmp.config.sources({
+	-- 		{ name = "path" },
+	-- 		{ name = "cmdline" },
+	-- 	}),
+	-- })
 end
 
 return M
