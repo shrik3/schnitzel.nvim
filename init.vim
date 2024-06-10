@@ -35,18 +35,20 @@ au FocusGained,BufEnter * checktime
 au FileType markdown,text,latex set tw=80
 au FileType tex                 set tw=80
 au FileType nasm,c,cpp          set tw=80
-au FileType mail                set tw=80
+au FileType mail                set tw=72
+au FileType rust                set tw=80
 au FileType python              set tw=120
 au FileType java                set tw=400
 " set cindent for c/cpp, this overrides smartindent (si)
 au FileType c,cpp               set cindent
 " expand tab by default, but force noet for some..
-" force tab indentation for some languages
-au FileType make                            set noet
-au FileType nasm,ld,asm,c,cpp,python        set noet
+au FileType make                set noet
+au FileType rust                set noet
+au FileType nasm,ld,asm         set noet
+au FileType c,cpp,python        set noet
+au FileType rust                set ts=4
 " tab is 8 spaces for c, per kernel code style
-au FileType c,asm,nasm                      set ts=8
-au FileType c                               set shiftwidth=8
-au BufRead,BufNewFile *.pv                  set ft=proverif
-au BufEnter *.h                             set ft=c
-
+au FileType c,asm,nasm          set ts=8
+au FileType c                   set shiftwidth=8
+au BufRead,BufNewFile *.pv      set ft=proverif
+au BufEnter *.h                 set ft=c
