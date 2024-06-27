@@ -23,4 +23,8 @@ return {
 	"chaoren/vim-wordmotion",
 	-- aarch64 assembly syntax hl
 	"compnerd/arm64asm-vim",
+	{
+		"HakonHarnes/img-clip.nvim",
+		event = "VeryLazy",
+	},
 }
