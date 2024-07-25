@@ -42,8 +42,10 @@ au FileType java                set tw=400
 " set cindent for c/cpp, this overrides smartindent (si)
 au FileType c,cpp               set cindent
 " expand tab by default, but force noet for some..
+au FileType cmake               set et
 au FileType make                set noet
 au FileType rust                set noet
+au FileType go                  set noet
 au FileType nasm,ld,asm         set noet
 au FileType c,cpp,python        set noet
 au FileType rust                set ts=4
