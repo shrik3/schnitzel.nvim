@@ -6,9 +6,11 @@ local M = {
 }
 
 M.config = function()
+    -- your config goes here
+    -- SNIP
 
+    -- for lua plugins that has a "setup, maybe also do the following"
 	require("plugin").setup({
-		-- config goes here
 	})
 
 end
