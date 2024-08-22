@@ -1,29 +1,23 @@
 **Branches**  
-The master branch is a "stable" version that I share publically. If you want a
-out-of-box setup, this is what you go for. The "my-own" branch is the up-to-date
-dotfiles that I daily drive. You are welcome to take a look, but do expect
-frequent breaking changes.
+- `master`: without my very personal perks. A little bit more "stable"
+- `my-own`: exactly what I daily drive, synchonized to my own config.
+
+# IMPORTANT
+
+This is NOT a "neovim distribution". Spontaneous and breaking changes are often
+introduced. If you use this config, **fork it, make it your own and never look
+back**.
 
 # What is
 schnitzel.nvim is my personal neovim configuration. 
-If you want a cleaner (and much likely better) starting point, checkout the
-[starter templetes out there](https://github.com/rockerBOO/awesome-neovim#starter-templates)
 
-**What's it good for**  
+**why**  
 - it's minimal
 - it's a basic collection of plugins and configs that works out-of-the box for
   most use cases
 - lua as first-class citizen but there's also room for the old good vimscript
 
-**How should I use this one?** -- I suggest the following:
-1. simply look around and find what's interesting for you, I'm happy if this
-   could add to your armory.
-2. if you want to actually use this config, it's better to **fork it and, never
-   come back** to pull again: I'll try to keep the master as stable as I can but
-   breaking changes are expected. My workflow, needs, and taste will also change
-   over time. I can't promise you a smooth experience in the long term.
-
-**Where can I learn about neovim / find resources**
+**other resources**
 - As always, read the friend manuals. Also the `:help <something>` command has
   good coverage.
 - Run the vim tutor if you are an absolute beginner. The `vimtutor` program
@@ -33,8 +27,6 @@ If you want a cleaner (and much likely better) starting point, checkout the
 - If you want to build a configuration of you own, take a look at the 
     [starter templetes](https://github.com/rockerBOO/awesome-neovim#starter-templates)
     in the awesome-neovim repo
-
-**Build what you use, and use what you build**
 
 # Prerequisites
 - neovim 0.9 + 
@@ -104,9 +96,6 @@ automacally scan the `plugins` folder and load the config files in it.
 ├── readme.md
 ├── LICENSE
 └── syntax                  -- Some of my custome syntax defs.
-
-7 directories, 31 files
-
 ```
 
 # License
@@ -117,23 +106,10 @@ domain (CC0).
 
 # Notes
 
-For markdown preview, edit `/lua/plugin_config/markdown`, set your
-markdown preview browser by editting e.g. `let g:mkdp_browser = 'firefox'`.
-**PRIVACY NOTE!** by default the markdown previewer is open to local network,
-i.e. any machine from the same local network can access you being-previewed
-document. This is handy if you want to e.g. share document across devices. Make
-sure to turn this off if you are in a public network. To do this turn off this
-option:
+For markdown preview, take a look at `/lua/plugin_config/markdown`. To start a
+markdown preview, type `:MarkdownPreview`.
+
+Notably this option can be dangerous:
 ```
 let g:mkdp_open_to_the_world = 1
 ```
-
-To start a markdown preview, type `:MarkdownPreview`.
-
-For latex preview, find the following line in the `/lua/plugins.lua` and set
-your previewer:
-```
-vim.g.livepreview_previewer = 'zathura'
-```
-
-To start a preview, type `:LLPStartPreview`
