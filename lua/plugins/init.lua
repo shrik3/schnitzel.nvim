@@ -1,5 +1,4 @@
 return {
-	{ "folke/neoconf.nvim", cmd = "Neoconf" },
 	-- "shrik3/alabaster.nvim",
 	"shrik3/dagon",
 	-- tagbar shows a bar of tags
