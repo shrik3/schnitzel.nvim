@@ -13,7 +13,7 @@ vim.opt.tabstop = 4
 -- set indent on soft-wrapped lines
 vim.opt.bri = true
 -- ENVs-----------------------------------------------
-vim.opt.shell = "/usr/bin/fish"
+vim.opt.shell = "/usr/bin/bash"
 vim.opt.encoding = "utf8"
 vim.g.LANG = "en"
 vim.opt.langmenu = "en"
@@ -24,7 +24,7 @@ if vim.fn.has("nvim") == 1 or vim.fn.has("termguicolors") then
 end
 vim.cmd([[
     syntax on
-    colorscheme dagon_n
+    colorscheme dagon
     highlight VertSplit guibg=NONE
     highlight VertSplit ctermbg=NONE
 ]])
@@ -32,6 +32,7 @@ vim.cmd([[
 -- UI ------------------------------------------------
 vim.opt.nu = true
 vim.opt.cursorline = true
+vim.opt.guicursor = "n-v-c-i:block"
 -- mark column (too wide)
 vim.opt.colorcolumn = "96"
 -- status line
@@ -85,16 +86,9 @@ vim.opt.errorbells = false
 vim.opt.visualbell = false
 -- Performance
 vim.opt.lazyredraw = true
-vim.opt.updatetime = 100
-vim.opt.tm = 500
+-- vim.opt.updatetime = 4000
+-- vim.opt.tm = 500
 -- Basic bindings ------------------------------------
--- jk on wrapped lines instead of physical lines
-vim.cmd([[
-noremap j gj
-noremap k gk
-noremap <A-]> }
-noremap <A-[> {
-]])
 -- nav. panels
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>")

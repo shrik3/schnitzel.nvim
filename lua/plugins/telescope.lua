@@ -4,7 +4,6 @@ local M = {
 	branch = "master",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		"gbrlsnchs/telescope-lsp-handlers.nvim",
 	},
 }
 
@@ -35,8 +34,6 @@ M.config = function()
 		},
 		extensions = {}, -- Your extension config goes in here
 	})
-
-	require("telescope").load_extension("lsp_handlers") -- TODO find a better place for this
 
 	vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "find files" })
 	vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "live grep" })

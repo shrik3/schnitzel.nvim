@@ -10,25 +10,18 @@ return {
 	},
 	"ntpeters/vim-better-whitespace",
 	-- for ... tabs..
-	"godlygeek/tabular",
+	-- "godlygeek/tabular",
 	-- completes the brackets
 	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
 	-- displays color for HEX color code
-	{
-		"NvChad/nvim-colorizer.lua",
-		config = function()
-			require("colorizer").setup()
-		end,
-	},
 	-- split VeryLongWords for easier w nav
-	"chaoren/vim-wordmotion",
-	{ name = "hare.vim", url = "https://git.sr.ht/~sircmpwn/hare.vim" },
+	-- "chaoren/vim-wordmotion",
 	-- AspectC++ highlighting
-	"shrik3/vim-aspectcpp",
+	-- "shrik3/vim-aspectcpp",
 	-- aarch64 assembly syntax hl
-	"compnerd/arm64asm-vim",
-	{
-		"HakonHarnes/img-clip.nvim",
-		event = "VeryLazy",
-	},
+	-- "compnerd/arm64asm-vim",
+	-- {
+	-- 	"HakonHarnes/img-clip.nvim",
+	-- 	event = "VeryLazy",
+	-- },
 }
