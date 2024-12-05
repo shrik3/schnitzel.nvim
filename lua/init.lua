@@ -17,6 +17,11 @@ vim.opt.shell = "/usr/bin/fish"
 vim.opt.encoding = "utf8"
 vim.g.LANG = "en"
 vim.opt.langmenu = "en"
+-- setting this ENV "IN_NVIM"
+-- if we run a terminal inside of nvim (w. :term), the shell may need to know
+-- this fact and behavely differently for me specifically, I use fish, which is
+-- configured to use VIM mode, is a pain if you have nested vim mode... lmao
+vim.env.IN_NVIM = 1
 -- Fonts and Colors-----------------------------------
 vim.opt.guifont = "fira code"
 if vim.fn.has("nvim") == 1 or vim.fn.has("termguicolors") then
