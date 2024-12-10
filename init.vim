@@ -43,6 +43,7 @@ au FileType java                set tw=400
 au FileType c,cpp               set cindent
 " expand tab by default, but force noet for some..
 au FileType cmake               set et
+au FileType markdown            set et
 au FileType make                set noet
 au FileType rust                set noet
 au FileType go                  set noet
