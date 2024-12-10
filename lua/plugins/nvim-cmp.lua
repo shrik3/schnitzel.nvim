@@ -31,6 +31,9 @@ M.config = function()
 	local luasnip = require("luasnip")
 	require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snippets" })
 	cmp.setup({
+		performance = {
+			max_view_entries = 7,
+		},
 		window = {
 			completion = {
 				border = "rounded",
@@ -78,7 +81,7 @@ M.config = function()
 		}),
 	})
 
-    -- it breaks visual selection. Disable for now
+	-- it breaks visual selection. Disable for now
 	-- cmp.setup.cmdline(":", {
 	-- 	mapping = cmp.mapping.preset.cmdline(),
 	-- 	sources = cmp.config.sources({
