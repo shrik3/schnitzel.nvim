@@ -35,7 +35,7 @@ M.config = function()
 			bufmap("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<cr>")
 			-- Move to the next diagnostic
 			bufmap("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<cr>")
-
+			-- TODO conflict with git stage
 			bufmap("n", "<leader>gs", "<cmd>lua vim.lsp.buf.signature_help()<cr>")
 			bufmap({ "n", "v" }, "<F4>", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
 			bufmap({ "n", "v" }, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { silent = true })
@@ -43,22 +43,25 @@ M.config = function()
 		end,
 	})
 
-	-- setup neoconf before LSPs.
-	-- require("neoconf").setup({})
-
 	-- Set up lspconfig.
-    --
+	local servers = { "jedi_language_server", "texlab", "cmake", "bashls", "gopls", "fortls", "clangd" }
+
+	-- use nvim-cmp
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-
-	local servers = {"fortls"}
 	for _, lsp in ipairs(servers) do
 		require("lspconfig")[lsp].setup({
 			on_attach = on_attach,
 			capabilities = capabilities,
 		})
 	end
-
+	--
+	-- use coq
+	-- local coq = require("coq")
+	-- local lspconfig = require("lspconfig")
+	-- for _, lsp in ipairs(servers) do
+	-- 	lspconfig[lsp].setup(coq.lsp_ensure_capabilities())
+	-- end
 end
 
 return M
