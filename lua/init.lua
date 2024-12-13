@@ -21,6 +21,14 @@ vim.opt.langmenu = "en"
 -- if we run a terminal inside of nvim (w. :term), the shell may need to know
 -- this fact and behavely differently for me specifically, I use fish, which is
 -- configured to use VIM mode, is a pain if you have nested vim mode... lmao
+-- example config for fish:
+-- ```
+-- if set -q IN_NVIM
+-- else
+--     fish_vi_key_bindings
+-- end
+-- ```
+
 vim.env.IN_NVIM = 1
 -- Fonts and Colors-----------------------------------
 vim.opt.guifont = "fira code"
@@ -61,7 +69,10 @@ vim.opt.completeopt = "menuone"
 vim.opt.backspace = "eol,start,indent"
 vim.opt.whichwrap = vim.opt.whichwrap + "<,>,h,l"
 -- matching brackets
-vim.opt.showmatch = true
+-- when setting showmatch = true, the cursor will "virtually" jump to the
+-- matched bracket, which breaks my focus. Without option we still have a
+-- highlight on matching bracket, which already suffice.
+-- vim.opt.showmatch = true
 vim.opt.mat = 2 -- (match)
 -- how manny lines of history to remember
 vim.opt.history = 500
