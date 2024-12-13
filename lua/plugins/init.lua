@@ -11,7 +11,17 @@ return {
 	-- for ... tabs..
 	"godlygeek/tabular",
 	-- completes the brackets
-	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = {} },
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {},
+		config = function()
+			require("nvim-autopairs").setup({
+				disable_filetype = { "TelescopePrompt", "vim" },
+				map_cr = false,
+			})
+		end,
+	},
 	-- displays color for HEX color code
 	{
 		"NvChad/nvim-colorizer.lua",
