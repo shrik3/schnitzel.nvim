@@ -2,20 +2,6 @@ return {
 	"shrik3/dagon",
 	-- tagbar shows a bar of tags
 	"ntpeters/vim-better-whitespace",
-	-- for ... tabs..
-	-- "godlygeek/tabular",
-	-- completes the brackets
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		opts = {},
-		config = function()
-			require("nvim-autopairs").setup({
-				disable_filetype = { "TelescopePrompt", "vim" },
-				map_cr = false,
-			})
-		end,
-	},
 	-- displays color for HEX color code
 	-- split VeryLongWords for easier w nav
 	-- "chaoren/vim-wordmotion",
@@ -23,7 +9,7 @@ return {
 	-- split VeryLongWords for easier w nav
 	"chaoren/vim-wordmotion",
 	-- harelang support
-	{ name = "hare.vim", url = "https://git.sr.ht/~sircmpwn/hare.vim" },
+	-- { name = "hare.vim", url = "https://git.sr.ht/~sircmpwn/hare.vim" },
 	-- AspectC++ highlighting
 	-- "shrik3/vim-aspectcpp",
 	-- aarch64 assembly syntax hl
@@ -32,13 +18,13 @@ return {
 	-- 	"HakonHarnes/img-clip.nvim",
 	-- 	event = "VeryLazy",
 	-- },
-	"compnerd/arm64asm-vim",
+	-- "compnerd/arm64asm-vim",
 	-- copy paste images
-	{ "HakonHarnes/img-clip.nvim", event = "VeryLazy" },
+	-- { "HakonHarnes/img-clip.nvim", event = "VeryLazy" },
 	-- other preconfigured plugins
 	require("plugins.preconfigured.autopairs"),
-	require("plugins.preconfigured.bookmarks"),
-	require("plugins.preconfigured.colorizer"),
+	-- require("plugins.preconfigured.bookmarks"),
+	-- require("plugins.preconfigured.colorizer"),
 	require("plugins.preconfigured.comment"),
 	require("plugins.preconfigured.format"),
 	require("plugins.preconfigured.git"),
@@ -49,6 +35,6 @@ return {
 	-- completion engine, coq and cmp are not compatible
 	require("plugins.preconfigured.coq"),
 	-- require "plugins.preconfigured.nvim-cmp"
-	require("plugins.preconfigured.rust"),
+	-- require("plugins.preconfigured.rust"),
 	require("plugins.preconfigured.telescope"),
 }
