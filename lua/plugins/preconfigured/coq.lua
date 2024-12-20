@@ -3,13 +3,18 @@ local COQ = {
 	branch = "coq",
 	lazy = false,
 	dependencies = {
-		{ "ms-jpq/coq.thirdparty", branch = "3p" },
+		-- { "ms-jpq/coq.thirdparty", branch = "3p" },
 		-- { "ms-jpq/coq.artifacts", branch = "artifacts" },
 	},
 }
 
 COQ.init = function()
 	vim.g.coq_settings = {
+        completion = {
+            always = true,
+            smart = false,
+            skip_after ={" ", "(", "	","{"}
+        },
 		auto_start = "shut-up",
 		-- I don't want your default keymaps
 		keymap = {
@@ -21,6 +26,10 @@ COQ.init = function()
 			ghost_text = { highlight_group = "Normal" },
 			icons = { mode = "none" },
 		},
+        clients = {
+            registers = {enabled = false},
+            tree_sitter = {enabled = false},
+        }
 	}
 	vim.g.coq_settings.display = {
 		ghost_text = { enabled = false },
@@ -35,14 +44,14 @@ COQ.init = function()
 		[[pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"]],
 		{ expr = true, silent = true }
 	)
-	require("coq_3p")({
+	-- require("coq_3p")({
 		-- { src = "dap" },
 		-- { src = "builtin/js" },
 		-- { src = "builtin/php" },
-		{ src = "builtin/html", short_name },
-		{ src = "builtin/css" },
-		{ src = "builtin/c" },
-	})
+		-- { src = "builtin/html", short_name },
+		-- { src = "builtin/css" },
+		-- { src = "builtin/c" },
+	-- })
 end
 
 return COQ
