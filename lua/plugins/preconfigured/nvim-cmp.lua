@@ -1,9 +1,10 @@
 local M = {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
-		"hrsh7th/cmp-buffer",
+		-- "hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
+        'hrsh7th/cmp-nvim-lsp',
 		"saadparwaiz1/cmp_luasnip",
 		"L3MON4D3/LuaSnip",
 	},
@@ -70,9 +71,9 @@ M.config = function()
 			["<CR>"] = cmp.mapping.confirm({ select = false }),
 		}),
 		sources = cmp.config.sources({
-			-- { name = "nvim_lsp" },
+			{ name = "nvim_lsp" },
 			{ name = "luasnip" },
-			{ name = "buffer" },
+			-- { name = "buffer" },
 			{ name = "path" },
 		}),
 	})
@@ -87,4 +88,4 @@ M.config = function()
 	-- })
 end
 
-return {}
+return M

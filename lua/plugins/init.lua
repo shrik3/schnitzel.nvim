@@ -33,8 +33,7 @@ return {
 	require("plugins.preconfigured.markdown"),
 	require("plugins.preconfigured.neotree"),
 	-- completion engine, coq and cmp are not compatible
-	require("plugins.preconfigured.coq"),
-	-- require "plugins.preconfigured.nvim-cmp"
+	require "plugins.preconfigured.nvim-cmp",
 	-- require("plugins.preconfigured.rust"),
 	require("plugins.preconfigured.telescope"),
 }
