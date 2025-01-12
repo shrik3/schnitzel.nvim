@@ -59,27 +59,31 @@ au FocusGained,BufEnter * checktime
 
 " -- Filetype perks ...........-------------------------
 " -- ---------------------------------------------------
-" custom syntax for proverif
-au FileType markdown,text,latex set tw=80
-au FileType tex                 set tw=80
-au FileType nasm,c,cpp          set tw=80
-au FileType mail                set tw=72
-au FileType rust                set tw=80
-au FileType python              set tw=120
-au FileType java                set tw=400
-" set cindent for c/cpp, this overrides smartindent (si)
-au FileType c,cpp               set cindent
+au BufEnter *.h                 setl ft=c
+" line widths
+au FileType markdown,text,latex setl tw=80
+au FileType tex                 setl tw=80
+au FileType nasm,c,cpp          setl tw=80
+au FileType mail                setl tw=72
+au FileType rust                setl tw=80
+au FileType python              setl tw=120
+au FileType java                setl tw=400
 " expand tab by default, but force noet for some..
-au FileType cmake               set et
 au FileType markdown            set et
-au FileType make                set noet
-au FileType rust                set noet
-au FileType go                  set noet
-au FileType nasm,ld,asm         set noet
-au FileType c,cpp,python        set noet
-au FileType rust                set ts=4
+au FileType cmake               setl et
+au FileType make                setl noet
+au FileType rust                setl noet
+au FileType go                  setl noet
+au FileType nasm,ld,asm         setl noet
+au FileType c,cpp,python        setl noet
 " tab is 8 spaces for c, per kernel code style
-au FileType c,asm,nasm          set ts=8
-au FileType c                   set shiftwidth=8
-au BufRead,BufNewFile *.pv      set ft=proverif
-au BufEnter *.h                 set ft=c
+au FileType rust                setl ts=4
+au FileType c,asm,nasm          setl ts=8 | setl shiftwidth=8
+
+" set cindent for c/cpp, this overrides smartindent (si)
+au FileType c,cpp               setl cin
+" let plaintext be plaintext:
+au FileType text,markdown,mail,gitcommit    setl nosi | set noai
+
+" other perks
+au BufRead,BufNewFile *.pv      setl ft=proverif
