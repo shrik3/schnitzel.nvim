@@ -35,6 +35,11 @@ vim.cmd([[
 ]])
 
 -- UI ------------------------------------------------
+-- signcolumn is typically used by plugins to show git status or lsp lints. And
+-- this option is default to "auto", i.e. hide the signcolumn when there is
+-- nothing to display: this is fine, but I'd rather it has a static width
+vim.signcolumn = number
+
 vim.opt.nu = true
 vim.opt.cursorline = true
 -- mark column (too wide)
@@ -73,6 +78,11 @@ vim.opt.backup = false
 vim.opt.wb = false
 vim.opt.swapfile = false
 -- auto/smart indent
+-- autoindent (ai): copy indent from current line when starting a new line. gq
+-- uses indentation of the first line (:help ai)
+-- overriding order: indentexpr > cin > smartindent
+-- smartindent (si):
+-- cindent (cin): is stricter than si. cin will override si when set.
 vim.opt.ai = true
 vim.opt.si = true
 -- linebreak / linewrap

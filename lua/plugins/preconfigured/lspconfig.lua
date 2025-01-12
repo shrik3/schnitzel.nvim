@@ -55,13 +55,10 @@ M.config = function()
 			capabilities = capabilities,
 		})
 	end
-	--
-	-- use coq
-	-- local coq = require("coq")
-	-- local lspconfig = require("lspconfig")
-	-- for _, lsp in ipairs(servers) do
-	-- 	lspconfig[lsp].setup(coq.lsp_ensure_capabilities())
-	-- end
+    -- no diagnostics
+	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+		virtual_text = false,
+	})
 end
 
 return M

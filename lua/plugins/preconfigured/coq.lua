@@ -10,6 +10,11 @@ local COQ = {
 
 COQ.init = function()
 	vim.g.coq_settings = {
+        completion = {
+            always = true,
+            smart = false,
+            skip_after ={" ", "(", "	","{"}
+        },
 		auto_start = "shut-up",
 		-- I don't want your default keymaps
 		keymap = {
@@ -21,6 +26,10 @@ COQ.init = function()
 			ghost_text = { highlight_group = "Normal" },
 			icons = { mode = "none" },
 		},
+        clients = {
+            registers = {enabled = false},
+            tree_sitter = {enabled = false},
+        }
 	}
 	vim.g.coq_settings.display = {
 		ghost_text = { enabled = false },

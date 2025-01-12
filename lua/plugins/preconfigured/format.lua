@@ -25,8 +25,11 @@ M.config = function()
 			cpp = defaults.clangformat,
 			c = defaults.clangformat,
 			sh = ft.sh.shfmt,
+            css = ft.css.prettier,
 			lua = ft.lua.stylua,
 			tex = ft.tex.latexindent,
+            go = ft.go.gofmt,
+            html = ft.html.prettier,
             -- default for any filetype: remove trailing spaces
 			["*"] = {
 				require("formatter.filetypes.any").remove_trailing_whitespace,
