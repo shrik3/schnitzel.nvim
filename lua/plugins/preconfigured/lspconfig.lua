@@ -47,20 +47,13 @@ M.config = function()
 	local servers = { "jedi_language_server", "texlab", "cmake", "bashls", "gopls", "fortls", "clangd" }
 
 	-- use nvim-cmp
-	-- local capabilities = vim.lsp.protocol.make_client_capabilities()
-	-- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-	-- for _, lsp in ipairs(servers) do
-	-- 	require("lspconfig")[lsp].setup({
-	-- 		on_attach = on_attach,
-	-- 		capabilities = capabilities,
-	-- 	})
-	-- end
-	--
-	-- use coq
-	local coq = require("coq")
-	local lspconfig = require("lspconfig")
+	local capabilities = vim.lsp.protocol.make_client_capabilities()
+	capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 	for _, lsp in ipairs(servers) do
-		lspconfig[lsp].setup(coq.lsp_ensure_capabilities())
+		require("lspconfig")[lsp].setup({
+			on_attach = on_attach,
+			capabilities = capabilities,
+		})
 	end
     -- no diagnostics
 	vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
