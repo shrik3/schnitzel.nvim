@@ -5,7 +5,7 @@ return {
 	-- displays color for HEX color code
 	-- split VeryLongWords for easier w nav
 	-- "chaoren/vim-wordmotion",
-	"godlygeek/tabular",
+	-- "godlygeek/tabular",
 	-- split VeryLongWords for easier w nav
 	"chaoren/vim-wordmotion",
 	-- harelang support
