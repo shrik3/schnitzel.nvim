@@ -2,7 +2,6 @@ return {
 	"shrik3/dagon",
 	-- tagbar shows a bar of tags
 	"ntpeters/vim-better-whitespace",
-	-- for ... tabs..
 	"godlygeek/tabular",
 	-- split VeryLongWords for easier w nav
 	"chaoren/vim-wordmotion",
