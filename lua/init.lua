@@ -73,6 +73,11 @@ vim.opt.backup = false
 vim.opt.wb = false
 vim.opt.swapfile = false
 -- auto/smart indent
+-- autoindent (ai): copy indent from current line when starting a new line. gq
+-- uses indentation of the first line (:help ai)
+-- overriding order: indentexpr > cin > smartindent
+-- smartindent (si):
+-- cindent (cin): is stricter than si. cin will override si when set.
 vim.opt.ai = true
 vim.opt.si = true
 -- linebreak / linewrap
