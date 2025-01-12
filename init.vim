@@ -5,7 +5,7 @@ lua << EOF
 EOF
 
 if exists("g:neovide")
-    source ~/.config/nvim/neovide.vim
+    source ~/.config/nvim/archived/neovide.vim
 endif
 
 " -- Custom Scripts(one liners)-------------------------
