@@ -11,7 +11,10 @@ M.config = function()
 	-- after the language server attaches to the current buffer
 	vim.api.nvim_create_autocmd("LspAttach", {
 		desc = "LSP actions",
-		callback = function()
+		callback = function(ev)
+            -- disable semantic tokens (e.g. lsp syntax highlightings)
+            local client = vim.lsp.get_client_by_id(ev.data.client_id)
+            client.server_capabilities.semanticTokensProvider = nil
 			local bufmap = function(mode, lhs, rhs)
 				local opts = { buffer = true }
 				vim.keymap.set(mode, lhs, rhs, opts)
