@@ -1,5 +1,6 @@
 -- Important stuffs go first -------------------------
 vim.g.mapleader = " "
+-- it's important to set leaders first
 vim.keymap.set("n", "<SPACE>", "<NOP>")
 -- Source other configs ------------------------------
 require("lazy_plugins")
@@ -28,7 +29,6 @@ vim.opt.langmenu = "en"
 --     fish_vi_key_bindings
 -- end
 -- ```
-
 vim.env.IN_NVIM = 1
 -- Fonts and Colors-----------------------------------
 vim.opt.guifont = "fira code"
@@ -114,18 +114,26 @@ vim.opt.visualbell = false
 vim.opt.lazyredraw = true
 -- vim.opt.updatetime = 4000
 -- vim.opt.tm = 500
--- Basic bindings ------------------------------------
+
+-- basic keymaps (independent of plugins)
 -- nav. panels
 vim.keymap.set("n", "<C-J>", "<C-W><C-J>")
 vim.keymap.set("n", "<C-K>", "<C-W><C-K>")
 vim.keymap.set("n", "<C-L>", "<C-W><C-L>")
 vim.keymap.set("n", "<C-H>", "<C-W><C-H>")
+
+-- resize. panels
+vim.keymap.set("n", "<C-S-H>", "<C-W><C-H>")
+
 -- use C-s to save, also use :update instead of :w
 vim.keymap.set("n", "<C-S>", ":update<cr>")
 vim.keymap.set("i", "<C-S>", "<Esc>:update<cr>gi")
 vim.keymap.set("n", "zz", ":update<cr>")
--- close buffer
-vim.keymap.set("n", "<leader>bk", ":bdelete<CR>", { silent = true })
+
+-- close buffer the hack is that I don't want to close the window (split) while
+-- killing a buffer. Explanation: b# switch to the previous buffer, bd# deletes
+-- the buffer that is switched away from.
+vim.keymap.set("n", "<leader>bk", ":b#|bd#<CR>", { silent = true })
 -- disable highlights (nohl)
 vim.keymap.set("n", "<leader><CR>", ":noh<CR>", { silent = true })
 -- spell check
