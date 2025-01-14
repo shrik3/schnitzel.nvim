@@ -28,4 +28,5 @@ return {
 	require("plugins.preconfigured.rust"),
 	require "plugins.preconfigured.nvim-cmp",
 	require("plugins.preconfigured.telescope"),
+	require("plugins.preconfigured.persistence"),
 }
