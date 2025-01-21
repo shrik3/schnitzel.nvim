@@ -40,13 +40,15 @@ vim.cmd([[
     colorscheme dagon
     highlight VertSplit guibg=NONE
     highlight VertSplit ctermbg=NONE
+    set signcolumn=yes:1
 ]])
 
 -- UI ------------------------------------------------
 -- signcolumn is typically used by plugins to show git status or lsp lints. And
 -- this option is default to "auto", i.e. hide the signcolumn when there is
--- nothing to display: this is fine, but I'd rather it has a static width
-vim.signcolumn = number
+-- nothing to display: this is fine, but I'd rather it has a static width.
+-- for fuck's sake this doesn't work in lua config, have to do it in vim.cmd([[]])
+-- vim.signcolumn = number
 
 vim.opt.nu = true
 vim.opt.cursorline = true
