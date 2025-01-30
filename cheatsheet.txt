@@ -29,6 +29,10 @@ __||__  \___ \|  __  |  _  /  | | |  <  |__ <  __||__
 C-/                 show helps (while the grep window open)
 
 
+Ctrl-O              Go next/prev on the jump list, this
+Ctrl-I              is useful when e.g. lsp jump to/back definition
+
+
 nvim-surround:
 
 Old text                    Command         New text
