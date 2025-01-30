@@ -14,6 +14,13 @@ function! SwitchBufferP()
     :bp
 endfunction
 
+function! DateRfc3339Seconds()
+    let res = trim(system("date --rfc-3339=seconds"))
+    execute "normal! i" . res . "\<Esc>"
+endfunction
+
+noremap <F4> :call DateRfc3339Seconds()<CR>
+
 " a better retab functoin
 :command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 " Return indent (all whitespace at start of a line), converted from
