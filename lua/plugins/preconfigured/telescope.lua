@@ -14,7 +14,6 @@ M.config = function()
 	require("telescope").setup({
 		defaults = {}, -- Your defaults config goes in here
 		pickers = {
-			-- Your special builtin config goes in here
 			buffers = {
 				sort_lastused = true,
 				theme = "ivy",
