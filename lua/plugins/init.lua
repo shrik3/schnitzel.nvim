@@ -34,10 +34,10 @@ return {
 	require("plugins.preconfigured.bookmarks"),
 	require("plugins.preconfigured.colorizer"),
 	require("plugins.preconfigured.latex"),
-	-- completion engine, coq and cmp are not compatible
-	-- require("plugins.preconfigured.coq"),
 
 	-- inactive
+	-- completion engine, coq and cmp are not compatible
+	-- require("plugins.preconfigured.coq"),
 
 	-- well. I tried it and it feels more bloat than convenient.
 	-- require("plugins.preconfigured.surround"),

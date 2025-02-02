@@ -1,6 +1,7 @@
 **Branches**  
 - `master`: without my very personal perks. A little bit more "stable"
-- `my-own`: exactly what I daily drive, synchonized to my own config.
+- `my-own`: what I daily drive
+- `stripdown`: exactly what I daily drive
 
 # IMPORTANT
 
@@ -14,16 +15,6 @@ schnitzel.nvim is my personal neovim configuration.
 
 This is a minimal yet powerful config. Nevertheless it's very opionionated.
 
-# other resources**
-- As always, read the friend manuals. Also the `:help <something>` command has
-  good coverage.
-- Run the vim tutor if you are an absolute beginner. The `vimtutor` program
-  is ususally installed together with vim. In neovim you can also call `:Tutor`.
-- rockerBOO's [awesome-neovim](https://github.com/rockerBOO/awesome-neovim#starter-templates)
-    is a great collection of plugins and other useful stuffs.
-- If you want to build a configuration of you own, take a look at the 
-    [starter templetes](https://github.com/rockerBOO/awesome-neovim#starter-templates)
-    in the awesome-neovim repo
 
 # Prerequisites
 
@@ -52,21 +43,31 @@ update the plugins use `:Lazy sync`
 
 # How to use
 
-check my cheatsheet.txt to get started.
-
+check out my cheatsheet.txt
 
 # plugins:
 
 take a look at `lua/plugins/init.lua` and you will understand how this works, I
 promise.
 
-
-# structur
+# structure
 
 - `archived` is for sutffs not in use.
 - `init.vim` and `scripts.vim` : some vimscript configs, which are less trivial
   to do in lua.
 - `lua/init.lua` the main config.
+
+# other resources**
+- As always, read the friend manuals. Also the `:help <something>` command has
+  good coverage.
+- Run the vim tutor if you are an absolute beginner. The `vimtutor` program
+  is ususally installed together with vim. In neovim you can also call `:Tutor`.
+- rockerBOO's [awesome-neovim](https://github.com/rockerBOO/awesome-neovim#starter-templates)
+    is a great collection of plugins and other useful stuffs.
+- If you want to build a configuration of you own, take a look at the 
+    [starter templetes](https://github.com/rockerBOO/awesome-neovim#starter-templates)
+    in the awesome-neovim repo
+
 
 # License
 
