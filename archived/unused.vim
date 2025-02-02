@@ -1,6 +1,6 @@
-" This file holds unused code, they are no longer used but worth keeping as a reference...
-" This file MUST NOT be souced into the config. If you want to use any of these, copy-paste
-" the snippets to where they should be .
+" This file holds unused code, they are no longer used but worth keeping as a
+" reference... This file MUST NOT be souced into the config. If you want to use
+" any of these, copy-paste the snippets to where they should be .
 
 
 " fcitx auto toggle..

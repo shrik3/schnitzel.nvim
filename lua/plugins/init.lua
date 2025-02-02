@@ -1,29 +1,44 @@
 return {
+	-- colorscheme
 	"shrik3/dagon",
-	-- tagbar shows a bar of tags
+	-- no trailing white spaces
 	"ntpeters/vim-better-whitespace",
 	"godlygeek/tabular",
-	-- split VeryLongWords for easier w nav
+	-- better word motion (press w)
 	"chaoren/vim-wordmotion",
-	-- aarch64 assembly syntax hl
-	"compnerd/arm64asm-vim",
-	-- copy paste images
-	{ "HakonHarnes/img-clip.nvim", event = "VeryLazy" },
-	-- other preconfigured plugins
+
+	-- preconfigured
+    -- toggle code / comment
+	require("plugins.preconfigured.comment"),
+	-- auto code formatting
+	require("plugins.preconfigured.format"),
+	-- git integration (GitSigns)
+	require("plugins.preconfigured.git"),
+	-- ctag integration
+	require("plugins.preconfigured.tagbar"),
+	-- language servers
+	require("plugins.preconfigured.lspconfig"),
+	-- markdown preview and helpers
+	require("plugins.preconfigured.markdown"),
+	-- file tree navigator
+	require("plugins.preconfigured.neotree"),
+	-- language: rust
+	require("plugins.preconfigured.rust"),
+	-- completion engine
+	require("plugins.preconfigured.nvim-cmp"),
+	-- all in one searching UI
+	require("plugins.preconfigured.telescope"),
+	-- auto session management
+	require("plugins.preconfigured.persistence"),
 	require("plugins.preconfigured.autopairs"),
 	require("plugins.preconfigured.bookmarks"),
 	require("plugins.preconfigured.colorizer"),
-	require("plugins.preconfigured.comment"),
-	require("plugins.preconfigured.format"),
-	require("plugins.preconfigured.git"),
-	require("plugins.preconfigured.tagbar"),
-	require("plugins.preconfigured.lspconfig"),
 	require("plugins.preconfigured.latex"),
-	require("plugins.preconfigured.markdown"),
-	require("plugins.preconfigured.neotree"),
 	-- completion engine, coq and cmp are not compatible
 	-- require("plugins.preconfigured.coq"),
-	require("plugins.preconfigured.nvim-cmp"),
-	require("plugins.preconfigured.rust"),
-	require("plugins.preconfigured.telescope"),
+
+	-- inactive
+
+	-- well. I tried it and it feels more bloat than convenient.
+	-- require("plugins.preconfigured.surround"),
 }

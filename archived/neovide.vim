@@ -1,3 +1,6 @@
+"" neovide now takes its own config @ ~/.config/neovide
+"" this is legacy config
+
 let s:guifontsize=10
 let s:guifont="Fira\\ Mono"
 set guifont=Fira\ Mono:h10:l
