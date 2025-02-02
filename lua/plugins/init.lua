@@ -8,6 +8,8 @@ return {
 	-- programming
 
 	-- preconfigured
+
+    -- toggle code / comment
 	require("plugins.preconfigured.comment"),
     -- auto code formatting
 	require("plugins.preconfigured.format"),

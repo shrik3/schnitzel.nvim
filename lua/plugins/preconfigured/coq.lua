@@ -10,11 +10,11 @@ local COQ = {
 
 COQ.init = function()
 	vim.g.coq_settings = {
-        completion = {
-            always = true,
-            smart = false,
-            skip_after ={" ", "(", "	","{"}
-        },
+		completion = {
+			always = true,
+			smart = false,
+			skip_after = { " ", "(", "	", "{" },
+		},
 		auto_start = "shut-up",
 		-- I don't want your default keymaps
 		keymap = {
@@ -26,10 +26,10 @@ COQ.init = function()
 			ghost_text = { highlight_group = "Normal" },
 			icons = { mode = "none" },
 		},
-        clients = {
-            registers = {enabled = false},
-            tree_sitter = {enabled = false},
-        }
+		clients = {
+			registers = { enabled = false },
+			tree_sitter = { enabled = false },
+		},
 	}
 	vim.g.coq_settings.display = {
 		ghost_text = { enabled = false },
@@ -45,12 +45,12 @@ COQ.init = function()
 		{ expr = true, silent = true }
 	)
 	-- require("coq_3p")({
-		-- { src = "dap" },
-		-- { src = "builtin/js" },
-		-- { src = "builtin/php" },
-		-- { src = "builtin/html", short_name },
-		-- { src = "builtin/css" },
-		-- { src = "builtin/c" },
+	-- { src = "dap" },
+	-- { src = "builtin/js" },
+	-- { src = "builtin/php" },
+	-- { src = "builtin/html", short_name },
+	-- { src = "builtin/css" },
+	-- { src = "builtin/c" },
 	-- })
 end
 

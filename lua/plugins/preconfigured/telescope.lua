@@ -2,9 +2,7 @@
 local M = {
 	"nvim-telescope/telescope.nvim",
 	branch = "master",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
+	dependencies = { "nvim-lua/plenary.nvim" },
 }
 
 M.config = function()
@@ -13,7 +11,6 @@ M.config = function()
 	require("telescope").setup({
 		defaults = {}, -- Your defaults config goes in here
 		pickers = {
-			-- Your special builtin config goes in here
 			buffers = {
 				sort_lastused = true,
 				theme = "ivy",

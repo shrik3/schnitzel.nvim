@@ -3,12 +3,12 @@
 -- markdown previewer
 -- install without yarn or npm
 local mdpv = {
-    "iamcco/markdown-preview.nvim",
-    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    ft = { "markdown" },
-    build = ":call mkdp#util#install()",
-    config = function()
-        vim.cmd([[
+	"iamcco/markdown-preview.nvim",
+	cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+	ft = { "markdown" },
+	build = ":call mkdp#util#install()",
+	config = function()
+		vim.cmd([[
         let g:mkdp_open_to_the_world = 0
         let g:mkdp_browser = 'firefox'
         let g:mkdp_open_ip = '127.0.0.1'
@@ -29,12 +29,12 @@ local mdpv = {
             \ 'disable_filename': 0
             \ }
         ]])
-    end,
+	end,
 }
 
 local mdtoc = {
-    -- to generate table of contents
-    "mzlogin/vim-markdown-toc"
+	-- to generate table of contents
+	"mzlogin/vim-markdown-toc",
 }
 
-return {mdpv, mdtoc}
+return { mdpv, mdtoc }
