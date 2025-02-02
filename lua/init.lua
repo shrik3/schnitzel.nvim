@@ -1,23 +1,9 @@
--- Important stuffs go first -------------------------
-vim.g.mapleader = " "
--- it's important to set leaders first
-vim.keymap.set("n", "<SPACE>", "<NOP>")
--- Source other configs ------------------------------
-require("lazy_plugins")
-require("hack")
--- Accessibility    ----------------------------------
-vim.opt.smarttab = false
-vim.opt.expandtab = true
--- when shiftwidth set to 0, tabstop will always be used
-vim.opt.shiftwidth = 0
-vim.opt.tabstop = 4
--- set indent on soft-wrapped lines
-vim.opt.bri = true
 -- ENVs-----------------------------------------------
 vim.opt.shell = "/usr/bin/fish"
 vim.opt.encoding = "utf8"
 vim.g.LANG = "en"
 vim.opt.langmenu = "en"
+
 -- setting this ENV "IN_NVIM"
 -- if we run a terminal inside of nvim (w. :term), the shell may need to know
 -- this fact and behavely differently for me specifically, I use fish, which is
@@ -30,49 +16,71 @@ vim.opt.langmenu = "en"
 -- end
 -- ```
 vim.env.IN_NVIM = 1
+
+-- Important stuffs go first -------------------------
+vim.g.mapleader = " "
+-- it's important to set leaders first
+vim.keymap.set("n", "<SPACE>", "<NOP>")
+-- Source other configs ------------------------------
+require("lazy_plugins")
+require("hack")
+-- Accessibility    ----------------------------------
+vim.opt.smarttab = false
+-- whether to expand tabs depends on the filetype, set them in init.vim
+vim.opt.expandtab = true
+-- when shiftwidth set to 0, tabstop will always be used
+vim.opt.shiftwidth = 0
+vim.opt.tabstop = 4
+-- set indent on soft-wrapped lines
+vim.opt.bri = true
+
 -- Fonts and Colors-----------------------------------
 vim.opt.guifont = "fira code"
 if vim.fn.has("nvim") == 1 or vim.fn.has("termguicolors") then
 	vim.opt.termguicolors = true
 end
+
 vim.cmd([[
     syntax on
-    colorscheme dagon_n
+    colorscheme dagon
+    " no thick borders for splites
     highlight VertSplit guibg=NONE
     highlight VertSplit ctermbg=NONE
     set signcolumn=yes:1
 ]])
 
 -- UI ------------------------------------------------
--- signcolumn is typically used by plugins to show git status or lsp lints. And
--- this option is default to "auto", i.e. hide the signcolumn when there is
--- nothing to display: this is fine, but I'd rather it has a static width.
--- for fuck's sake this doesn't work in lua config, have to do it in vim.cmd([[]])
--- vim.signcolumn = number
-
+-- show numbers (who doesn't?)
 vim.opt.nu = true
+-- highlight the current row
 vim.opt.cursorline = true
+-- use block style cursor
+vim.opt.guicursor = "n-v-c-i:block"
 -- mark column (too wide)
 vim.opt.colorcolumn = "96"
 -- status line
 vim.opt.laststatus = 2
--- 7 lines below cursor when moving vertically with j/k
+-- 7 lines below/above cursor when scrolling with j/k
 vim.opt.so = 7
--- always show current position
+-- always show current position (on the status line)
 vim.opt.ruler = true
 -- height command bar
 vim.opt.culopt = "both"
--- enable cursorline
+-- cmdline and statusline use the same line.
 vim.opt.cmdheight = 1
-vim.opt.foldenable = false
+-- don't fold for me..
+-- vim.opt.foldenable = false
 -- Functions -----------------------------------------
 vim.opt.clipboard = vim.opt.clipboard + "unnamedplus"
--- Completion
+-- command line completion
 vim.opt.wildmenu = true
 vim.opt.completeopt = "menuone"
--- hide buffer when it's abandoned vim.opt.hid = true
+-- hide buffer when it's abandoned
+-- vim.opt.hid = true
 -- configure backspace so it acts as it should do
 vim.opt.backspace = "eol,start,indent"
+-- h,l,<-,-> could move the cursor to the prev/next line when cursor is
+-- on the beginning/end of the line.
 vim.opt.whichwrap = vim.opt.whichwrap + "<,>,h,l"
 -- matching brackets
 vim.opt.showmatch = true
@@ -97,8 +105,9 @@ vim.opt.ai = true
 vim.opt.si = true
 -- linebreak / linewrap
 vim.opt.lbr = true
-vim.opt.tw = 80
 vim.opt.wrap = true
+-- text width
+vim.opt.tw = 80
 -- Search
 vim.opt.magic = true -- for regular exp.
 vim.opt.ignorecase = true
